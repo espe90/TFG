@@ -1,0 +1,137 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://dicits.ugr.es/dmmlcc#RBF_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:RBF_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:RBF_Service_Operation ;
+  dcterms:created "2017-10-26";
+  dcterms:creator "Esperanza Jiménez";
+  dcterms:description "Create and train a radial basis function (RBF) network.";
+  dcterms:modified "2017-11-06";
+  dcterms:publisher "DICITS_ML";
+  dcterms:title "RBF";
+  rdfs:comments "The use of an RBF network is similar to that of an mlp. The idea of radial basis function networks comes from function interpolation theory. The RBF performs a linear combination of n basis functions that are radially symmetric around a center/prototype.".
+
+dmmlcc:RBF_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None";
+  dcterms:description "The service requires authentication, and the type of authentication".
+
+dmmlcc:RBF_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:RBF_Service_InputParameters ;
+  dcterms:description "Operation performing the service";
+  mls:executes mls:RBF_Implementation ;
+  mls:hasInput dmmlcc:RBF_Service_Input ;
+  mls:hasOutput dmmlcc:RBF_Service_Output .
+
+dmmlcc:RBF_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01, dmmlcc:response_parameter_02, dmmlcc:response_parameter_03, dmmlcc:response_parameter_04, dmmlcc:response_parameter_05, dmmlcc:response_parameter_06, dmmlcc:response_parameter_07 ;
+  dcterms:description "Input Parameters";
+  dcterms:title "Input".
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "true";
+  dcterms:description "a matrix with training inputs for the network.";
+  dcterms:title "x".
+
+dmmlcc:response_parameter_02
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "true";
+  dcterms:description "the corresponding targets values.";
+  dcterms:title "y".
+
+dmmlcc:response_parameter_03
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "number of units in the hidden layer(s). ";
+  dcterms:title "size".
+
+dmmlcc:response_parameter_04
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "maximum of iterations to learn. ";
+  dcterms:title "maxit".
+
+dmmlcc:response_parameter_05
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "the parameters for the initialization function.";
+  dcterms:title "initFuncParams".
+
+dmmlcc:response_parameter_06
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "the parameters for the learning function.";
+  dcterms:title "learnFuncParams".
+
+dmmlcc:response_parameter_07
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "sets the activation function of the output units to linear or logistic.";
+  dcterms:title "linOut".
+
+mls:RBF_Implementation
+  a mls:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterms:description "Implementation of RBF".
+
+dmmlcc:MLAlgorithm_01
+  a mls:Algorithm ;
+  dmmlcc:ImplementationSource "R";
+  dmmlcc:functions "rbf";
+  dmmlcc:package "RSNNS";
+  dcterms:description "RBF in R".
+
+dmmlcc:RBF_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_dataset_01 ;
+  dcterms:description "Input data contains Dataset or Feature/s";
+  dcterms:title "InputDataSet".
+
+dmmlcc:contains_dataset_01 mls:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_01 ;
+  dmmlcc:mandatory "true";
+  dmmlcc:storagebucket "dicits://";
+  dcterms:description "Dataset on which the service is applied";
+  dcterms:title "DataSet".
+
+dmmlcc:ParameterFormat_CVS_01
+  a dmmlcc:csv ;
+  dcterms:description "CSV Source file format".
+
+dmmlcc:RBF_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data";
+  mls:Model dmmlcc:RBF_Model ;
+  mls:ModelEvaluation dmmlcc:RBF_ModelEvaluation .
+
+dmmlcc:RBF_Model
+  a dmmlcc:PMML_Model ;
+  dmmlcc:storagebucket "dicits://models/";
+  dcterms:description "PMML model to represent mining models";
+  dcterms:title "PMML Model related".
+
+dmmlcc:RBF_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/";
+  dcterms:description "Model Evaluation";
+  dcterms:title "Model evaluation".
+

@@ -1,0 +1,128 @@
+{
+  "@context": {
+	"dmmlcc": "http://dicits.ugr.es/dmmlcc#",
+	"dcterms": "http://purl.org/dc/terms/#",
+    "foaf": "http://xmlns.com/foaf/0.1/#",
+    "gr": "http://purl.org/goodrelations/v1#",
+    "mls": "http://www.w3.org/ns/mls#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "waa": "http://purl.oclc.org/NET/WebAuthentication",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph":  [ 	 
+	 {
+		"@id": "dmmlcc:SVM_Service",
+		"@type": "dmmlcc:MLService",
+	 	"dcterms:description": "Far from being a panacea, SVMs yet represent a powerful technique for general (nonlinear) classification, regression and outlier detection with an intuitive model representation." ,
+		"dcterms:creator":"Esperanza Jiménez",
+		"dcterms:created":"2017-10-26",
+		"dcterms:modified":"2017-11-06",
+		"dcterms:publisher":"DICITS_ML",
+		"dcterms:title":"SVM",
+		"rdfs:comments":"Models are fitted and new data are predicted as usual, and both the vector/matrix and the formula interface are implemented.",
+		"dmmlcc:hasAuthentication": {
+			"@id": "dmmlcc:SVM_Service_Auth",
+			"@type": "dmmlcc:MLServiceAuthentication",
+		 	"dcterms:description": "The service requires authentication, and the type of authentication",
+			"waa:requiresAuthentication":"None"
+		},
+		"dmmlcc:hasOperation": {
+			"@id": "dmmlcc:SVM_Service_Operation",
+			"@type": "dmmlcc:MLOperation",
+			"dcterms:description": "Operation performing the service",
+			"mls:hasInput":
+				{
+				"@id": "dmmlcc:SVM_Service_Input",
+				"@type": "dmmlcc:MLServiceInput",
+				"dcterms:title":"InputDataSet",
+				"dcterms:description": "Input data contains Dataset or Feature/s",
+				"dmmlcc:contains":{
+					"@id":"dmmlcc:contains_dataset_01",
+					"@type:":"dmmlcc:contains",
+					"mls:Data":[{
+							"@id":"dmmlcc:dataset_01",
+							"@type:":"mls:DataSet",
+							"dcterms:description": "Dataset on which the service is applied",
+							"dcterms:title": "DataSet",
+							"dmmlcc:format":
+								{
+									"@id":"dmmlcc:ParameterFormat_CVS_01",
+									"@type": "dmmlcc:csv",
+									"dcterms:description": "CSV Source file format"									
+								},
+							"dmmlcc:storagebucket":"dicits://",
+							"dmmlcc:mandatory":"true"
+							}
+						]
+					}
+			},
+			"dmmlcc:hasInputParameters":
+			{
+				"@id": "dmmlcc:SVM_Service_InputParameters",
+				"@type": "dmmlcc:MLServiceInputParameters",
+				"dcterms:description": "Input Parameters",
+				"dcterms:title": "Input",
+				"dmmlcc:Parameters":[
+					{
+						"@id":"dmmlcc:response_parameter_01",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "formula",
+						"dcterms:description": "Response variable and Formulae ",
+						"dmmlcc:mandatory":"true",	
+						"dmmlcc:defaultvalue":" "					
+					},
+					{
+						"@id":"dmmlcc:response_parameter_02",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "na__action",
+						"dcterms:description": "A function which indicates what should happen when the data contain NAs",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":"na.omit"
+												
+					}					
+					
+				]			
+			}
+			,
+			"mls:hasOutput":{
+				"@id": "dmmlcc:SVM_Service_Output",
+				"@type": "dmmlcc:MLServiceOutput",
+				"dcterms:description": "Output of the service contains Model or ModelEvaluation or Data",
+				"mls:Model":{
+					"@id":"dmmlcc:SVM_Model",
+					"@type": "dmmlcc:PMML_Model",
+					"dcterms:title": "PMML Model related",
+					"dcterms:description": "PMML model to represent mining models",
+					"dmmlcc:storagebucket":"dicits://models/"
+				},
+				"mls:ModelEvaluation":{
+					"@id":"dmmlcc:SVM_ModelEvaluation",
+					"@type": "dmmlcc:ModelEvaluation",
+					"dcterms:title": "Model evaluation",
+					"dcterms:description": "Model Evaluation",
+					"dmmlcc:storagebucket":"dicits://modelevaluation/"
+				}
+			},
+			"mls:executes":{
+				"@id": "mls:SVM_Implementation",
+				"@type": "mls:Implementation",
+				"dcterms:description": "Implementation of SVM Model",
+				"dmmlcc:implements":[
+					{
+						"@id":"dmmlcc:MLAlgorithm_01",
+						"@type":"mls:Algorithm",
+						"dcterms:description": "SVM in R",
+						"dmmlcc:ImplementationSource":"R",
+						"dmmlcc:package":"e1071",
+						"dmmlcc:functions":["smv"]
+					}
+				]
+			}
+		}
+		
+	 }
+  ]
+ }

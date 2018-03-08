@@ -1,0 +1,144 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix mls:<http://www.w3.org/ns/mls#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://dicits.ugr.es/dmmlcc#NNET_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:NNET_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:NNET_Service_Operation ;
+  dcterms:created "2017-10-26";
+  dcterms:creator "Esperanza Jiménez";
+  dcterms:description "Fit Neural Networks.";
+  dcterms:modified "2017-11-06";
+  dcterms:publisher "DICITS_ML";
+  dcterms:title "NNET";
+  rdfs:comments "Fit single-hidden-layer neural network, possibly with skip-layer connections.".
+
+dmmlcc:NNET_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None";
+  dcterms:description "The service requires authentication, and the type of authentication".
+
+dmmlcc:NNET_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:NNET_Service_InputParameters ;
+  dcterms:description "Operation performing the service";
+  mls:executes mls:NNET_Implementation ;
+  mls:hasInput dmmlcc:NNET_Service_Input ;
+  mls:hasOutput dmmlcc:NNET_Service_Output .
+
+dmmlcc:NNET_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01, dmmlcc:response_parameter_02, dmmlcc:response_parameter_03, dmmlcc:response_parameter_04, dmmlcc:response_parameter_05, dmmlcc:response_parameter_06, dmmlcc:response_parameter_07, dmmlcc:response_parameter_08 ;
+  dcterms:description "Input Parameters";
+  dcterms:title "Input".
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "true";
+  dcterms:description "A formula of the form class ~ x1 + x2 + ... ";
+  dcterms:title "formula".
+
+dmmlcc:response_parameter_02
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "Data frame from which variables specified in formula are preferentially to be taken.";
+  dcterms:title "data".
+
+dmmlcc:response_parameter_03
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "An index vector specifying the cases to be used in the training sample.";
+  dcterms:title "subset".
+
+dmmlcc:response_parameter_04
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "na.omit";
+  dmmlcc:mandatory "optional";
+  dcterms:description "A function to specify the action to be taken if NAs are found. The default action is for the procedure to fail. An alternative is na.omit, which leads to rejection of cases with missing values on any required variable.";
+  dcterms:title "na__action".
+
+dmmlcc:response_parameter_05
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "true";
+  dcterms:description "Number of units in the hidden layer. Can be zero if there are skip-layer units. ";
+  dcterms:title "size".
+
+dmmlcc:response_parameter_06
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "Initial random weights on [-rang, rang]. Value about 0.5 unless the inputs are large, in which case it should be chosen so that rang * max(|x|) is about 1. ";
+  dcterms:title "rang".
+
+dmmlcc:response_parameter_07
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "0";
+  dmmlcc:mandatory "optional";
+  dcterms:description "Parameter for weight decay. Default 0.";
+  dcterms:title "decay".
+
+dmmlcc:response_parameter_08
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "100";
+  dmmlcc:mandatory "optional";
+  dcterms:description "Maximum number of iterations. Default 100.";
+  dcterms:title "maxit".
+
+mls:NNET_Implementation
+  a mls:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterms:description "Implementation of NNET".
+
+dmmlcc:MLAlgorithm_01
+  a mls:Algorithm ;
+  dmmlcc:ImplementationSource "R";
+  dmmlcc:functions "nnet";
+  dmmlcc:package "nnet";
+  dcterms:description "NNET in R".
+
+dmmlcc:NNET_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_dataset_01 ;
+  dcterms:description "Input data contains Dataset or Feature/s";
+  dcterms:title "InputDataSet".
+
+dmmlcc:contains_dataset_01 mls:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_01 ;
+  dmmlcc:mandatory "true";
+  dmmlcc:storagebucket "dicits://";
+  dcterms:description "Dataset on which the service is applied";
+  dcterms:title "DataSet".
+
+dmmlcc:ParameterFormat_CVS_01
+  a dmmlcc:csv ;
+  dcterms:description "CSV Source file format".
+
+dmmlcc:NNET_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data";
+  mls:Model dmmlcc:NNET_Model ;
+  mls:ModelEvaluation dmmlcc:NNET_ModelEvaluation .
+
+dmmlcc:NNET_Model
+  a dmmlcc:PMML_Model ;
+  dmmlcc:storagebucket "dicits://models/";
+  dcterms:description "PMML model to represent mining models";
+  dcterms:title "PMML Model related".
+
+dmmlcc:NNET_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/";
+  dcterms:description "Model Evaluation";
+  dcterms:title "Model evaluation".
+

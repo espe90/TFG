@@ -1,0 +1,1101 @@
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/cor?dataset=/home/espe/openccml/datasets/mtcars.csv&x=NULL&y=NULL&use=NULL&method=parsed, method:GET
+option request: 
+param in query - name: method, type: string, value: parsed
+param in query - name: use, type: string, value: NULL
+param in query - name: y, type: string, value: NULL
+param in query - name: x, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/datasets/mtcars.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/cor.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/cor.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "c('double', 'numeric')"
+
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/dtw.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/dtw.rds
+process error: Fallo en el checkeo global
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/dtw.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/dtw.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "dtw"
+
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/dtw.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/dtw.rds
+process error: Error in is.constant(y) : 
+  el objeto (list) no puede ser coercionado a 'double'
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/ets.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/ets.rds
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/dtw.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/dtw.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "dtw"
+
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/neuralnet.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/neuralnet.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "nn"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/nnet.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/nnet.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "nnet"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/rbf.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/rbf.rds
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/nnet.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/nnet.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "nnet"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/neuralnet.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/neuralnet.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "nn"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/rf.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/rf.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "randomForest"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/stl.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/stl.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "stl"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/svm.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/svm.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "c('svm.formula', 'svm')"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/mlp.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/mlp.rds
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&x=species~.&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=TRUE&localImp=NULL&nPerm=NULL&proximity=TRUE&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: TRUE
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: None
+process error: formula
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&x=species~%2E&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=TRUE&localImp=NULL&nPerm=NULL&proximity=TRUE&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: TRUE
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: None
+process error: formula
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&x=species%2E&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=TRUE&localImp=NULL&nPerm=NULL&proximity=TRUE&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: TRUE
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: None
+process error: formula
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&x=species~%2E&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=TRUE&localImp=NULL&nPerm=NULL&proximity=TRUE&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: TRUE
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: None
+process error: formula
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~%2E&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=TRUE&localImp=NULL&nPerm=NULL&proximity=TRUE&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: TRUE
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: localImp, type: string, value: NULL
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: importance, type: string, value: TRUE
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: classwt, type: string, value: NULL
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+process error: Error in randomForest.default(na.action = na.pass, proximity = TRUE, formula = species ~  : 
+  el argumento formal "importance" concuerda con múltiples argumentos especificados
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&data=dataset&formula=species~%2E&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=NULL&localImp=NULL&nPerm=NULL&proximity=NULL&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: NULL
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: localImp, type: string, value: NULL
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: importance, type: string, value: NULL
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: classwt, type: string, value: NULL
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+process error: Error in nrow(x) : el argumento "x" está ausente, sin valor por omisión
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&data=dataset&x=species~%2E&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=NULL&localImp=NULL&nPerm=NULL&proximity=NULL&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: NULL
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: None
+process error: formula
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&data=dataset&x=species~.&na__action=na.pass&subset=, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: None
+process error: cutoff
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&data=dataset&formula=species~%2E&x=NULL&na__action=na.pass&subset=, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: None
+process error: cutoff
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&data=dataset&formula=species~.&x=NULL&na__action=na.pass&subset==NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=TRUE&localImp=NULL&nPerm=NULL&proximity=TRUE&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: =NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: TRUE
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: localImp, type: string, value: NULL
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: importance, type: string, value: TRUE
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: classwt, type: string, value: NULL
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+process error: Error in (function (file = "", n = NULL, text = NULL, prompt = "?", keep.source = getOption("keep.source"),  : 
+  <text>:5:79: inesperado '='
+4:                         set.seed(71)
+5:                         resultfit = randomForest(na.action = na.pass,subset = =
+                                                                                 ^
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~.&x=NULL&na__action=na.pass&subset==NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=TRUE&localImp=NULL&nPerm=NULL&proximity=TRUE&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: =NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: TRUE
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: localImp, type: string, value: NULL
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: importance, type: string, value: TRUE
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: classwt, type: string, value: NULL
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+process error: Error in (function (file = "", n = NULL, text = NULL, prompt = "?", keep.source = getOption("keep.source"),  : 
+  <text>:5:79: inesperado '='
+4:                         set.seed(71)
+5:                         resultfit = randomForest(na.action = na.pass,subset = =
+                                                                                 ^
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~%2E&x=NULL&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=NULL&localImp=NULL&nPerm=NULL&proximity=NULL&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: NULL
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: localImp, type: string, value: NULL
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: importance, type: string, value: NULL
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: classwt, type: string, value: NULL
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+process error: Error in nrow(x) : el argumento "x" está ausente, sin valor por omisión
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~%2E&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=NULL&localImp=NULL&nPerm=NULL&proximity=NULL&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: NULL
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: localImp, type: string, value: NULL
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: importance, type: string, value: NULL
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: classwt, type: string, value: NULL
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+process error: Error in nrow(x) : el argumento "x" está ausente, sin valor por omisión
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~%2E&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=NULL&localImp=NULL&nPerm=NULL&proximity=NULL&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: NULL
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: localImp, type: string, value: NULL
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: importance, type: string, value: NULL
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: classwt, type: string, value: NULL
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+process error: Error in nrow(x) : el argumento "x" está ausente, sin valor por omisión
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&x=species~%2E&formula=species~.&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=NULL&localImp=NULL&nPerm=NULL&proximity=NULL&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: subset, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: NULL
+param in query - name: strata, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: localImp, type: string, value: NULL
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: importance, type: string, value: NULL
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: classwt, type: string, value: NULL
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+process error: Error in nrow(x) : el argumento "x" está ausente, sin valor por omisión
+
+process failed
+remote_addr:127.0.0.1, uri:http://0.0.0.0:8001/openccml/catalog, method:GET
+option request: 
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&x=species~.&formula=species~.&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=NULL&localImp=NULL&nPerm=NULL&proximity=NULL&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: classwt, type: string, value: NULL
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: importance, type: string, value: NULL
+param in query - name: localImp, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: strata, type: string, value: NULL
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: subset, type: string, value: NULL
+param in query - name: proximity, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf?dataset=/home/espe/openccml/wrapperR/iris.csv&x=species~.&formula=species~.&na__action=na.pass&subset=NULL&ntree=NULL&mt=NULL&mtry=NULL&replace=NULL&classwt=NULL&cutoff=NULL&strata=NULL&sampsize=NULL&nodesize=NULL&maxnodes=NULL&importance=NULL&localImp=NULL&nPerm=NULL&proximity=NULL&oob__prox=NULL&norm__votes=NULL&keep__forest=NULL&keep__inbag=NULL, method:GET
+option request: 
+param in query - name: na__action, type: string, value: na.pass
+param in query - name: sampsize, type: string, value: NULL
+param in query - name: nodesize, type: string, value: NULL
+param in query - name: keep__inbag, type: string, value: NULL
+param in query - name: norm__votes, type: string, value: NULL
+param in query - name: importance, type: string, value: NULL
+param in query - name: mtry, type: string, value: NULL
+param in query - name: subset, type: string, value: NULL
+param in query - name: cutoff, type: string, value: NULL
+param in query - name: nPerm, type: string, value: NULL
+param in query - name: classwt, type: string, value: NULL
+param in query - name: oob__prox, type: string, value: NULL
+param in query - name: maxnodes, type: string, value: NULL
+param in query - name: replace, type: string, value: NULL
+param in query - name: ntree, type: string, value: NULL
+param in query - name: proximity, type: string, value: NULL
+param in query - name: localImp, type: string, value: NULL
+param in query - name: strata, type: string, value: NULL
+param in query - name: keep__forest, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/rf.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/rf.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "c('randomForest.formula', 'randomForest')"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/svm.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/svm.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "c('svm.formula', 'svm')"
+
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/.cor&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/.cor
+process error: Fallo en el checkeo global
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/cor.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/cor.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "c('double', 'numeric')"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/dtw.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/dtw.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "dtw"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/ets.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/ets.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "ets"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/lr.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/lr.rds
+process error: Fallo en el checkeo global
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/lm.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/lm.rds
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/mlp.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/mlp.rds
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/arima.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/arima.rds
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/neuralnet.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/neuralnet.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "nn"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/nnet.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/nnet.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "nnet"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/rbf.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/rbf.rds
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/rf.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/rf.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "c('randomForest.formula', 'randomForest')"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/stl.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/stl.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "stl"
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/svm.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/svm.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "c('svm.formula', 'svm')"
+
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predictRF?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~%2E, method:GET
+option request: 
+param in query - name: formula, type: string, value: species~.
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/nnet?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~%2E&data=NULL&na__action=na.omit&subset=NULL&size=2&rang=NULL&decay=NULL&maxit=NULL, method:GET
+option request: 
+param in query - name: subset, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.omit
+param in query - name: size, type: string, value: 2
+param in query - name: rang, type: string, value: NULL
+param in query - name: data, type: string, value: NULL
+param in query - name: decay, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: maxit, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+process error: Error in nnet.default(x, y, w, softmax = TRUE, ...) : 
+  el argumento formal "size" concuerda con múltiples argumentos especificados
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/nnet?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~.&data=NULL&na__action=na.omit&subset=NULL&size=NULL&rang=NULL&decay=NULL&maxit=NULL, method:GET
+option request: 
+param in query - name: subset, type: string, value: NULL
+param in query - name: na__action, type: string, value: na.omit
+param in query - name: size, type: string, value: NULL
+param in query - name: rang, type: string, value: NULL
+param in query - name: data, type: string, value: NULL
+param in query - name: decay, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: maxit, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/nnet?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~.&data=NULL&na__action=na.omit&subset=NULL&size=2&rang=NULL&decay=NULL&maxit=NULL, method:GET
+option request: 
+param in query - name: data, type: string, value: NULL
+param in query - name: maxit, type: string, value: NULL
+param in query - name: subset, type: string, value: NULL
+param in query - name: formula, type: string, value: species~.
+param in query - name: na__action, type: string, value: na.omit
+param in query - name: decay, type: string, value: NULL
+param in query - name: size, type: string, value: 2
+param in query - name: rang, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/nnet.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/nnet.rds
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?dataset=/home/espe/openccml/models/rf.rds&model=NULL, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/rf.rds
+process error: Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "c('randomForest.formula', 'randomForest')"
+
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predictRF?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~%2E, method:GET
+option request: 
+param in query - name: formula, type: string, value: species~.
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/mlp?dataset=/home/espe/openccml/wrapperR/iris.csv&x=NULL&y=NULL&size=5&maxit=NULL&initFuncParams=NULL&learnFuncParams=NULL&linOut=NULL, method:GET
+option request: 
+param in query - name: maxit, type: string, value: NULL
+param in query - name: initFuncParams, type: string, value: NULL
+param in query - name: linOut, type: string, value: NULL
+param in query - name: size, type: string, value: 5
+param in query - name: y, type: string, value: NULL
+param in query - name: learnFuncParams, type: string, value: NULL
+param in query - name: x, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predictMLP?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~%2E, method:GET
+option request: 
+param in query - name: formula, type: string, value: species~.
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predictETS?dataset=/home/espe/openccml/wrapperR/ts1.csv&formula=NULL, method:GET
+option request: 
+param in query - name: formula, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/ts1.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predictETS?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=NULL, method:GET
+option request: 
+param in query - name: formula, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predictSVM?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~petal_width, method:GET
+option request: 
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predictSVM?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~petal_width, method:GET
+option request: 
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predictnnet?dataset=/home/espe/openccml/wrapperR/iris.csv&formula=species~%2E, method:GET
+option request: 
+param in query - name: formula, type: string, value: species~.
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/iris.csv

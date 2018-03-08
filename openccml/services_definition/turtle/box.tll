@@ -1,0 +1,116 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix ns2: <http://www.w3.org/ns/mls#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+
+<http://dicits.ugr.es/dmmlcc#Box_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:Box_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:Box_Service_Operation ;
+  dcterms:created "2017-07-26" ;
+  dcterms:creator "Esperanza Jiménez" ;
+  dcterms:description "Fit a Box-Pierce and Ljung-Box Tests." ;
+  dcterms:modified "2017-07-26" ;
+  dcterms:publisher "DICITS_ML" ;
+  dcterms:title "Ljung-Box" ;
+  rdfs:comments "Compute the Box-Pierce or Ljung-Box test statistic for examining the null hypothesis of independence in a given time series. These are sometimes known as 'portmanteau' tests." .
+
+dmmlcc:Box_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None" ;
+  dcterms:description "The service requires authentication, and the type of authentication" .
+
+dmmlcc:Box_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:Box_Service_InputParameters ;
+  dcterms:description "Operation performing the service" ;
+  ns2:executes ns2:Box_Implementation ;
+  ns2:hasInput dmmlcc:Box_Service_Input ;
+  ns2:hasOutput dmmlcc:Box_Service_Output .
+
+dmmlcc:Box_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01, dmmlcc:response_parameter_02, dmmlcc:response_parameter_03, dmmlcc:response_parameter_04 ;
+  dcterms:description "Input Parameters" ;
+  dcterms:title "Input" .
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "" ;
+  dmmlcc:mandatory "true" ;
+  dcterms:description "A numeric vector or time series." ;
+  dcterms:title "x" .
+
+dmmlcc:response_parameter_02
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "" ;
+  dmmlcc:mandatory "optional" ;
+  dcterms:description "The statistic will be based on lag autocorrelation coefficients." ;
+  dcterms:title "lag" .
+
+dmmlcc:response_parameter_03
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "Ljung" ;
+  dmmlcc:mandatory "optional" ;
+  dcterms:description "Test to be performed: partial matching is used. Box (default) or Ljung." ;
+  dcterms:title "var_type" .
+
+dmmlcc:response_parameter_04
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "" ;
+  dmmlcc:mandatory "optional" ;
+  dcterms:description "Number of degrees of freedom to be subtracted if x is a series of residuals." ;
+  dcterms:title "fitdf" .
+
+ns2:Box_Implementation
+  a ns2:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterms:description "Implementation of Box-Pierce and Ljung-Box Tests" .
+
+dmmlcc:MLAlgorithm_01
+  a ns2:Algorithm ;
+  dmmlcc:ImplementationSource "R" ;
+  dmmlcc:functions "Box.test" ;
+  dmmlcc:package "core" ;
+  dcterms:description "Box-Pierce and Ljung-Box Tests in R" .
+
+dmmlcc:Box_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_dataset_01 ;
+  dcterms:description "Input data contains Dataset or Feature/s" ;
+  dcterms:title "InputDataSet" .
+
+dmmlcc:contains_dataset_01 ns2:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_00 ;
+  dmmlcc:mandatory "true" ;
+  dmmlcc:storagebucket "dicits://" ;
+  dcterms:description "Dataset on which the service is applied" ;
+  dcterms:title "DataSet" .
+
+dmmlcc:ParameterFormat_CVS_00
+  a dmmlcc:csv ;
+  dcterms:description "CSV Source file format" .
+
+dmmlcc:Box_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data" ;
+  ns2:Data dmmlcc:Box_Model ;
+  ns2:ModelEvaluation dmmlcc:Box_ModelEvaluation .
+
+dmmlcc:Box_Model
+  a dmmlcc:PMML_Model ;
+  dmmlcc:storagebucket "dicits://models/" ;
+  dcterms:description "PMML model to represent mining models" ;
+  dcterms:title "PMML Model related" .
+
+dmmlcc:Box_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/" ;
+  dcterms:description "Model Evaluation" ;
+  dcterms:title "Model evaluation" .
+

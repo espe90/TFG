@@ -1,0 +1,109 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace>.
+
+<http://dicits.ugr.es/dmmlcc#Adftest_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:Adftest_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:Adftest_Service_Operation ;
+  dcterms:created "2017-07-26";
+  dcterms:creator "Esperanza Jiménez";
+  dcterms:description "Fit an Adf.test, Augmented Dickey-Fuller Test";
+  dcterms:modified "2017-07-26";
+  dcterms:publisher "DICITS_ML";
+  dcterms:title "Adftest";
+  rdfs:comments "Computes the Augmented Dickey-Fuller test fot the null that x has a unit root.".
+
+dmmlcc:Adftest_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None";
+  dcterms:description "The service requires authentication, and the type of authentication".
+
+dmmlcc:Adftest_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:Adftest_Service_InputParameters ;
+  dcterms:description "Operation performing the service";
+  mls:executes mls:Adf_Implementation ;
+  mls:hasInput dmmlcc:Adftest_Service_Input ;
+  mls:hasOutput dmmlcc:Adftest_Service_Output .
+
+dmmlcc:Adftest_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01, dmmlcc:response_parameter_02, dmmlcc:response_parameter_03 ;
+  dcterms:description "Input Parameters";
+  dcterms:title "Input".
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "true";
+  dcterms:description "A numeric vector or time series.";
+  dcterms:title "x".
+
+dmmlcc:response_parameter_02
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "stationary";
+  dmmlcc:mandatory "optional";
+  dcterms:description "Indicates the alternative hypothesis and must be one of 'stationary' (default) or 'explosive'. You can specify just the initial letter.";
+  dcterms:title "alternative".
+
+dmmlcc:response_parameter_03
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "trunc((length(x)-1)^(1/3)))";
+  dmmlcc:mandatory "optional";
+  dcterms:description "The lag order to calculate the test statistic.";
+  dcterms:title "k".
+
+mls:Adf_Implementation
+  a mls:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterms:description "Implementation of Adf.test, Augmented Dickey-Fuller Test".
+
+dmmlcc:MLAlgorithm_01
+  a mls:Algorithm ;
+  dmmlcc:ImplementationSource "R";
+  dmmlcc:functions "adf.test";
+  dmmlcc:package "tseries";
+  dcterms:description "Adf.test Algorithm in R".
+
+dmmlcc:Adftest_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_dataset_01 ;
+  dcterms:description "Input data contains Dataset or Feature/s";
+  dcterms:title "InputDataSet".
+
+dmmlcc:contains_dataset_01 mls:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_00 ;
+  dmmlcc:mandatory "true";
+  dmmlcc:storagebucket "dicits://";
+  dcterms:description "Dataset on which the service is applied";
+  dcterms:title "DataSet".
+
+dmmlcc:ParameterFormat_CVS_00
+  a dmmlcc:csv ;
+  dcterms:description "CSV Source file format".
+
+dmmlcc:Adftest_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data";
+  mls:Data dmmlcc:Adftest_Model ;
+  mls:ModelEvaluation dmmlcc:Adftest_ModelEvaluation .
+
+dmmlcc:Adftest_Model
+  a dmmlcc:PMML_Model ;
+  dmmlcc:storagebucket "dicits://models/";
+  dcterms:description "PMML model to represent mining models";
+  dcterms:title "PMML Model related".
+
+dmmlcc:Adftest_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/";
+  dcterms:description "Model Evaluation";
+  dcterms:title "Model evaluation".
+

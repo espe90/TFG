@@ -1,0 +1,169 @@
+{
+  "@context": {
+	"dmmlcc": "http://dicits.ugr.es/dmmlcc#",
+	"dcterms": "http://purl.org/dc/terms/#",
+    "foaf": "http://xmlns.com/foaf/0.1/#",
+    "gr": "http://purl.org/goodrelations/v1#",
+    "mls": "http://www.w3.org/ns/mls#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "waa": "http://purl.oclc.org/NET/WebAuthentication",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph":  [ 	 
+	 {
+		"@id": "dmmlcc:MLP_Service",
+		"@type": "dmmlcc:MLService",
+	 	"dcterms:description": "Create and train a multi-layer perceptron (MLP)." ,
+		"dcterms:creator":"Esperanza Jiménez",
+		"dcterms:created":"2017-11-06",
+		"dcterms:modified":"2017-11-26",
+		"dcterms:publisher":"DICITS_ML",
+		"dcterms:title":"MLP",
+		"rdfs:comments":"This function creates a multilayer perceptron (MLP) and trains it. MLPs are fully connected feedforward networks, and probably the most common network architecture in use. Training is usually performed by error backpropagation or a related procedure.",
+		"dmmlcc:hasAuthentication": {
+			"@id": "dmmlcc:MLP_Service_Auth",
+			"@type": "dmmlcc:MLServiceAuthentication",
+		 	"dcterms:description": "The service requires authentication, and the type of authentication",
+			"waa:requiresAuthentication":"None"
+		},
+		"dmmlcc:hasOperation": {
+			"@id": "dmmlcc:MLP_Service_Operation",
+			"@type": "dmmlcc:MLOperation",
+			"dcterms:description": "Operation performing the service",
+			"mls:hasInput":
+				{
+				"@id": "dmmlcc:MLP_Service_Input",
+				"@type": "dmmlcc:MLServiceInput",
+				"dcterms:title":"InputDataSet",
+				"dcterms:description": "Input data contains Dataset or Feature/s",
+				"dmmlcc:contains":{
+					"@id":"dmmlcc:contains_dataset_01",
+					"@type:":"dmmlcc:contains",
+					"mls:Data":[{
+							"@id":"dmmlcc:dataset_01",
+							"@type:":"mls:DataSet",
+							"dcterms:description": "Dataset on which the service is applied",
+							"dcterms:title": "DataSet",
+							"dmmlcc:format":
+								{
+									"@id":"dmmlcc:ParameterFormat_CVS_01",
+									"@type": "dmmlcc:csv",
+									"dcterms:description": "CSV Source file format"									
+								},
+							"dmmlcc:storagebucket":"dicits://",
+							"dmmlcc:mandatory":"true"
+							}
+						]
+					}
+			},
+			"dmmlcc:hasInputParameters":
+			{
+				"@id": "dmmlcc:MLP_Service_InputParameters",
+				"@type": "dmmlcc:MLServiceInputParameters",
+				"dcterms:description": "Input Parameters",
+				"dcterms:title": "Input",
+				"dmmlcc:Parameters":[
+					{
+						"@id":"dmmlcc:response_parameter_01",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "x",
+						"dcterms:description": "a matrix with training inputs for the network.",
+						"dmmlcc:mandatory":"true",	
+						"dmmlcc:defaultvalue":" "					
+					},
+					{
+						"@id":"dmmlcc:response_parameter_02",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "y",
+						"dcterms:description": "the corresponding targets values.",
+						"dmmlcc:mandatory":"true",
+						"dmmlcc:defaultvalue":" "
+												
+					},
+					{
+						"@id":"dmmlcc:response_parameter_03",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "size",
+						"dcterms:description": "number of units in the hidden layer(s). ",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":" "
+												
+					},
+					{
+						"@id":"dmmlcc:response_parameter_04",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "maxit",
+						"dcterms:description": "maximum of iterations to learn. ",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":" "
+												
+					},
+					{
+						"@id":"dmmlcc:response_parameter_05",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "initFuncParams",
+						"dcterms:description": "the parameters for the initialization function.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":" "				
+					},					
+					{
+						"@id":"dmmlcc:response_parameter_06",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "learnFuncParams",
+						"dcterms:description": "the parameters for the learning function.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":" "				
+					},
+					{
+						"@id":"dmmlcc:response_parameter_07",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "linOut",
+						"dcterms:description": "sets the activation function of the output units to linear or logistic.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":" "				
+					}
+				]			
+			}
+			,
+			"mls:hasOutput":{
+				"@id": "dmmlcc:MLP_Service_Output",
+				"@type": "dmmlcc:MLServiceOutput",
+				"dcterms:description": "Output of the service contains Model or ModelEvaluation or Data",
+				"mls:Model":{
+					"@id":"dmmlcc:MLP_Model",
+					"@type": "dmmlcc:PMML_Model",
+					"dcterms:title": "PMML Model related",
+					"dcterms:description": "PMML model to represent mining models",
+					"dmmlcc:storagebucket":"dicits://models/"
+				},
+				"mls:ModelEvaluation":{
+					"@id":"dmmlcc:MLP_ModelEvaluation",
+					"@type": "dmmlcc:ModelEvaluation",
+					"dcterms:title": "Model evaluation",
+					"dcterms:description": "Model Evaluation",
+					"dmmlcc:storagebucket":"dicits://modelevaluation/"
+				}
+			},
+			"mls:executes":{
+				"@id": "mls:MLP_Implementation",
+				"@type": "mls:Implementation",
+				"dcterms:description": "Implementation of MLP",
+				"dmmlcc:implements":[
+					{
+						"@id":"dmmlcc:MLAlgorithm_01",
+						"@type":"mls:Algorithm",
+						"dcterms:description": "MLP in R",
+						"dmmlcc:ImplementationSource":"R",
+						"dmmlcc:package":"RSNNS",
+						"dmmlcc:functions":["mlp"]
+					}
+				]
+			}
+		}
+		
+	 }
+  ]
+ }

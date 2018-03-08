@@ -1,0 +1,155 @@
+{
+  "@context": {
+	"dmmlcc": "http://dicits.ugr.es/dmmlcc#",
+	"dcterms": "http://purl.org/dc/terms/#",
+    "foaf": "http://xmlns.com/foaf/0.1/#",
+    "gr": "http://purl.org/goodrelations/v1#",
+    "mls": "http://www.w3.org/ns/mls#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "waa": "http://purl.oclc.org/NET/WebAuthentication",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph":  [ 	 
+	 {
+		"@id": "dmmlcc:STL_Service",
+		"@type": "dmmlcc:MLService",
+	 	"dcterms:description": "Seasonal Decomposition of Time Series by Loess." ,
+		"dcterms:creator":"Esperanza Jiménez",
+		"dcterms:created":"2017-10-26",
+		"dcterms:modified":"2017-11-06",
+		"dcterms:publisher":"DICITS_ML",
+		"dcterms:title":"STL",
+		"rdfs:comments":"Decompose a time series into seasonal, trend and irregular components using loess, acronym STL.",
+		"dmmlcc:hasAuthentication": {
+			"@id": "dmmlcc:STL_Service_Auth",
+			"@type": "dmmlcc:MLServiceAuthentication",
+		 	"dcterms:description": "The service requires authentication, and the type of authentication",
+			"waa:requiresAuthentication":"None"
+		},
+		"dmmlcc:hasOperation": {
+			"@id": "dmmlcc:STL_Service_Operation",
+			"@type": "dmmlcc:MLOperation",
+			"dcterms:description": "Operation performing the service",
+			"mls:hasInput":
+				{
+				"@id": "dmmlcc:STL_Service_Input",
+				"@type": "dmmlcc:MLServiceInput",
+				"dcterms:title":"InputDataSet",
+				"dcterms:description": "Input data contains Dataset or Feature/s",
+				"dmmlcc:contains":{
+					"@id":"dmmlcc:contains_dataset_01",
+					"@type:":"dmmlcc:contains",
+					"mls:Data":[{
+							"@id":"dmmlcc:dataset_01",
+							"@type:":"mls:DataSet",
+							"dcterms:description": "Dataset on which the service is applied",
+							"dcterms:title": "DataSet",
+							"dmmlcc:format":
+								{
+									"@id":"dmmlcc:ParameterFormat_CVS_01",
+									"@type": "dmmlcc:csv",
+									"dcterms:description": "CSV Source file format"									
+								},
+							"dmmlcc:storagebucket":"dicits://",
+							"dmmlcc:mandatory":"true"
+							}
+						]
+					}
+			},
+			"dmmlcc:hasInputParameters":
+			{
+				"@id": "dmmlcc:STL_Service_InputParameters",
+				"@type": "dmmlcc:MLServiceInputParameters",
+				"dcterms:description": "Input Parameters",
+				"dcterms:title": "Input",
+				"dmmlcc:Parameters":[
+					{
+						"@id":"dmmlcc:response_parameter_01",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "x",
+						"dcterms:description": "Univariate time series to be decomposed. This should be an object of class 'ts' with a frequency greater than one.",
+						"dmmlcc:mandatory":"true",	
+						"dmmlcc:defaultvalue":" "					
+					},
+					{
+						"@id":"dmmlcc:response_parameter_02",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "s__window",
+						"dcterms:description": "Either the character string 'periodic' or the span (in lags) of the loess window for seasonal extraction, which should be odd and at least 7, according to Cleveland et al. This has no default.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":" "
+												
+					},
+					{
+						"@id":"dmmlcc:response_parameter_03",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "t__window",
+						"dcterms:description": "The span (in lags) of the loess window for trend extraction, which should be odd.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":"nextodd(ceiling((1.5*period)/(1-(1.5/s.window))))"
+							
+					},
+					{
+						"@id":"dmmlcc:response_parameter_04",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "robust",
+						"dcterms:description": "Logical indicating if robust fitting be used in the loess procedure.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":""
+							
+					},
+					{
+						"@id":"dmmlcc:response_parameter_05",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "t__jump",
+						"dcterms:description": "Integers at least one to increase speed of the respective smoother.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":""
+							
+					}				
+					
+				]			
+			}
+			,
+			"mls:hasOutput":{
+				"@id": "dmmlcc:STL_Service_Output",
+				"@type": "dmmlcc:MLServiceOutput",
+				"dcterms:description": "Output of the service contains Model or ModelEvaluation or Data",
+				"mls:Model":{
+					"@id":"dmmlcc:STL_Model",
+					"@type": "dmmlcc:PMML_Model",
+					"dcterms:title": "PMML Model related",
+					"dcterms:description": "PMML model to represent mining models",
+					"dmmlcc:storagebucket":"dicits://models/"
+				},
+				"mls:ModelEvaluation":{
+					"@id":"dmmlcc:STL_ModelEvaluation",
+					"@type": "dmmlcc:ModelEvaluation",
+					"dcterms:title": "Model evaluation",
+					"dcterms:description": "Model Evaluation",
+					"dmmlcc:storagebucket":"dicits://modelevaluation/"
+				}
+			},
+			"mls:executes":{
+				"@id": "mls:STL_Implementation",
+				"@type": "mls:Implementation",
+				"dcterms:description": "Implementation of STL Model",
+				"dmmlcc:implements":[
+					{
+						"@id":"dmmlcc:MLAlgorithm_01",
+						"@type":"mls:Algorithm",
+						"dcterms:description": "STL in R",
+						"dmmlcc:ImplementationSource":"R",
+						"dmmlcc:package":"core",
+						"dmmlcc:functions":["stl"]
+					}
+				]
+			}
+		}
+		
+	 }
+  ]
+ }

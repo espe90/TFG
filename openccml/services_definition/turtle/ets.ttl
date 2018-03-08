@@ -1,0 +1,211 @@
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/#> .
+@prefix ns3: <http://purl.oclc.org/NET/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dmmlcc:ETS_Service a dmmlcc:MLService ;
+    dmmlcc:hasAuthentication dmmlcc:ETS_Service_Auth ;
+    dmmlcc:hasOperation dmmlcc:ETS_Service_Operation ;
+    dcterms:created "2017-07-12" ;
+    dcterms:creator "Esperanza Jiménez" ;
+    dcterms:description "Fit an Exponential smoothing state space model" ;
+    dcterms:modified "2017-07-17" ;
+    dcterms:publisher "DICITS_ML" ;
+    dcterms:title "ETS" ;
+    rdfs:comments "Returns ets model applied to y. " .
+
+dmmlcc:ETS_Model a dmmlcc:PMML_Model ;
+    dmmlcc:storagebucket "dicits://models/" ;
+    dcterms:description "PMML model to represent mining models" ;
+    dcterms:title "PMML Model related" .
+
+dmmlcc:ETS_ModelEvaluation a dmmlcc:ModelEvaluation ;
+    dmmlcc:storagebucket "dicits://modelevaluation/" ;
+    dcterms:description "Model Evaluation" ;
+    dcterms:title "Model evaluation" .
+
+dmmlcc:ETS_Service_Auth a dmmlcc:MLServiceAuthentication ;
+    ns3:WebAuthenticationrequiresAuthentication "None" ;
+    dcterms:description "The service requires authentication, and the type of authentication" .
+
+dmmlcc:ETS_Service_Input a dmmlcc:MLServiceInput ;
+    dmmlcc:contains dmmlcc:contains_dataset_01 ;
+    dcterms:description "Input data contains Dataset or Feature/s" ;
+    dcterms:title "InputDataSet" .
+
+dmmlcc:ETS_Service_InputParameters a dmmlcc:MLServiceInputParameters ;
+    dmmlcc:Parameters dmmlcc:response_parameter_01,
+        dmmlcc:response_parameter_02,
+        dmmlcc:response_parameter_03,
+        dmmlcc:response_parameter_04,
+        dmmlcc:response_parameter_05,
+        dmmlcc:response_parameter_06,
+        dmmlcc:response_parameter_07,
+        dmmlcc:response_parameter_08,
+        dmmlcc:response_parameter_09,
+        dmmlcc:response_parameter_10,
+        dmmlcc:response_parameter_11,
+        dmmlcc:response_parameter_12,
+        dmmlcc:response_parameter_13,
+        dmmlcc:response_parameter_14,
+        dmmlcc:response_parameter_15,
+        dmmlcc:response_parameter_16,
+        dmmlcc:response_parameter_17,
+        dmmlcc:response_parameter_18,
+        dmmlcc:response_parameter_19 ;
+    dcterms:description "Input Parameters" ;
+    dcterms:title "Input" .
+
+dmmlcc:ETS_Service_Operation a dmmlcc:MLOperation ;
+    dmmlcc:hasInputParameters dmmlcc:ETS_Service_InputParameters ;
+    dcterms:description "Operation performing the service" ;
+    mls:executes mls:ETS_Implementation ;
+    mls:hasInput dmmlcc:ETS_Service_Input ;
+    mls:hasOutput dmmlcc:ETS_Service_Output .
+
+dmmlcc:ETS_Service_Output a dmmlcc:MLServiceOutput ;
+    dcterms:description "Output of the service contains Model or ModelEvaluation or Data" ;
+    mls:Data dmmlcc:ETS_Model ;
+    mls:ModelEvaluation dmmlcc:ETS_ModelEvaluation .
+
+dmmlcc:MLAlgorithm_01 a mls:Algorithm ;
+    dmmlcc:ImplementationSource "R" ;
+    dmmlcc:functions "ets" ;
+    dmmlcc:package "forecast" ;
+    dcterms:description "ETS Algorithm in R" .
+
+dmmlcc:ParameterFormat_CVS_00 a dmmlcc:csv ;
+    dcterms:description "CSV Source file format" .
+
+dmmlcc:contains_dataset_01 <file:///base/data/home/apps/s%7Erdf-translator/1.380697414950152317/@type:> "dmmlcc:contains" ;
+    mls:Data dmmlcc:dataset_01 .
+
+dmmlcc:dataset_01 <file:///base/data/home/apps/s%7Erdf-translator/1.380697414950152317/@type:> "mls:DataSet" ;
+    dmmlcc:format dmmlcc:ParameterFormat_CVS_00 ;
+    dmmlcc:mandatory "true" ;
+    dmmlcc:storagebucket "dicits://" ;
+    dcterms:description "Dataset on which the service is applied" ;
+    dcterms:title "DataSet" .
+
+dmmlcc:response_parameter_01 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "true" ;
+    dcterms:description "a numeric vector or time series" ;
+    dcterms:title "y" .
+
+dmmlcc:response_parameter_02 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "ZZZ" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Usually a three-character string identifying method using the framework terminology of Hyndman et al. (2002) and Hyndman et al. (2008). The first letter denotes the error type ('A', 'M' or 'Z'); the second letter denotes the trend type ('N','A','M' or 'Z'); and the third letter denotes the season type ('N','A','M' or 'Z'). In all cases, 'N'=none, 'A'=additive, 'M'=multiplicative and 'Z'=automatically selected." ;
+    dcterms:title "model" .
+
+dmmlcc:response_parameter_03 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE, use a damped trend (either additive or multiplicative). If NULL, both damped and non-damped trends will be tried and the best model (according to the information criterion ic) returned." ;
+    dcterms:title "damped" .
+
+dmmlcc:response_parameter_04 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Value of alpha. If NULL, it is estimated" ;
+    dcterms:title "alpha" .
+
+dmmlcc:response_parameter_05 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Value of beta. If NULL, it is estimated" ;
+    dcterms:title "beta" .
+
+dmmlcc:response_parameter_06 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Value of gamma. If NULL, it is estimated" ;
+    dcterms:title "gamma" .
+
+dmmlcc:response_parameter_07 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Value of phi. If NULL, it is estimated" ;
+    dcterms:title "phi" .
+
+dmmlcc:response_parameter_08 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "FALSE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE, will only consider additive models. Default is FALSE." ;
+    dcterms:title "additive__only" .
+
+dmmlcc:response_parameter_09 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated." ;
+    dcterms:title "var_lambda" .
+
+dmmlcc:response_parameter_10 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "FALSE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities." ;
+    dcterms:title "biasadj" .
+
+dmmlcc:response_parameter_11 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Lower bounds for the parameters (alpha, beta, gamma, phi)" ;
+    dcterms:title "lower" .
+
+dmmlcc:response_parameter_12 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Upper bounds for the parameters (alpha, beta, gamma, phi)" ;
+    dcterms:title "upper" .
+
+dmmlcc:response_parameter_13 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "lik" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Optimization criterion. One of 'mse' (Mean Square Error), 'amse' (Average MSE over first nmse forecast horizons), 'sigma' (Standard deviation of residuals), 'mae' (Mean of absolute residuals), or 'lik' (Log-likelihood, the default)." ;
+    dcterms:title "opt__crit" .
+
+dmmlcc:response_parameter_14 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Number of steps for average multistep MSE (1<=nmse)." ;
+    dcterms:title "nmse" .
+
+dmmlcc:response_parameter_15 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "both" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Type of parameter space to impose, 'usual' indicates all parameters must lie between specified lower and upper bounds, 'admissible' indicates parameters must lie in the admissible space, 'both' (default) takes the intersection of these regions." ;
+    dcterms:title "bounds" .
+
+dmmlcc:response_parameter_16 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'" ;
+    dcterms:title "ic" .
+
+dmmlcc:response_parameter_17 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "TRUE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE (default), the models with infinite variance will not be allowed." ;
+    dcterms:title "restrict" .
+
+dmmlcc:response_parameter_18 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "FALSE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE, models with multiplicative trend are allowed when searching for a model. Otherwise, the model space excludes them. This argument is ignored if a multiplicative trend model is explicitly requested" ;
+    dcterms:title "allow__multiplicative__trend" .
+
+dmmlcc:response_parameter_19 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "FALSE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE and model is of class 'ets', then the initial values in the model are also not re-estimated." ;
+    dcterms:title "use__initial__values" .
+
+mls:ETS_Implementation a mls:Implementation ;
+    dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+    dcterms:description "Implementation of ETS, Exponential smoothing state space model" .
+

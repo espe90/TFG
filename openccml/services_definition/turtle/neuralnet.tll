@@ -1,0 +1,123 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://dicits.ugr.es/dmmlcc#NeuralNet_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:NeuralNet_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:NeuralNet_Service_Operation ;
+  dcterms:created "2017-10-26";
+  dcterms:creator "Esperanza Jiménez";
+  dcterms:description "Training of neural networks.";
+  dcterms:modified "2017-11-06";
+  dcterms:publisher "DICITS_ML";
+  dcterms:title "NeuralNet";
+  rdfs:comments "Neuralnet is used to train neural networks using backpropagation, resilient backpropagation (RPROP) with (Riedmiller, 1994) or without weight backtracking (Riedmiller and Braun, 1993) or the modified globally convergent version (GRPROP) by Anastasiadis et al. (2005). The function allows flexible settings through custom-choice of error and activation function. Furthermore the calculation of generalized weights (Intrator O. and Intrator N., 1993) is implemented.".
+
+dmmlcc:NeuralNet_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None";
+  dcterms:description "The service requires authentication, and the type of authentication".
+
+dmmlcc:NeuralNet_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:NeuralNet_Service_InputParameters ;
+  dcterms:description "Operation performing the service";
+  mls:executes mls:NeuralNet_Implementation ;
+  mls:hasInput dmmlcc:NeuralNet_Service_Input ;
+  mls:hasOutput dmmlcc:NeuralNet_Service_Output .
+
+dmmlcc:NeuralNet_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01, dmmlcc:response_parameter_02, dmmlcc:response_parameter_03, dmmlcc:response_parameter_04, dmmlcc:response_parameter_05 ;
+  dcterms:description "Input Parameters";
+  dcterms:title "Input".
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "true";
+  dcterms:description "a symbolic description of the model to be fitted.";
+  dcterms:title "formula".
+
+dmmlcc:response_parameter_02
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "a data frame containing the variables specified in formula. ";
+  dcterms:title "data".
+
+dmmlcc:response_parameter_03
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "a differentiable function that is used for the calculation of the error. Alternatively, the strings 'sse' and 'ce' which stand for the sum of squared errors and the cross-entropy can be used.";
+  dcterms:title "err__fct".
+
+dmmlcc:response_parameter_04
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "logical. If act.fct should not be applied to the output neurons set linear output to TRUE, otherwise to FALSE.";
+  dcterms:title "linear__output".
+
+dmmlcc:response_parameter_05
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "logical. If the error function is equal to the negative log-likelihood function, the information criteria AIC and BIC will be calculated. Furthermore the usage of confidence.interval is meaningfull. ";
+  dcterms:title "likelihood".
+
+mls:NeuralNet_Implementation
+  a mls:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterms:description "Implementation of NeuralNet".
+
+dmmlcc:MLAlgorithm_01
+  a mls:Algorithm ;
+  dmmlcc:ImplementationSource "R";
+  dmmlcc:functions "neuralnet";
+  dmmlcc:package "neuralnet";
+  dcterms:description "Neuralnet in R".
+
+dmmlcc:NeuralNet_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_dataset_01 ;
+  dcterms:description "Input data contains Dataset or Feature/s";
+  dcterms:title "InputDataSet".
+
+dmmlcc:contains_dataset_01 mls:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_01 ;
+  dmmlcc:mandatory "true";
+  dmmlcc:storagebucket "dicits://";
+  dcterms:description "Dataset on which the service is applied";
+  dcterms:title "DataSet".
+
+dmmlcc:ParameterFormat_CVS_01
+  a dmmlcc:csv ;
+  dcterms:description "CSV Source file format".
+
+dmmlcc:NeuralNet_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data";
+  mls:Model dmmlcc:NeuralNet_Model ;
+  mls:ModelEvaluation dmmlcc:NeuralNet_ModelEvaluation .
+
+dmmlcc:NeuralNet_Model
+  a dmmlcc:PMML_Model ;
+  dmmlcc:storagebucket "dicits://models/";
+  dcterms:description "PMML model to represent mining models";
+  dcterms:title "PMML Model related".
+
+dmmlcc:NeuralNet_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/";
+  dcterms:description "Model Evaluation";
+  dcterms:title "Model evaluation".
+

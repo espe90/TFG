@@ -1,0 +1,10 @@
+
+Call:
+arima(x = dataset, order = c(1, 2, 3), include.mean = TRUE, optim.control = list())
+
+Coefficients:
+         ar1      ma1     ma2     ma3
+      0.1038  -1.6504  0.6422  0.1939
+s.e.  0.5691   0.6196  0.9170  0.4725
+
+sigma^2 estimated as 16.27:  log likelihood = -41.96,  aic = 93.92

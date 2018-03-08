@@ -1,0 +1,139 @@
+{
+  "@context": {
+	"dmmlcc": "http://dicits.ugr.es/dmmlcc#",
+	"dcterms": "http://purl.org/dc/terms/#",
+    "foaf": "http://xmlns.com/foaf/0.1/#",
+    "gr": "http://purl.org/goodrelations/v1#",
+    "mls": "http://www.w3.org/ns/mls#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "waa": "http://purl.oclc.org/NET/WebAuthentication",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph":  [ 	 
+	 {
+		"@id": "dmmlcc:Adftest_Service",
+		"@type": "dmmlcc:MLService",
+	 	"dcterms:description": "Fit an Adf.test, Augmented Dickey-Fuller Test",
+		"dcterms:creator":"Esperanza Jiménez",
+		"dcterms:created":"2017-07-26",
+		"dcterms:modified":"2017-07-26",
+		"dcterms:publisher":"DICITS_ML",
+		"dcterms:title":"Adftest",
+		"rdfs:comments":"Computes the Augmented Dickey-Fuller test fot the null that x has a unit root.",
+		"dmmlcc:hasAuthentication": {
+		
+			"@id": "dmmlcc:Adftest_Service_Auth",
+			"@type": "dmmlcc:MLServiceAuthentication",
+		 	"dcterms:description": "The service requires authentication, and the type of authentication",
+			"waa:requiresAuthentication":"None"
+		},
+		"dmmlcc:hasOperation": {
+			"@id": "dmmlcc:Adftest_Service_Operation",
+			"@type": "dmmlcc:MLOperation",
+			"dcterms:description": "Operation performing the service",
+			"mls:hasInput":
+				{
+				"@id": "dmmlcc:Adftest_Service_Input",
+				"@type": "dmmlcc:MLServiceInput",
+				"dcterms:title":"InputDataSet",
+				"dcterms:description": "Input data contains Dataset or Feature/s",
+				"dmmlcc:contains":{
+					"@id":"dmmlcc:contains_dataset_01",
+					"@type:":"dmmlcc:contains",
+					"mls:Data":[
+						{
+							"@id":"dmmlcc:dataset_01",
+							"@type:":"mls:DataSet",
+							"dcterms:description": "Dataset on which the service is applied",
+							"dcterms:title": "DataSet",
+							"dmmlcc:format":
+								{
+									"@id":"dmmlcc:ParameterFormat_CVS_00",
+									"@type": "dmmlcc:csv",
+									"dcterms:description": "CSV Source file format"									
+								},
+							"dmmlcc:storagebucket":"dicits://",
+							"dmmlcc:mandatory":"true"					
+						}
+					]
+				}
+			},
+			"dmmlcc:hasInputParameters":
+			{	
+				"@id": "dmmlcc:Adftest_Service_InputParameters",
+				"@type": "dmmlcc:MLServiceInputParameters",
+				"dcterms:description": "Input Parameters",
+				"dcterms:title": "Input",
+				"dmmlcc:Parameters":[
+					{
+						"@id":"dmmlcc:response_parameter_01",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "x",
+						"dcterms:description": "A numeric vector or time series.",
+						"dmmlcc:mandatory":"true",
+						"dmmlcc:defaultvalue":""						
+					},
+					{
+						"@id":"dmmlcc:response_parameter_02",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "alternative",
+						"dcterms:description": "Indicates the alternative hypothesis and must be one of 'stationary' (default) or 'explosive'. You can specify just the initial letter.",	
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":"stationary"
+											
+					},
+					{
+						"@id":"dmmlcc:response_parameter_03",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "k",
+						"dcterms:description": "The lag order to calculate the test statistic.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":"trunc((length(x)-1)^(1/3)))"
+						
+					}	
+					
+				]			
+			}
+			,
+			"mls:hasOutput":{
+				"@id": "dmmlcc:Adftest_Service_Output",
+				"@type": "dmmlcc:MLServiceOutput",
+				"dcterms:description": "Output of the service contains Model or ModelEvaluation or Data",
+				"mls:Data":{
+					"@id":"dmmlcc:Adftest_Model",
+					"@type": "dmmlcc:PMML_Model",
+					"dcterms:title": "PMML Model related",
+					"dcterms:description": "PMML model to represent mining models",
+					"dmmlcc:storagebucket":"dicits://models/"
+				},
+				"mls:ModelEvaluation":{
+					"@id":"dmmlcc:Adftest_ModelEvaluation",
+					"@type": "dmmlcc:ModelEvaluation",
+					"dcterms:title": "Model evaluation",
+					"dcterms:description": "Model Evaluation",
+					"dmmlcc:storagebucket":"dicits://modelevaluation/"
+				}				
+			},
+			"mls:executes":{
+				"@id": "mls:Adf_Implementation",
+				"@type": "mls:Implementation",
+				"dcterms:description": "Implementation of Adf.test, Augmented Dickey-Fuller Test",
+				"dmmlcc:implements":[
+					{
+						"@id":"dmmlcc:MLAlgorithm_01",
+						"@type":"mls:Algorithm",
+						"dcterms:description": "Adf.test Algorithm in R",
+						"dmmlcc:ImplementationSource":"R",
+						"dmmlcc:package":"tseries",
+						"dmmlcc:functions":["adf.test"]
+					}
+				]
+			}
+		}
+		
+	 }
+  ]
+ }

@@ -1,0 +1,120 @@
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix  dcterms: <http://purl.org/dc/terms/#> .
+@prefix  dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix ns3: <http://purl.oclc.org/NET/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ dmmlcc:Acf_Service a  dmmlcc:MLService ;
+     dmmlcc:hasAuthentication  dmmlcc:Acf_Service_Auth ;
+     dmmlcc:hasOperation  dmmlcc:Acf_Service_Operation ;
+     dcterms:created "2017-07-12" ;
+     dcterms:creator "Esperanza Jiménez" ;
+     dcterms:description "Fit an Acf, Autocorrelation Function Estimation" ;
+     dcterms:modified "2017-07-17" ;
+     dcterms:publisher "DICITS_ML" ;
+     dcterms:title "Acf" ;
+    rdfs:comments "The function Acf computes (and by default plots) an estimate of the autocorrelation function of a (possibly multivariate) time series." .
+
+ dmmlcc:Acf_Model a  dmmlcc:PMML_Model ;
+     dmmlcc:storagebucket "dicits://models/" ;
+     dcterms:description "PMML model to represent mining models" ;
+     dcterms:title "PMML Model related" .
+
+ dmmlcc:Acf_ModelEvaluation a  dmmlcc:ModelEvaluation ;
+     dmmlcc:storagebucket "dicits://modelevaluation/" ;
+     dcterms:description "Model Evaluation" ;
+     dcterms:title "Model evaluation" .
+
+ dmmlcc:Acf_Service_Auth a  dmmlcc:MLServiceAuthentication ;
+    ns3:WebAuthenticationrequiresAuthentication "None" ;
+     dcterms:description "The service requires authentication, and the type of authentication" .
+
+ dmmlcc:Acf_Service_Input a  dmmlcc:MLServiceInput ;
+     dmmlcc:contains  dmmlcc:contains_dataset_01 ;
+     dcterms:description "Input data contains Dataset or Feature/s" ;
+     dcterms:title "InputDataSet" .
+
+ dmmlcc:Acf_Service_InputParameters a  dmmlcc:MLServiceInputParameters ;
+     dmmlcc:Parameters  dmmlcc:response_parameter_01,
+         dmmlcc:response_parameter_02,
+         dmmlcc:response_parameter_03,
+         dmmlcc:response_parameter_04,
+         dmmlcc:response_parameter_05,
+         dmmlcc:response_parameter_06 ;
+     dcterms:description "Input Parameters" ;
+     dcterms:title "Input" .
+
+ dmmlcc:Acf_Service_Operation a  dmmlcc:MLOperation ;
+     dmmlcc:hasInputParameters  dmmlcc:Acf_Service_InputParameters ;
+     dcterms:description "Operation performing the service" ;
+    mls:executes mls:Acf_Implementation ;
+    mls:hasInput  dmmlcc:Acf_Service_Input ;
+    mls:hasOutput  dmmlcc:Acf_Service_Output .
+
+ dmmlcc:Acf_Service_Output a  dmmlcc:MLServiceOutput ;
+     dcterms:description "Output of the service contains Model or ModelEvaluation or Data" ;
+    mls:Data  dmmlcc:Acf_Model ;
+    mls:ModelEvaluation  dmmlcc:Acf_ModelEvaluation .
+
+ dmmlcc:MLAlgorithm_01 a mls:Algorithm ;
+     dmmlcc:ImplementationSource "R" ;
+     dmmlcc:functions "Acf" ;
+     dmmlcc:package "forecast" ;
+     dcterms:description "Acf Algorithm in R" .
+
+ dmmlcc:ParameterFormat_CVS_00 a  dmmlcc:csv ;
+     dcterms:description "CSV Source file format" .
+
+ dmmlcc:contains_dataset_01 <file:///base/data/home/apps/s%7Erdf-translator/1.380697414950152317/@type:> "dmmlcc:contains" ;
+    mls:Data  dmmlcc:dataset_01 .
+
+ dmmlcc:dataset_01 <file:///base/data/home/apps/s%7Erdf-translator/1.380697414950152317/@type:> "mls:DataSet" ;
+     dmmlcc:format  dmmlcc:ParameterFormat_CVS_00 ;
+     dmmlcc:mandatory "true" ;
+     dmmlcc:storagebucket "dicits://" ;
+     dcterms:description "Dataset on which the service is applied" ;
+     dcterms:title "DataSet" .
+
+ dmmlcc:response_parameter_01 a  dmmlcc:MLServiceInputParameter ;
+     dmmlcc:defaultvalue "" ;
+     dmmlcc:mandatory "true" ;
+     dcterms:description "A univariate or multivariate (not Ccf) numeric time series object or a numeric vector or matrix." ;
+     dcterms:title "x" .
+
+ dmmlcc:response_parameter_02 a  dmmlcc:MLServiceInputParameter ;
+     dmmlcc:defaultvalue "10∗log10(N/m)" ;
+     dmmlcc:mandatory "optional" ;
+     dcterms:description "Maximum lag at which to calculate the acf. Default is 10∗log10(N/m) where N is the number of observations and m the number of series. Will be automatically limited to one less than the number of observations in the series." ;
+     dcterms:title "lag__max" .
+
+ dmmlcc:response_parameter_03 a  dmmlcc:MLServiceInputParameter ;
+     dmmlcc:defaultvalue "correlation" ;
+     dmmlcc:mandatory "optional" ;
+     dcterms:description "Character string giving the type of acf to be computed. Allowed values are 'correlation' (the default), 'covariance' or 'partial'." ;
+     dcterms:title "var_type" .
+
+ dmmlcc:response_parameter_04 a  dmmlcc:MLServiceInputParameter ;
+     dmmlcc:defaultvalue "TRUE" ;
+     dmmlcc:mandatory "optional" ;
+     dcterms:description "Logical. If TRUE (the default) the resulting acf is plotted." ;
+     dcterms:title "plot" .
+
+ dmmlcc:response_parameter_05 a  dmmlcc:MLServiceInputParameter ;
+     dmmlcc:defaultvalue "na.contiguous" ;
+     dmmlcc:mandatory "optional" ;
+     dcterms:description "Function to handle missing values. Default is na.contiguous. Useful alternatives are na.pass and na.interp." ;
+     dcterms:title "na__action" .
+
+ dmmlcc:response_parameter_06 a  dmmlcc:MLServiceInputParameter ;
+     dmmlcc:defaultvalue "TRUE" ;
+     dmmlcc:mandatory "optional" ;
+     dcterms:description "Should covariances be about the sample means?" ;
+     dcterms:title "demean" .
+
+mls:Acf_Implementation a mls:Implementation ;
+     dmmlcc:implements  dmmlcc:MLAlgorithm_01 ;
+     dcterms:description "Implementation of Acf, Autocorrelation Function Estimation" .
+

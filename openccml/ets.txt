@@ -1,0 +1,15 @@
+ETS(A,N,N) 
+
+Call:
+ ets(y = dataset) 
+
+  Smoothing parameters:
+    alpha = 1e-04 
+
+  Initial states:
+    l = 15.9401 
+
+  sigma:  24.9098
+
+     AIC     AICc      BIC 
+153.2497 155.2497 155.5675 

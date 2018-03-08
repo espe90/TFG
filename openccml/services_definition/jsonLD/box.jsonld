@@ -1,0 +1,146 @@
+{
+  "@context": {
+	"dmmlcc": "http://dicits.ugr.es/dmmlcc#",
+	"dcterms": "http://purl.org/dc/terms/#",
+    "foaf": "http://xmlns.com/foaf/0.1/#",
+    "gr": "http://purl.org/goodrelations/v1#",
+    "mls": "http://www.w3.org/ns/mls#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "waa": "http://purl.oclc.org/NET/WebAuthentication",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph":  [ 	 
+	 {
+		"@id": "dmmlcc:Box_Service",
+		"@type": "dmmlcc:MLService",
+	 	"dcterms:description": "Fit a Box-Pierce and Ljung-Box Tests.",
+		"dcterms:creator":"Esperanza Jiménez",
+		"dcterms:created":"2017-07-26",
+		"dcterms:modified":"2017-07-26",
+		"dcterms:publisher":"DICITS_ML",
+		"dcterms:title":"Ljung-Box",
+		"rdfs:comments":"Compute the Box-Pierce or Ljung-Box test statistic for examining the null hypothesis of independence in a given time series. These are sometimes known as 'portmanteau' tests.",
+		"dmmlcc:hasAuthentication": {
+		
+			"@id": "dmmlcc:Box_Service_Auth",
+			"@type": "dmmlcc:MLServiceAuthentication",
+		 	"dcterms:description": "The service requires authentication, and the type of authentication",
+			"waa:requiresAuthentication":"None"
+		},
+		"dmmlcc:hasOperation": {
+			"@id": "dmmlcc:Box_Service_Operation",
+			"@type": "dmmlcc:MLOperation",
+			"dcterms:description": "Operation performing the service",
+			"mls:hasInput":
+				{
+				"@id": "dmmlcc:Box_Service_Input",
+				"@type": "dmmlcc:MLServiceInput",
+				"dcterms:title":"InputDataSet",
+				"dcterms:description": "Input data contains Dataset or Feature/s",
+				"dmmlcc:contains":{
+					"@id":"dmmlcc:contains_dataset_01",
+					"@type:":"dmmlcc:contains",
+					"mls:Data":[
+						{
+							"@id":"dmmlcc:dataset_01",
+							"@type:":"mls:DataSet",
+							"dcterms:description": "Dataset on which the service is applied",
+							"dcterms:title": "DataSet",
+							"dmmlcc:format":
+								{
+									"@id":"dmmlcc:ParameterFormat_CVS_00",
+									"@type": "dmmlcc:csv",
+									"dcterms:description": "CSV Source file format"									
+								},
+							"dmmlcc:storagebucket":"dicits://",
+							"dmmlcc:mandatory":"true"					
+						}
+					]
+				}
+			},
+			"dmmlcc:hasInputParameters":
+			{	
+				"@id": "dmmlcc:Box_Service_InputParameters",
+				"@type": "dmmlcc:MLServiceInputParameters",
+				"dcterms:description": "Input Parameters",
+				"dcterms:title": "Input",
+				"dmmlcc:Parameters":[
+					{
+						"@id":"dmmlcc:response_parameter_01",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "x",
+						"dcterms:description": "A numeric vector or time series.",
+						"dmmlcc:mandatory":"true",
+						"dmmlcc:defaultvalue":""						
+					},
+					{
+						"@id":"dmmlcc:response_parameter_02",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "lag",
+						"dcterms:description": "The statistic will be based on lag autocorrelation coefficients.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":""						
+					},
+					{
+						"@id":"dmmlcc:response_parameter_03",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "var_type",
+						"dcterms:description": "Test to be performed: partial matching is used. Box (default) or Ljung.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":"Ljung"						
+					},
+					{
+						"@id":"dmmlcc:response_parameter_04",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "fitdf",
+						"dcterms:description": "Number of degrees of freedom to be subtracted if x is a series of residuals.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":""						
+					}
+								
+					
+				]			
+			}
+			,
+			"mls:hasOutput":{
+				"@id": "dmmlcc:Box_Service_Output",
+				"@type": "dmmlcc:MLServiceOutput",
+				"dcterms:description": "Output of the service contains Model or ModelEvaluation or Data",
+				"mls:Data":{
+					"@id":"dmmlcc:Box_Model",
+					"@type": "dmmlcc:PMML_Model",
+					"dcterms:title": "PMML Model related",
+					"dcterms:description": "PMML model to represent mining models",
+					"dmmlcc:storagebucket":"dicits://models/"
+				},
+				"mls:ModelEvaluation":{
+					"@id":"dmmlcc:Box_ModelEvaluation",
+					"@type": "dmmlcc:ModelEvaluation",
+					"dcterms:title": "Model evaluation",
+					"dcterms:description": "Model Evaluation",
+					"dmmlcc:storagebucket":"dicits://modelevaluation/"
+				}				
+			},
+			"mls:executes":{
+				"@id": "mls:Box_Implementation",
+				"@type": "mls:Implementation",
+				"dcterms:description": "Implementation of Box-Pierce and Ljung-Box Tests",
+				"dmmlcc:implements":[
+					{
+						"@id":"dmmlcc:MLAlgorithm_01",
+						"@type":"mls:Algorithm",
+						"dcterms:description": "Box-Pierce and Ljung-Box Tests in R",
+						"dmmlcc:ImplementationSource":"R",
+						"dmmlcc:package":"core",
+						"dmmlcc:functions":["Box.test"]
+					}
+				]
+			}
+		}
+		
+	 }
+  ]
+ }

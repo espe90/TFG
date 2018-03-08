@@ -1,0 +1,109 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://dicits.ugr.es/dmmlcc#Correlation_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:Correlation_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:Correlation_Service_Operation ;
+  dcterms:created "2017-04-20";
+  dcterms:creator "Manuel Parra, Ruben Castro, J. Antonio Cortes";
+  dcterms:description "Correlation";
+  dcterms:modified "2017-05-29";
+  dcterms:publisher "DICITS_ML";
+  dcterms:title "Correlation";
+  rdfs:comments "Correlation".
+
+dmmlcc:Correlation_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None";
+  dcterms:description "The service requires authentication, and the type of authentication".
+
+dmmlcc:Correlation_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:Correlation_Service_InputParameters ;
+  dcterms:description "Operation performing the service";
+  mls:executes mls:Correlation_Implementation ;
+  mls:hasInput dmmlcc:Correlation_Service_Input ;
+  mls:hasOutput dmmlcc:Correlation_Service_Output .
+
+dmmlcc:Correlation_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01, dmmlcc:response_parameter_02, dmmlcc:response_parameter_03, dmmlcc:response_parameter_04 ;
+  dcterms:description "Input Parameters";
+  dcterms:title "Input".
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "true";
+  dcterms:description "a numeric vector, matrix or data frame.";
+  dcterms:title "x".
+
+dmmlcc:response_parameter_02
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "null";
+  dmmlcc:mandatory "optional";
+  dcterms:description "NULL (default) or a vector, matrix or data frame with compatible dimensions to x. The default is equivalent to y = x (but more efficient).";
+  dcterms:title "y".
+
+dmmlcc:response_parameter_03
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "everything";
+  dmmlcc:mandatory "optional";
+  dcterms:description "An optional character string giving a method for computing covariances in the presence of missing values. This must be (an abbreviation of) one of the strings 'everything', 'all.obs', 'complete.obs', 'na.or.complete', or 'pairwise.complete.obs'.";
+  dcterms:title "use".
+
+dmmlcc:response_parameter_04
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "pearson";
+  dmmlcc:mandatory "optional";
+  dcterms:description "A character string indicating which correlation coefficient (or covariance) is to be computed. One of 'pearson' (default), 'kendall', or 'spearman', can be abbreviated.";
+  dcterms:title "method".
+
+mls:Correlation_Implementation
+  a mls:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterms:description "Implementation of Linear Regression Model".
+
+dmmlcc:MLAlgorithm_01
+  a mls:Algorithm ;
+  dmmlcc:ImplementationSource "R";
+  dmmlcc:functions "cor";
+  dmmlcc:package "core";
+  dcterms:description "Correlation Algorithm in R".
+
+dmmlcc:Correlation_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_features ;
+  dcterms:description "Input data contains Dataset or Feature/s";
+  dcterms:title "InputDataSet".
+
+dmmlcc:contains_features mls:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_00 ;
+  dmmlcc:mandatory "true";
+  dmmlcc:storagebucket "dicits://";
+  dcterms:description "Dataset on which the service is applied";
+  dcterms:title "DataSet".
+
+dmmlcc:ParameterFormat_CVS_00
+  a dmmlcc:csv ;
+  dcterms:description "CSV Source file format".
+
+dmmlcc:Correlation_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data";
+  mls:ModelEvaluation dmmlcc:Correlation_ModelEvaluation .
+
+dmmlcc:Correlation_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/";
+  dcterms:description "Model Evaluation";
+  dcterms:title "Model evaluation".
+

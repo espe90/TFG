@@ -1,0 +1,8 @@
+
+Call:
+lm(formula = species ~ petal_width, data = dataset)
+
+Coefficients:
+(Intercept)  petal_width  
+     0.7693       1.0267  
+

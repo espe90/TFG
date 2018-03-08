@@ -1,0 +1,3 @@
+DTW alignment object
+ Alignment size (query x reference): 8 x 8
+ Call: dtw(x = dataset1, y = dataset2)

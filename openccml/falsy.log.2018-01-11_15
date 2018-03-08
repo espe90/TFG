@@ -1,0 +1,137 @@
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/acf?x=NULL&plot=TRUE&lag__max=10%5Cu2217log10(N%2Fm)&var_type=correlation&demean=TRUE&na__action=na.contiguous&dataset=%2Fhome%2Fespe%2Fopenccml%2FwrapperR%2Fts2.csv, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: plot, type: string, value: TRUE
+param in query - name: lag__max, type: string, value: 10\u2217log10(N/m)
+param in query - name: var_type, type: string, value: correlation
+param in query - name: demean, type: string, value: TRUE
+param in query - name: na__action, type: string, value: na.contiguous
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/ts2.csv
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/arima?x=NULL&optim__method=BFGS&seasonal=list(order%20%3D%20c(0L%2C%200L%2C%200L)%2C%20period%20%3D%20NA)&optim__control=list()&include__mean=TRUE&init=NULL&fixed=NULL&method=CSS&kappa=1e6&xreg=NULL&order=c(1%2C2%2C3)&transform__pars=TRUE&dataset=%2Fhome%2Fespe%2Fopenccml%2FwrapperR%2Fts2.csv, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: optim__method, type: string, value: BFGS
+param in query - name: seasonal, type: string, value: list(order = c(0L, 0L, 0L), period = NA)
+param in query - name: optim__control, type: string, value: list()
+param in query - name: include__mean, type: string, value: TRUE
+param in query - name: init, type: string, value: NULL
+param in query - name: fixed, type: string, value: NULL
+param in query - name: method, type: string, value: CSS
+param in query - name: kappa, type: string, value: 1e6
+param in query - name: xreg, type: string, value: NULL
+param in query - name: order, type: string, value: c(1,2,3)
+param in query - name: transform__pars, type: string, value: TRUE
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/ts2.csv
+process error: Error in match.arg(method) : objeto 'CSS' no encontrado
+
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/arima?x=NULL&optim__method=NULL&seasonal=NULL&optim__control=list()&include__mean=TRUE&init=NULL&fixed=NULL&method=NULL&kappa=1e6&xreg=NULL&order=c(1%2C2%2C3)&transform__pars=%2Fhome%2Fespe%2Fopenccml%2FwrapperR%2Fts2.csv&dataset=TRUE, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: optim__method, type: string, value: NULL
+param in query - name: seasonal, type: string, value: NULL
+param in query - name: optim__control, type: string, value: list()
+param in query - name: include__mean, type: string, value: TRUE
+param in query - name: init, type: string, value: NULL
+param in query - name: fixed, type: string, value: NULL
+param in query - name: method, type: string, value: NULL
+param in query - name: kappa, type: string, value: 1e6
+param in query - name: xreg, type: string, value: NULL
+param in query - name: order, type: string, value: c(1,2,3)
+param in query - name: transform__pars, type: string, value: /home/espe/openccml/wrapperR/ts2.csv
+param in query - name: dataset, type: string, value: TRUE
+process error: Fallo en el checkeo global
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/arima?x=NULL&optim__method=NULL&seasonal=NULL&optim__control=list()&include__mean=TRUE&init=NULL&fixed=NULL&method=NULL&kappa=NULL&xreg=NULL&order=c(1%2C2%2C3)&transform__pars=NULL&dataset=%2Fhome%2Fespe%2Fopenccml%2FwrapperR%2Fts2.csv, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: optim__method, type: string, value: NULL
+param in query - name: seasonal, type: string, value: NULL
+param in query - name: optim__control, type: string, value: list()
+param in query - name: include__mean, type: string, value: TRUE
+param in query - name: init, type: string, value: NULL
+param in query - name: fixed, type: string, value: NULL
+param in query - name: method, type: string, value: NULL
+param in query - name: kappa, type: string, value: NULL
+param in query - name: xreg, type: string, value: NULL
+param in query - name: order, type: string, value: c(1,2,3)
+param in query - name: transform__pars, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/wrapperR/ts2.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/ui, method:GET
+option request: 
+url does not match any route signature or match error: /get/openccml/ui
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/ui, method:GET
+option request: 
+url does not match any route signature or match error: /get/openccml/ui
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://0.0.0.0:8001/openccml/catalog, method:GET
+option request: 
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/ui, method:GET
+option request: 
+url does not match any route signature or match error: /get/openccml/ui
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/predict?model=NULL&dataset=%2Fhome%2Fespe%2Fopenccml%2Fmodels%2Frbf.rds, method:GET
+option request: 
+param in query - name: model, type: string, value: NULL
+param in query - name: dataset, type: string, value: /home/espe/openccml/models/rbf.rds

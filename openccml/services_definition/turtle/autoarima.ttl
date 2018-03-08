@@ -1,0 +1,288 @@
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/#> .
+@prefix waa: <http://purl.oclc.org/NET/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dmmlcc:AUTOAUTOARIMA_Service a dmmlcc:MLService ;
+    dmmlcc:hasAuthentication dmmlcc:AUTOARIMA_Service_Auth ;
+    dmmlcc:hasOperation dmmlcc:AUTOARIMA_Service_Operation ;
+    dcterms:created "2017-07-12" ;
+    dcterms:creator "Esperanza Jiménez" ;
+    dcterms:description "Fit best ARIMA model to univariate time series" ;
+    dcterms:modified "2017-07-17" ;
+    dcterms:publisher "DICITS_ML" ;
+    dcterms:title "AUTOARIMA" ;
+    rdfs:comments "Returns best ARIMA model according to either AIC, AICc or BIC value. The function conducts a search over possible model within the order constraints provided." .
+
+dmmlcc:AUTOARIMA_Model a dmmlcc:PMML_Model ;
+    dmmlcc:storagebucket "dicits://models/" ;
+    dcterms:description "PMML model to represent mining models" ;
+    dcterms:title "PMML Model related" .
+
+dmmlcc:AUTOARIMA_ModelEvaluation a dmmlcc:ModelEvaluation ;
+    dmmlcc:storagebucket "dicits://modelevaluation/" ;
+    dcterms:description "Model Evaluation" ;
+    dcterms:title "Model evaluation" .
+
+dmmlcc:AUTOARIMA_Service_Auth a dmmlcc:MLServiceAuthentication ;
+    waa:WebAuthenticationrequiresAuthentication "None" ;
+    dcterms:description "The service requires authentication, and the type of authentication" .
+
+dmmlcc:AUTOARIMA_Service_Input a dmmlcc:MLServiceInput ;
+    dmmlcc:contains dmmlcc:contains_dataset_01 ;
+    dcterms:description "Input data contains Dataset or Feature/s" ;
+    dcterms:title "InputDataSet" .
+
+dmmlcc:AUTOARIMA_Service_InputParameters a dmmlcc:MLServiceInputParameters ;
+    dmmlcc:Parameters dmmlcc:response_parameter_01,
+        dmmlcc:response_parameter_02,
+        dmmlcc:response_parameter_03,
+        dmmlcc:response_parameter_04,
+        dmmlcc:response_parameter_05,
+        dmmlcc:response_parameter_06,
+        dmmlcc:response_parameter_07,
+        dmmlcc:response_parameter_08,
+        dmmlcc:response_parameter_09,
+        dmmlcc:response_parameter_10,
+        dmmlcc:response_parameter_11,
+        dmmlcc:response_parameter_12,
+        dmmlcc:response_parameter_13,
+        dmmlcc:response_parameter_14,
+        dmmlcc:response_parameter_15,
+        dmmlcc:response_parameter_16,
+        dmmlcc:response_parameter_17,
+        dmmlcc:response_parameter_18,
+        dmmlcc:response_parameter_19,
+        dmmlcc:response_parameter_20,
+        dmmlcc:response_parameter_21,
+        dmmlcc:response_parameter_22,
+        dmmlcc:response_parameter_23,
+        dmmlcc:response_parameter_24,
+        dmmlcc:response_parameter_25,
+        dmmlcc:response_parameter_26,
+        dmmlcc:response_parameter_27,
+        dmmlcc:response_parameter_28,
+        dmmlcc:response_parameter_29,
+        dmmlcc:response_parameter_30 ;
+    dcterms:description "Input Parameters" ;
+    dcterms:title "Input" .
+
+dmmlcc:AUTOARIMA_Service_Operation a dmmlcc:MLOperation ;
+    dmmlcc:hasInputParameters dmmlcc:AUTOARIMA_Service_InputParameters ;
+    dcterms:description "Operation performing the service" ;
+    mls:executes mls:AUTOARIMA_Implementation ;
+    mls:hasInput dmmlcc:AUTOARIMA_Service_Input ;
+    mls:hasOutput dmmlcc:AUTOARIMA_Service_Output .
+
+dmmlcc:AUTOARIMA_Service_Output a dmmlcc:MLServiceOutput ;
+    dcterms:description "Output of the service contains Model or ModelEvaluation or Data" ;
+    mls:Data dmmlcc:AUTOARIMA_Model ;
+    mls:ModelEvaluation dmmlcc:AUTOARIMA_ModelEvaluation .
+
+dmmlcc:MLAlgorithm_01 a mls:Algorithm ;
+    dmmlcc:ImplementationSource "R" ;
+    dmmlcc:functions "auto.arima" ;
+    dmmlcc:package "forecast" ;
+    dcterms:description "AUTOARIMA Algorithm in R" .
+
+dmmlcc:ParameterFormat_CVS_00 a dmmlcc:csv ;
+    dcterms:description "CSV Source file format" .
+
+dmmlcc:contains_dataset_01 a dmmlcc:contains ;
+    mls:Data dmmlcc:dataset_01 .
+
+dmmlcc:dataset_01 a mls:DataSet ;
+    dmmlcc:format dmmlcc:ParameterFormat_CVS_00 ;
+    dmmlcc:mandatory "true" ;
+    dmmlcc:storagebucket "dicits://" ;
+    dcterms:description "Dataset on which the service is applied" ;
+    dcterms:title "DataSet" .
+
+dmmlcc:response_parameter_01 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "true" ;
+    dcterms:description "A univariate time series" ;
+    dcterms:title "y" .
+
+dmmlcc:response_parameter_02 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NA" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Order of first-differencing. If missing, will choose a value based on KPSS test." ;
+    dcterms:title "d" .
+
+dmmlcc:response_parameter_03 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NA" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Order of seasonal-differencing. If missing, will choose a value based on OCSB test." ;
+    dcterms:title "D" .
+
+dmmlcc:response_parameter_04 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Maximum value of p" ;
+    dcterms:title "max__p" .
+
+dmmlcc:response_parameter_05 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Maximum value of q" ;
+    dcterms:title "max__q" .
+
+dmmlcc:response_parameter_06 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Maximum value of P" ;
+    dcterms:title "max__P" .
+
+dmmlcc:response_parameter_07 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Maximum value of Q" ;
+    dcterms:title "max__Q" .
+
+dmmlcc:response_parameter_08 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Maximum value of p+q+P+Q if model selection is not stepwise." ;
+    dcterms:title "max__order" .
+
+dmmlcc:response_parameter_09 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Maximum number of non-seasonal differences" ;
+    dcterms:title "max__d" .
+
+dmmlcc:response_parameter_10 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Maximum number of seasonal differences" ;
+    dcterms:title "max__D" .
+
+dmmlcc:response_parameter_11 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Starting value of p in stepwise procedure." ;
+    dcterms:title "start__p" .
+
+dmmlcc:response_parameter_12 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Starting value of q in stepwise procedure." ;
+    dcterms:title "start__q" .
+
+dmmlcc:response_parameter_13 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Starting value of P in stepwise procedure." ;
+    dcterms:title "start__P" .
+
+dmmlcc:response_parameter_14 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Starting value of Q in stepwise procedure." ;
+    dcterms:title "start__Q" .
+
+dmmlcc:response_parameter_15 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE, restricts search to stationary models." ;
+    dcterms:title "stationary" .
+
+dmmlcc:response_parameter_16 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If FALSE, restricts search to non-seasonal models." ;
+    dcterms:title "seasonal" .
+
+dmmlcc:response_parameter_17 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'" ;
+    dcterms:title "ic" .
+
+dmmlcc:response_parameter_18 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "TRUE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "if TRUE, will do stepwise selection (faster). Otherwise, it searches over all models. Non-stepwise selection can be very slow, especially for seasonal models." ;
+    dcterms:title "stepwise" .
+
+dmmlcc:response_parameter_19 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE, the list of ARIMA models considered will be reported." ;
+    dcterms:title "trace" .
+
+dmmlcc:response_parameter_20 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "TRUE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE, estimation is via conditional sums of squares andthe information criteria used for model selection are approximated. The final model is still computed using maximum likelihood estimation. Approximation should be used for long time series or a high seasonal period to avoid excessive computation times." ;
+    dcterms:title "approximation" .
+
+dmmlcc:response_parameter_21 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "An integer value indicating how many observations to use in model selection. The last truncate values of the series are used to select a model when truncate is not NULL and approximation=TRUE. All observations are used if either truncate=NULL or approximation=FALSE." ;
+    dcterms:title "truncate" .
+
+dmmlcc:response_parameter_22 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Optionally, a vector or matrix of external regressors, which must have the same number of rows as y." ;
+    dcterms:title "xreg" .
+
+dmmlcc:response_parameter_23 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Type of unit root test to use, 'kpss', 'adf' or 'pp'. " ;
+    dcterms:title "test" .
+
+dmmlcc:response_parameter_24 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "This determines which seasonal unit root test is used, 'ocsb' or 'ch' . " ;
+    dcterms:title "seasonal__test" .
+
+dmmlcc:response_parameter_25 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "TRUE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE, models with drift terms are considered." ;
+    dcterms:title "allowdrift" .
+
+dmmlcc:response_parameter_26 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "TRUE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE, models with a non-zero mean are considered." ;
+    dcterms:title "allowmean" .
+
+dmmlcc:response_parameter_27 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "NULL" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated." ;
+    dcterms:title "var_lambda" .
+
+dmmlcc:response_parameter_28 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "FALSE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities." ;
+    dcterms:title "biasadj" .
+
+dmmlcc:response_parameter_29 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "FALSE" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "If TRUE and stepwise = FALSE, then the specification search is done in parallel. This can give a significant speedup on mutlicore machines." ;
+    dcterms:title "parallel" .
+
+dmmlcc:response_parameter_30 a dmmlcc:MLServiceInputParameter ;
+    dmmlcc:defaultvalue "" ;
+    dmmlcc:mandatory "optional" ;
+    dcterms:description "Allows the user to specify the amount of parallel processes to be used if parallel = TRUE and stepwise = FALSE. If NULL, then the number of logical cores is automatically detected and all available cores are used." ;
+    dcterms:title "num__cores" .
+
+mls:AUTOARIMA_Implementation a mls:Implementation ;
+    dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+    dcterms:description "Implementation of AUTOARIMA Model" .
+

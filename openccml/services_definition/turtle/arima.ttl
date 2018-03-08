@@ -1,0 +1,171 @@
+@prefix ns0: <http://dicits.ugr.es/dmmlcc#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix ns2: <http://www.w3.org/ns/mls#> .
+@prefix dcterms: <http://purl.org/dc/terms/#> .
+
+
+<http://dicits.ugr.es/dmmlcc#ARIMA_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  ns0:hasAuthentication ns0:ARIMA_Service_Auth ;
+  ns0:hasOperation ns0:ARIMA_Service_Operation ;
+  dcterms:created "2017-05-28";
+  dcterms:creator "Esperanza Jimenez";
+  dcterms:description "Fit an ARIMA model to a univariate time series";
+  dcterms:modified "2017-06-05";
+  dcterms:publisher "DICITS_ML";
+  dcterms:title "ARIMA";
+  rdfs:comments "ARIMA (AutoRegressive Integrated Moving Average) models are, the most general class of models for forecasting a time series which can be made to be “stationary” by differencing (if necessary), perhaps in conjunction with nonlinear transformations such as logging or deflating (if necessary).".
+
+ns0:ARIMA_Service_Auth
+  a ns0:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None";
+  dcterms:description "The service requires authentication, and the type of authentication".
+
+ns0:ARIMA_Service_Operation
+  a ns0:MLOperation ;
+  ns0:hasInputParameters ns0:ARIMA_Service_InputParameters ;
+  dcterms:description "Operation performing the service";
+  ns2:executes ns2:ARIMA_Implementation ;
+  ns2:hasInput ns0:ARIMA_Service_Input ;
+  ns2:hasOutput ns0:ARIMA_Service_Output .
+
+ns0:ARIMA_Service_InputParameters
+  a ns0:MLServiceInputParameters ;
+  ns0:Parameters ns0:response_parameter_01, ns0:response_parameter_02, ns0:response_parameter_03, ns0:response_parameter_04, ns0:response_parameter_05, ns0:response_parameter_06, ns0:response_parameter_07, ns0:response_parameter_08, ns0:response_parameter_09, ns0:response_parameter_10, ns0:response_parameter_11, ns0:response_parameter_12 ;
+  dcterms:description "Input Parameters";
+  dcterms:title "Input".
+
+ns0:response_parameter_01
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "";
+  ns0:mandatory "true";
+  dcterms:description "A univariate time series";
+  dcterms:title "x".
+
+ns0:response_parameter_02
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "c(0L,0L,0L)";
+  ns0:mandatory "true";
+  dcterms:description "A specification of the non-seasonal part of the ARIMA model: the three integer components (p, d, q) are the AR order, the degree of differencing, and the MA order.";
+  dcterms:title "order".
+
+ns0:response_parameter_03
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "list(order = c(0L, 0L, 0L), period = NA)";
+  ns0:mandatory "optional";
+  dcterms:description "A specification of the seasonal part of the ARIMA model, plus the period (which defaults to frequency(x)). This should be a list with components order and period, but a specification of just a numeric vector of length 3 will be turned into a suitable list with the specification as the order.";
+  dcterms:title "seasonal".
+
+ns0:response_parameter_04
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "NULL";
+  ns0:mandatory "optional";
+  dcterms:description "Optional vector or matrix of external regressors, which must have the same number of rows as x.";
+  dcterms:title "xreg".
+
+ns0:response_parameter_05
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "TRUE";
+  ns0:mandatory "optional";
+  dcterms:description "It's a mean/intercept term. The default is TRUE for undifferenced series, and it is ignored for ARIMA models with differencing.";
+  dcterms:title "include__mean".
+
+ns0:response_parameter_06
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "TRUE";
+  ns0:mandatory "optional";
+  dcterms:description "logical; if true, the AR parameters are transformed to ensure that they remain in the region of stationarity. Not used for method = 'CSS'. For method = 'ML', it has been advantageous to set transform.pars = FALSE in some cases, see also fixed.";
+  dcterms:title "transform__pars".
+
+ns0:response_parameter_07
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "NULL";
+  ns0:mandatory "optional";
+  dcterms:description "Optional numeric vector of the same length as the total number of parameters. If supplied, only NA entries in fixed will be varied. transform.pars = TRUE will be overridden (with a warning) if any AR parameters are fixed. It may be wise to set transform.pars = FALSE when fixing MA parameters, especially near non-invertibility.";
+  dcterms:title "fixed".
+
+ns0:response_parameter_08
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "NULL";
+  ns0:mandatory "optional";
+  dcterms:description "Optional numeric vector of initial parameter values. Missing values will be filled in, by zeroes except for regression coefficients. Values already specified in fixed will be ignored.";
+  dcterms:title "init".
+
+ns0:response_parameter_09
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "CSS";
+  ns0:mandatory "optional";
+  dcterms:description "Fitting method: maximum likelihood or minimize conditional sum-of-squares. The default (unless there are missing values) is to use conditional-sum-of-squares to find starting values, then maximum likelihood.";
+  dcterms:title "method".
+
+ns0:response_parameter_10
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "BFGS";
+  ns0:mandatory "optional";
+  dcterms:description "The value passed as the method argument to optim.";
+  dcterms:title "optim__method".
+
+ns0:response_parameter_11
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "list()";
+  ns0:mandatory "optional";
+  dcterms:description "List of control parameters for optim.";
+  dcterms:title "optim__control".
+
+ns0:response_parameter_12
+  a ns0:MLServiceInputParameter ;
+  ns0:defaultvalue "1e6";
+  ns0:mandatory "optional";
+  dcterms:description "The prior variance (as a multiple of the innovations variance) for the past observations in a differenced model. Do not reduce this.";
+  dcterms:title "kappa".
+
+ns2:ARIMA_Implementation
+  a ns2:Implementation ;
+  ns0:implements ns0:MLAlgorithm_01 ;
+  dcterms:description "Implementation of ARIMA Model".
+
+ns0:MLAlgorithm_01
+  a ns2:Algorithm ;
+  ns0:ImplementationSource "R";
+  ns0:functions "arima";
+  ns0:package "core";
+  dcterms:description "ARIMA Algorithm in R".
+
+ns0:ARIMA_Service_Input
+  a ns0:MLServiceInput ;
+  ns0:contains ns0:contains_dataset_01 ;
+  dcterms:description "Input data contains Dataset or Feature/s";
+  dcterms:title "InputDataSet".
+
+ns0:contains_dataset_01 ns2:Data ns0:dataset_01 .
+ns0:dataset_01
+  ns0:format ns0:ParameterFormat_CVS_00 ;
+  ns0:mandatory "true";
+  ns0:storagebucket "dicits://";
+  dcterms:description "Dataset on which the service is applied";
+  dcterms:title "DataSet".
+
+ns0:ParameterFormat_CVS_00
+  a ns0:csv ;
+  dcterms:description "CSV Source file format".
+
+ns0:ARIMA_Service_Output
+  a ns0:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data";
+  ns2:Data ns0:ARIMA_Model ;
+  ns2:ModelEvaluation ns0:LinearRegression_ModelEvaluation .
+
+ns0:ARIMA_Model
+  a ns0:PMML_Model ;
+  ns0:storagebucket "dicits://models/";
+  dcterms:description "PMML model to represent mining models";
+  dcterms:title "PMML Model related".
+
+ns0:ARIMA_ModelEvaluation
+  a ns0:ModelEvaluation ;
+  ns0:storagebucket "dicits://modelevaluation/";
+  dcterms:description "Model Evaluation";
+  dcterms:title "Model evaluation".
+

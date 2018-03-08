@@ -1,0 +1,13 @@
+
+Call:
+svm(formula = species ~ ., data = dataset, na.action = na.omit)
+
+
+Parameters:
+   SVM-Type:  C-classification 
+ SVM-Kernel:  radial 
+       cost:  1 
+      gamma:  0.25 
+
+Number of Support Vectors:  51
+

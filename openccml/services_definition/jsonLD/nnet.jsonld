@@ -1,0 +1,179 @@
+{
+  "@context": {
+	"dmmlcc": "http://dicits.ugr.es/dmmlcc#",
+	"dcterms": "http://purl.org/dc/terms/#",
+    "foaf": "http://xmlns.com/foaf/0.1/#",
+    "gr": "http://purl.org/goodrelations/v1#",
+    "mls": "http://www.w3.org/ns/mls#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "waa": "http://purl.oclc.org/NET/WebAuthentication",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph":  [ 	 
+	 {
+		"@id": "dmmlcc:NNET_Service",
+		"@type": "dmmlcc:MLService",
+	 	"dcterms:description": "Fit Neural Networks." ,
+		"dcterms:creator":"Esperanza Jiménez",
+		"dcterms:created":"2017-10-26",
+		"dcterms:modified":"2017-11-06",
+		"dcterms:publisher":"DICITS_ML",
+		"dcterms:title":"NNET",
+		"rdfs:comments":"Fit single-hidden-layer neural network, possibly with skip-layer connections.",
+		"dmmlcc:hasAuthentication": {
+			"@id": "dmmlcc:NNET_Service_Auth",
+			"@type": "dmmlcc:MLServiceAuthentication",
+		 	"dcterms:description": "The service requires authentication, and the type of authentication",
+			"waa:requiresAuthentication":"None"
+		},
+		"dmmlcc:hasOperation": {
+			"@id": "dmmlcc:NNET_Service_Operation",
+			"@type": "dmmlcc:MLOperation",
+			"dcterms:description": "Operation performing the service",
+			"mls:hasInput":
+				{
+				"@id": "dmmlcc:NNET_Service_Input",
+				"@type": "dmmlcc:MLServiceInput",
+				"dcterms:title":"InputDataSet",
+				"dcterms:description": "Input data contains Dataset or Feature/s",
+				"dmmlcc:contains":{
+					"@id":"dmmlcc:contains_dataset_01",
+					"@type:":"dmmlcc:contains",
+					"mls:Data":[{
+							"@id":"dmmlcc:dataset_01",
+							"@type:":"mls:DataSet",
+							"dcterms:description": "Dataset on which the service is applied",
+							"dcterms:title": "DataSet",
+							"dmmlcc:format":
+								{
+									"@id":"dmmlcc:ParameterFormat_CVS_01",
+									"@type": "dmmlcc:csv",
+									"dcterms:description": "CSV Source file format"									
+								},
+							"dmmlcc:storagebucket":"dicits://",
+							"dmmlcc:mandatory":"true"
+							}
+						]
+					}
+			},
+			"dmmlcc:hasInputParameters":
+			{
+				"@id": "dmmlcc:NNET_Service_InputParameters",
+				"@type": "dmmlcc:MLServiceInputParameters",
+				"dcterms:description": "Input Parameters",
+				"dcterms:title": "Input",
+				"dmmlcc:Parameters":[
+					{
+						"@id":"dmmlcc:response_parameter_01",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "formula",
+						"dcterms:description": "A formula of the form class ~ x1 + x2 + ... ",
+						"dmmlcc:mandatory":"true",	
+						"dmmlcc:defaultvalue":" "					
+					},
+					{
+						"@id":"dmmlcc:response_parameter_02",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "data",
+						"dcterms:description": "Data frame from which variables specified in formula are preferentially to be taken.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":" "
+												
+					},
+					{
+						"@id":"dmmlcc:response_parameter_03",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "subset",
+						"dcterms:description": "An index vector specifying the cases to be used in the training sample.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":" "
+												
+					},
+					{
+						"@id":"dmmlcc:response_parameter_04",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "na__action",
+						"dcterms:description": "A function to specify the action to be taken if NAs are found. The default action is for the procedure to fail. An alternative is na.omit, which leads to rejection of cases with missing values on any required variable.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":"na.omit"
+												
+					},
+					{
+						"@id":"dmmlcc:response_parameter_05",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "size",
+						"dcterms:description": "Number of units in the hidden layer. Can be zero if there are skip-layer units. ",
+						"dmmlcc:mandatory":"true",
+						"dmmlcc:defaultvalue":" "
+												
+					},
+					{
+						"@id":"dmmlcc:response_parameter_06",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "rang",
+						"dcterms:description": "Initial random weights on [-rang, rang]. Value about 0.5 unless the inputs are large, in which case it should be chosen so that rang * max(|x|) is about 1. ",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":" "
+												
+					},
+					{
+						"@id":"dmmlcc:response_parameter_07",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "decay",
+						"dcterms:description": "Parameter for weight decay. Default 0.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":"0"				
+					},					
+					{
+						"@id":"dmmlcc:response_parameter_08",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "maxit",
+						"dcterms:description": "Maximum number of iterations. Default 100.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":"100"				
+					}
+				]			
+			}
+			,
+			"mls:hasOutput":{
+				"@id": "dmmlcc:NNET_Service_Output",
+				"@type": "dmmlcc:MLServiceOutput",
+				"dcterms:description": "Output of the service contains Model or ModelEvaluation or Data",
+				"mls:Model":{
+					"@id":"dmmlcc:NNET_Model",
+					"@type": "dmmlcc:PMML_Model",
+					"dcterms:title": "PMML Model related",
+					"dcterms:description": "PMML model to represent mining models",
+					"dmmlcc:storagebucket":"dicits://models/"
+				},
+				"mls:ModelEvaluation":{
+					"@id":"dmmlcc:NNET_ModelEvaluation",
+					"@type": "dmmlcc:ModelEvaluation",
+					"dcterms:title": "Model evaluation",
+					"dcterms:description": "Model Evaluation",
+					"dmmlcc:storagebucket":"dicits://modelevaluation/"
+				}
+			},
+			"mls:executes":{
+				"@id": "mls:NNET_Implementation",
+				"@type": "mls:Implementation",
+				"dcterms:description": "Implementation of NNET",
+				"dmmlcc:implements":[
+					{
+						"@id":"dmmlcc:MLAlgorithm_01",
+						"@type":"mls:Algorithm",
+						"dcterms:description": "NNET in R",
+						"dmmlcc:ImplementationSource":"R",
+						"dmmlcc:package":"nnet",
+						"dmmlcc:functions":["nnet"]
+					}
+				]
+			}
+		}
+		
+	 }
+  ]
+ }

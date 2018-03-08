@@ -1,0 +1,101 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+
+<http://dicits.ugr.es/dmmlcc#DTW_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:DTW_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:DTW_Service_Operation ;
+  dcterms:created "2017-07-26";
+  dcterms:creator "Esperanza Jiménez";
+  dcterms:description "Run the Dynamic Time Warping Algorithm on Two Trajectories ";
+  dcterms:modified "2017-08-23";
+  dcterms:publisher "DICITS_ML";
+  dcterms:title "DTW";
+  rdfs:comments "Compute Dynamic Time Warp and find optimal alignment between two time series.".
+
+dmmlcc:DTW_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None";
+  dcterms:description "The service requires authentication, and the type of authentication".
+
+dmmlcc:DTW_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:DTW_Service_InputParameters ;
+  dcterms:description "Operation performing the service";
+  mls:executes mls:DTW_Implementation ;
+  mls:hasInput dmmlcc:DTW_Service_Input ;
+  mls:hasOutput dmmlcc:DTW_Service_Output .
+
+dmmlcc:DTW_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01, dmmlcc:response_parameter_02 ;
+  dcterms:description "Input Parameters";
+  dcterms:title "Input".
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "true";
+  dcterms:description "Query vector or local cost matrix";
+  dcterms:title "x".
+
+dmmlcc:response_parameter_02
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "Reference vector, unused if x given as cost matrix";
+  dcterms:title "y".
+
+mls:DTW_Implementation
+  a mls:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterms:description "Implementation of Dynamic Time Warp, DTW".
+
+dmmlcc:MLAlgorithm_01
+  a mls:Algorithm ;
+  dmmlcc:ImplementationSource "R";
+  dmmlcc:functions "dtw";
+  dmmlcc:package "dtw";
+  dcterms:description "DTW Algorithm in R".
+
+dmmlcc:DTW_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_dataset_01 ;
+  dcterms:description "Input data contains Dataset or Feature/s";
+  dcterms:title "InputDataSet".
+
+dmmlcc:contains_dataset_01 mls:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_00 ;
+  dmmlcc:mandatory "true";
+  dmmlcc:storagebucket "dicits://";
+  dcterms:description "Dataset on which the service is applied";
+  dcterms:title "DataSet".
+
+dmmlcc:ParameterFormat_CVS_00
+  a dmmlcc:csv ;
+  dcterms:description "CSV Source file format".
+
+dmmlcc:DTW_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data";
+  mls:Data dmmlcc:DTW_Model ;
+  mls:ModelEvaluation dmmlcc:DTW_ModelEvaluation .
+
+dmmlcc:DTW_Model
+  a dmmlcc:PMML_Model ;
+  dmmlcc:storagebucket "dicits://models/";
+  dcterms:description "PMML model to represent mining models";
+  dcterms:title "PMML Model related".
+
+dmmlcc:DTW_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/";
+  dcterms:description "Model Evaluation";
+  dcterms:title "Model evaluation".

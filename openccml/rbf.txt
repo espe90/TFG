@@ -1,0 +1,22 @@
+Class: rbf->rsnns
+Number of inputs: 4 
+Number of outputs: 3 
+Maximal iterations: 200 
+Initialization function: RBF_Weights 
+Initialization function parameters: 0 1 0 0.02 0.04 
+Learning function: RadialBasisLearning 
+Learning function parameters: 1e-05 0 1e-05 0.1 0.8 
+Update function:Topological_Order
+Update function parameters: 0 
+Patterns are shuffled internally: TRUE 
+Compute error in every iteration: TRUE 
+Architecture Parameters:
+$size
+[1] 40
+
+All members of model:
+ [1] "nInputs"               "maxit"                 "initFunc"             
+ [4] "initFuncParams"        "learnFunc"             "learnFuncParams"      
+ [7] "updateFunc"            "updateFuncParams"      "shufflePatterns"      
+[10] "computeIterativeError" "snnsObject"            "archParams"           
+[13] "IterativeFitError"     "fitted.values"         "nOutputs"             

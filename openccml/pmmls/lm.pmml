@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_3" version="4.3">
+	<Header>
+		<Application name="JPMML-R" version="1.2.16"/>
+		<Timestamp>2018-01-11T13:07:19Z</Timestamp>
+	</Header>
+	<DataDictionary>
+		<DataField name="species" optype="continuous" dataType="string"/>
+		<DataField name="petal_width" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<RegressionModel functionName="regression">
+		<MiningSchema>
+			<MiningField name="species" usageType="target"/>
+			<MiningField name="petal_width"/>
+		</MiningSchema>
+		<RegressionTable intercept="0.7692840724716142">
+			<NumericPredictor name="petal_width" coefficient="1.0267374256354778"/>
+		</RegressionTable>
+	</RegressionModel>
+</PMML>

@@ -1,0 +1,6 @@
+
+	Jarque Bera Test
+
+data:  dataset
+X-squared = 1.0955, df = 2, p-value = 0.5782
+

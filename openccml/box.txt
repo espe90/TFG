@@ -1,0 +1,6 @@
+
+	Box-Pierce test
+
+data:  dataset
+X-squared = 0.91043, df = 1, p-value = 0.34
+

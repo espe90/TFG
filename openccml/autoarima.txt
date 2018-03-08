@@ -1,0 +1,10 @@
+Series: dataset 
+ARIMA(0,0,0) with non-zero mean 
+
+Coefficients:
+        mean
+      5.5000
+s.e.  0.9682
+
+sigma^2 estimated as 16:  log likelihood=-44.37
+AIC=92.73   AICc=93.66   BIC=94.28

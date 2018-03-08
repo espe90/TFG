@@ -1,0 +1,4 @@
+a 4-2-3 network with 19 weights
+inputs: sepal_length sepal_width petal_length petal_width 
+output(s): species 
+options were - softmax modelling  decay=5e-04

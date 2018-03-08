@@ -1,0 +1,96 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dcterms/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+<http://dicits.ugr.es/dmmlcc#PredictSVM_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:PredictSVM_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:PredictSVM_Service_Operation ;
+  dcterms:created "2017-11-26" ;
+  dcterms:creator "Esperanza Jiménez" ;
+  dcterms:description "Predict method for Support Vector Machines (SVM)" ;
+  dcterms:modified "2017-12-07" ;
+  dcterms:publisher "DICITS_ML" ;
+  dcterms:title "PredictSVM" ;
+  rdfs:comments "Prediction of test data using Support Vector Machines (SVM)." .
+
+dmmlcc:PredictSVM_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None" ;
+  dcterms:description "The service requires authentication, and the type of authentication" .
+
+dmmlcc:PredictSVM_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:PredictSVM_Service_InputParameters ;
+  dcterms:description "Operation performing the service" ;
+  mls:executes mls:PredictSVM_Implementation ;
+  mls:hasInput dmmlcc:PredictSVM_Service_Input ;
+  mls:hasOutput dmmlcc:PredictSVM_Service_Output .
+
+dmmlcc:PredictSVM_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01 ;
+  dcterms:description "Input Parameters" ;
+  dcterms:title "Input" .
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "" ;
+  dmmlcc:mandatory "true" ;
+  dcterms:description "Response variable and Formulae " ;
+  dcterms:title "formula" .
+
+mls:PredictSVM_Implementation
+  a mls:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterms:description "Implementation of Model Predictions" .
+
+dmmlcc:MLAlgorithm_01
+  a mls:Algorithm ;
+  dmmlcc:ImplementationSource "R" ;
+  dmmlcc:functions "predict" ;
+  dmmlcc:package "core" ;
+  dcterms:description "Prediction of test data using random forest in R" .
+
+dmmlcc:PredictSVM_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_dataset_01 ;
+  dcterms:description "Input data contains Dataset or Feature/s" ;
+  dcterms:title "InputDataSet" .
+
+dmmlcc:contains_dataset_01 mls:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_00 ;
+  dmmlcc:mandatory "true" ;
+  dmmlcc:storagebucket "dicits://" ;
+  dcterms:description "Dataset on which the service is applied" ;
+  dcterms:title "DataSet" .
+
+dmmlcc:ParameterFormat_CVS_00
+  a dmmlcc:csv ;
+  dcterms:description "CSV Source file format" .
+
+dmmlcc:PredictSVM_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data" ;
+  mls:Data dmmlcc:PredictSVM_Model ;
+  mls:ModelEvaluation dmmlcc:PredictSVM_ModelEvaluation .
+
+dmmlcc:PredictSVM_Model
+  a dmmlcc:PMML_Model ;
+  dmmlcc:storagebucket "dicits://models/" ;
+  dcterms:description "PMML model to represent mining models" ;
+  dcterms:title "PMML Model related" .
+
+dmmlcc:PredictSVM_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/" ;
+  dcterms:description "Model Evaluation" ;
+  dcterms:title "Model evaluation" .
+
