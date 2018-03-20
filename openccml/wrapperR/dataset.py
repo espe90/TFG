@@ -267,7 +267,15 @@ class Dataset():
 				self.checkHeader()		
 				self.mlpFunction()				
 				self.returnParsedParameters()
-	
+			if self.method == "rf_spark":
+				self.splitDatasetParameters('dataset')
+				self.checkDatasetExists()
+				self.checkReadPermission()
+				self.checkHeader()	
+				self.getParametersDataset('formula')	
+				self.rf_sparkFunction()				
+				self.returnParsedParameters()
+
 			self.outputPMML=self.setOutput()
 
 		except Exception:
@@ -400,6 +408,8 @@ class Dataset():
 		elif self.method == "rbf":
 			return os.path.splitext(self.dataset['ruta'])[0] + '.pmml'
 		elif self.method == "mlp":
+			return os.path.splitext(self.dataset['ruta'])[0] + '.pmml'
+		elif self.method == "rf_spark":
 			return os.path.splitext(self.dataset['ruta'])[0] + '.pmml'
 	'''
 		Devuelve el nombre del fichero de salida PMML
@@ -722,5 +732,12 @@ class Dataset():
 			('initFuncParams', 'optional', 'null'),
 			('learnFuncParams', 'optional', 'null'),
 			('linOut', 'optional', 'null')
+		]
+	def rf_sparkFunction(self):
+		campos = [
+			('formula', 'obligatory', 'not null'),
+			('x', 'obligatory', 'not null'),
+			('max_depth', 'optional', 'null'),
+			('num_trees', 'optional', 'null')
 		]
 

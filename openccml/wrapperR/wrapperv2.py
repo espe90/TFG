@@ -1,5 +1,5 @@
 # Copyright 2017 DiCITS UGR
-# Author: Manuel Parra, Ruben Castro
+# Author: Manuel Parra, Ruben Castro, Esperanza Jimenez
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -36,10 +36,10 @@ class core:
 	
 	def lm (self):
 		lm = ro.r("""
-			library("r2pmml")
+			
 			dataset = read.csv(file="{0}", header = TRUE, sep=',')
 	        	resultfit = lm({1}, data=dataset)
-	        	r2pmml(resultfit,file="/home/espe/openccml/pmmls/lm.pmml")
+	        	
 			saveRDS(resultfit, file ="/home/espe/openccml/models/lm.rds")
 			capture.output(resultfit, file ="lm.txt")	        	
 			print(resultfit)
@@ -420,8 +420,25 @@ class core:
 			print(resultfit)
 	""".format(self.parameter.dataset['ruta'], self.parameter.parameters, self.parameter.outputPMML))
 
-	
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv','formula': 'species~petal_width'}
+	def rf_spark(self):
+		rf_spark = ro.r("""
+			library(sparklyr)
+			library(dplyr)
+			sc <- spark_connect(master="local")
+			df <- spark_read_csv(sc,"table","{0}",overwrite=TRUE)
+			print(df)
+			model <- ml_random_forest(df,{1})
+			print(model)
+			saveRDS(model, file ="/root/TFG/openccml/models/rf_sparkR.rds")
+			capture.output(model, file ="rf_sparkR.txt")
+			spark_disconnect(sc)
+	""".format(self.parameter.dataset['ruta'], self.parameter.parameters, self.parameter.outputPMML))
+
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'species~petal_width'}
+#p = core(entrada, "rf_spark")
+#p.rf_spark()
+
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'Species~petal_width'}
 #p = core(entrada, "lm")
 #p.lm()
 
@@ -449,7 +466,7 @@ class core:
 #p = core(entrada, "svm")
 #p.svm()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/nottem.csv', 's__window': '"periodic"', 'robust': 'TRUE'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/nottem.csv', 's__window': '"periodic"', 'robust': 'TRUE'}
 #p = core(entrada, "stl")
 #p.stl()
 
