@@ -8,7 +8,7 @@ from os import path
 api_servername="http://localhost:8001"
 
 # Project Base Folder. Application code home
-project_base_folder = path.join('/home', 'espe', 'openccml')
+project_base_folder = path.join('/root', 'TFG', 'openccml')
 
 # Folder with the Services Definition in Turtle format
 turtle_folder = path.join(project_base_folder, 'services_definition', 'turtle')
