@@ -423,7 +423,6 @@ class core:
 	def rf_spark(self):
 		rf_spark = ro.r("""
 			library(sparklyr)
-			library(dplyr)
 			sc <- spark_connect(master="local")
 			df <- spark_read_csv(sc,"table","{0}",overwrite=TRUE)
 			print(df)
