@@ -1,0 +1,109 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterm: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<http://dicits.ugr.es/dmmlcc#MLPSparkSpark_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:MLPSpark_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:MLPSpark_Service_Operation ;
+  dcterm:created "2018-03-10";
+  dcterm:creator "Esperanza Jiménez";
+  dcterm:description "Creates and trains multilayer perceptron on a Spark DataFrame.";
+  dcterm:modified "2018-13-21";
+  dcterm:publisher "DICITS_ML";
+  dcterm:title "MLPSpark";
+  rdfs:comments " ".
+
+dmmlcc:MLPSpark_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None";
+  dcterm:description "The service requires authentication, and the type of authentication".
+
+dmmlcc:MLPSpark_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:MLPSpark_Service_InputParameters ;
+  dcterm:description "Operation performing the service";
+  mls:executes mls:MLPSpark_Implementation ;
+  mls:hasInput dmmlcc:MLPSpark_Service_Input ;
+  mls:hasOutput dmmlcc:MLPSpark_Service_Output .
+
+dmmlcc:MLPSpark_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01, dmmlcc:response_parameter_02, dmmlcc:response_parameter_03 ;
+  dcterm:description "Input Parameters";
+  dcterm:title "Input".
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "true";
+  dcterm:description "An object coercable to a Spark DataFrame (typically, a tbl_spark).";
+  dcterm:title "x".
+
+dmmlcc:response_parameter_02
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "true";
+  dcterm:description "The name of the response vector (as a length-one character vector), or a formula, giving a symbolic description of the model to be fitted.";
+  dcterm:title "response".
+
+dmmlcc:response_parameter_03
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "true";
+  dcterm:description "A numeric vector describing the layers -- each element in the vector gives the size of a layer. For example, c(4, 5, 2) would imply three layers, with an input (feature) layer of size 4, an intermediate layer of size 5, and an output (class) layer of size 2.";
+  dcterm:title "layers".
+
+mls:MLPSpark_Implementation
+  a mls:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterm:description "Implementation of MLPSpark".
+
+dmmlcc:MLAlgorithm_01
+  a mls:Algorithm ;
+  dmmlcc:ImplementationSource "SparkR";
+  dmmlcc:functions "ml_multilayer_perceptron";
+  dmmlcc:package "sparklyr";
+  dcterm:description "MLP in SparkR".
+
+dmmlcc:MLPSpark_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_dataset_01 ;
+  dcterm:description "Input data contains Dataset or Feature/s";
+  dcterm:title "InputDataSet".
+
+dmmlcc:contains_dataset_01 mls:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_01 ;
+  dmmlcc:mandatory "true";
+  dmmlcc:storagebucket "dicits://";
+  dcterm:description "Dataset on which the service is applied";
+  dcterm:title "DataSet".
+
+dmmlcc:ParameterFormat_CVS_01
+  a dmmlcc:csv ;
+  dcterm:description "CSV Source file format".
+
+dmmlcc:MLPSpark_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterm:description "Output of the service contains Model or ModelEvaluation or Data";
+  mls:Model dmmlcc:MLPSpark_Model ;
+  mls:ModelEvaluation dmmlcc:MLPSpark_ModelEvaluation .
+
+dmmlcc:MLPSpark_Model
+  a dmmlcc:PMML_Model ;
+  dmmlcc:storagebucket "dicits://models/";
+  dcterm:description "PMML model to represent mining models";
+  dcterm:title "PMML Model related".
+
+dmmlcc:MLPSpark_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/";
+  dcterm:description "Model Evaluation";
+  dcterm:title "Model evaluation".
+
