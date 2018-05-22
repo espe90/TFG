@@ -9,7 +9,7 @@ def execute(dataset, formula, na__action, subset, ntree, mtry, replace, classwt,
 
 
 def execute_post(dataset, formula, na__action, subset, ntree, mtry, replace, classwt, cutoff, strata, sampsize, nodesize, maxnodes, importance, localImp, nPerm, proximity, oob__prox, norm__votes, keep__forest, keep__inbag):
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/iris.csv'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/iris.csv'
     result = wrapperv2.core(locals(), "rf")
     result.rf()
     file = result.parameter.getOutput()

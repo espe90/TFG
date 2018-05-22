@@ -2,7 +2,7 @@ from wrapperR import wrapperv2
 from config.config import turtle_folder, jsonld_folder
 
 def execute(dataset,x,lag,var_type,fitdf): 
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/ts2.csv'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/ts2.csv'
     print(locals())
     result = wrapperv2.core(locals(), "box")
     result.box()
@@ -10,7 +10,7 @@ def execute(dataset,x,lag,var_type,fitdf):
 
 
 def execute_post(dataset,x,lag,var_type,fitdf):
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/ts2.csv'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/ts2.csv'
     result = wrapperv2.core(locals(), "box")
     result.box()
     file = result.parameter.getOutput()

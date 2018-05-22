@@ -3,14 +3,14 @@ from config.config import turtle_folder, jsonld_folder
 
 
 def execute(dataset, x, y, use, method):
-    locals()['dataset'] = '/home/espe/openccml/datasets/mtcars.csv'
+    locals()['dataset'] = '/root/TFG/openccml/datasets/mtcars.csv'
     print(locals())
     result = wrapperv2.core(locals(), "cor")
     result.cor()
     file = result.parameter.getOutput()
 
 def execute_post(dataset, x, y, use, method):
-    locals()['dataset'] = '/home/espe/openccml/dataset/mtcars.csv'
+    locals()['dataset'] = '/root/TFG/openccml/dataset/mtcars.csv'
     result = wrapperv2.core(locals(), "cor")
     result.cor()
     file = result.parameter.getOutput()

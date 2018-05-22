@@ -275,6 +275,30 @@ class Dataset():
 				self.getParametersDataset('formula')	
 				self.rf_sparkFunction()				
 				self.returnParsedParameters()
+			if self.method == "lr_spark":
+				self.splitDatasetParameters('dataset')
+				self.checkDatasetExists()
+				self.checkReadPermission()
+				self.checkHeader()	
+				self.getParametersDataset('formula')	
+				self.lr_sparkFunction()				
+				self.returnParsedParameters()
+			if self.method == "svc_spark":
+				self.splitDatasetParameters('dataset')
+				self.checkDatasetExists()
+				self.checkReadPermission()
+				self.checkHeader()	
+				self.getParametersDataset('formula')	
+				self.svc_sparkFunction()
+				self.returnParsedParameters()	
+			if self.method == "mlp_spark":
+				self.splitDatasetParameters('dataset')
+				self.checkDatasetExists()
+				self.checkReadPermission()
+				self.checkHeader()
+				self.getParametersDataset('formula')		
+				self.mlp_sparkFunction()
+				self.returnParsedParameters()		
 
 			self.outputPMML=self.setOutput()
 
@@ -410,6 +434,12 @@ class Dataset():
 		elif self.method == "mlp":
 			return os.path.splitext(self.dataset['ruta'])[0] + '.pmml'
 		elif self.method == "rf_spark":
+			return os.path.splitext(self.dataset['ruta'])[0] + '.pmml'
+		elif self.method == "lr_spark":
+			return os.path.splitext(self.dataset['ruta'])[0] + '.pmml'
+		elif self.method == "svc_spark":
+			return os.path.splitext(self.dataset['ruta'])[0] + '.pmml'
+		elif self.method == "mlp_spark":
 			return os.path.splitext(self.dataset['ruta'])[0] + '.pmml'
 	'''
 		Devuelve el nombre del fichero de salida PMML
@@ -723,6 +753,7 @@ class Dataset():
 			('learnFuncParams', 'optional', 'null'),
 			('linOut', 'optional', 'null')
 		]
+
 	def mlpFunction(self):
 		campos = [
 			('x', 'obligatory', 'not null'),
@@ -733,6 +764,7 @@ class Dataset():
 			('learnFuncParams', 'optional', 'null'),
 			('linOut', 'optional', 'null')
 		]
+
 	def rf_sparkFunction(self):
 		campos = [
 			('formula', 'obligatory', 'not null'),
@@ -741,3 +773,23 @@ class Dataset():
 			('num_trees', 'optional', 'null')
 		]
 
+	def lr_sparkFunction(self):
+		campos = [
+			('formula', 'obligatory', 'not null'),
+			('x', 'obligatory', 'not null'),
+			('max_iter', 'optional', 'null')
+		]
+
+	def svc_sparkFunction(self):
+		campos = [
+			('formula', 'obligatory', 'not null'),
+			('x', 'obligatory', 'not null'),
+			('max_iter', 'optional', 'null')
+		]
+
+	def mlp_sparkFunction(self):
+		campos = [
+			('x', 'obligatory', 'not null'),
+			('formula', 'obligatory', 'not null'),
+			('layers', 'optional', 'null')
+		]

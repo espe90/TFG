@@ -10,33 +10,9 @@
                 "parameters": [
                     {
                         "default": "TRUE",
-                        "description": "Should covariances be about the sample means?",
+                        "description": "Logical. If TRUE (the default) the resulting acf is plotted.",
                         "in": "query",
-                        "name": "demean",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "10\\u2217log10(N/m)",
-                        "description": "Maximum lag at which to calculate the acf. Default is 10\\u2217\\ log10(N/m) where N is the number of observations and m the number of series.\\ \\ Will be automatically limited to one less than the number of observations\\ \\ in the series.",
-                        "in": "query",
-                        "name": "lag__max",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "na.contiguous",
-                        "description": "Function to handle missing values. Default is na.contiguous. Useful alternatives are na.pass and na.interp.",
-                        "in": "query",
-                        "name": "na__action",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "A univariate or multivariate (not Ccf) numeric time series object or a numeric vector or matrix.",
-                        "in": "query",
-                        "name": "x",
+                        "name": "plot",
                         "required": true,
                         "type": "string"
                     },
@@ -49,10 +25,34 @@
                         "type": "string"
                     },
                     {
-                        "default": "TRUE",
-                        "description": "Logical. If TRUE (the default) the resulting acf is plotted.",
+                        "default": "na.contiguous",
+                        "description": "Function to handle missing values. Default is na.contiguous. Useful alternatives are na.pass and na.interp.",
                         "in": "query",
-                        "name": "plot",
+                        "name": "na__action",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "10\\u2217log10(N/m)",
+                        "description": "Maximum lag at which to calculate the acf. Default is 10\\u2217\\ log10(N/m) where N is the number of observations and m the number of series.\\ \\ Will be automatically limited to one less than the number of observations\\ \\ in the series.",
+                        "in": "query",
+                        "name": "lag__max",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "A univariate or multivariate (not Ccf) numeric time series object or a numeric vector or matrix.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "Should covariances be about the sample means?",
+                        "in": "query",
+                        "name": "demean",
                         "required": true,
                         "type": "string"
                     },
@@ -77,33 +77,9 @@
                 "parameters": [
                     {
                         "default": "TRUE",
-                        "description": "Should covariances be about the sample means?",
+                        "description": "Logical. If TRUE (the default) the resulting acf is plotted.",
                         "in": "query",
-                        "name": "demean",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "10\\u2217log10(N/m)",
-                        "description": "Maximum lag at which to calculate the acf. Default is 10\\u2217\\ log10(N/m) where N is the number of observations and m the number of series.\\ \\ Will be automatically limited to one less than the number of observations\\ \\ in the series.",
-                        "in": "query",
-                        "name": "lag__max",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "na.contiguous",
-                        "description": "Function to handle missing values. Default is na.contiguous. Useful alternatives are na.pass and na.interp.",
-                        "in": "query",
-                        "name": "na__action",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "A univariate or multivariate (not Ccf) numeric time series object or a numeric vector or matrix.",
-                        "in": "query",
-                        "name": "x",
+                        "name": "plot",
                         "required": true,
                         "type": "string"
                     },
@@ -116,10 +92,34 @@
                         "type": "string"
                     },
                     {
-                        "default": "TRUE",
-                        "description": "Logical. If TRUE (the default) the resulting acf is plotted.",
+                        "default": "na.contiguous",
+                        "description": "Function to handle missing values. Default is na.contiguous. Useful alternatives are na.pass and na.interp.",
                         "in": "query",
-                        "name": "plot",
+                        "name": "na__action",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "10\\u2217log10(N/m)",
+                        "description": "Maximum lag at which to calculate the acf. Default is 10\\u2217\\ log10(N/m) where N is the number of observations and m the number of series.\\ \\ Will be automatically limited to one less than the number of observations\\ \\ in the series.",
+                        "in": "query",
+                        "name": "lag__max",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "A univariate or multivariate (not Ccf) numeric time series object or a numeric vector or matrix.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "Should covariances be about the sample means?",
+                        "in": "query",
+                        "name": "demean",
                         "required": true,
                         "type": "string"
                     },
@@ -325,42 +325,26 @@
             "get": {
                 "parameters": [
                     {
-                        "default": "CSS",
-                        "description": "Fitting method: maximum likelihood or minimize conditional sum-of-squares. The default (unless there are missing values) is to use conditional-sum-of-squares to find starting values, then maximum likelihood.",
-                        "in": "query",
-                        "name": "method",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "list(order = c(0L, 0L, 0L), period = NA)",
-                        "description": "A specification of the seasonal part of the ARIMA model, plus the period (which defaults to frequency(x)). This should be a list with components order and period, but a specification of just a numeric vector of length 3 will be turned into a suitable list with the specification as the order.",
-                        "in": "query",
-                        "name": "seasonal",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Optional numeric vector of initial parameter values. Missing values will be filled in, by zeroes except for regression coefficients. Values already specified in fixed will be ignored.",
-                        "in": "query",
-                        "name": "init",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "BFGS",
-                        "description": "The value passed as the method argument to optim.",
-                        "in": "query",
-                        "name": "optim__method",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "TRUE",
                         "description": "It's a mean/intercept term. The default is TRUE for undifferenced series, and it is ignored for ARIMA models with differencing.",
                         "in": "query",
                         "name": "include__mean",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "c(0L,0L,0L)",
+                        "description": "A specification of the non-seasonal part of the ARIMA model: the three integer components (p, d, q) are the AR order, the degree of differencing, and the MA order.",
+                        "in": "query",
+                        "name": "order",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "A univariate time series",
+                        "in": "query",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
@@ -381,22 +365,6 @@
                         "type": "string"
                     },
                     {
-                        "default": "NULL",
-                        "description": "Optional vector or matrix of external regressors, which must have the same number of rows as x.",
-                        "in": "query",
-                        "name": "xreg",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "A univariate time series",
-                        "in": "query",
-                        "name": "x",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "list()",
                         "description": "List of control parameters for optim.",
                         "in": "query",
@@ -405,10 +373,34 @@
                         "type": "string"
                     },
                     {
-                        "default": "c(0L,0L,0L)",
-                        "description": "A specification of the non-seasonal part of the ARIMA model: the three integer components (p, d, q) are the AR order, the degree of differencing, and the MA order.",
+                        "default": "NULL",
+                        "description": "Optional numeric vector of initial parameter values. Missing values will be filled in, by zeroes except for regression coefficients. Values already specified in fixed will be ignored.",
                         "in": "query",
-                        "name": "order",
+                        "name": "init",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Optional vector or matrix of external regressors, which must have the same number of rows as x.",
+                        "in": "query",
+                        "name": "xreg",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "BFGS",
+                        "description": "The value passed as the method argument to optim.",
+                        "in": "query",
+                        "name": "optim__method",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "list(order = c(0L, 0L, 0L), period = NA)",
+                        "description": "A specification of the seasonal part of the ARIMA model, plus the period (which defaults to frequency(x)). This should be a list with components order and period, but a specification of just a numeric vector of length 3 will be turned into a suitable list with the specification as the order.",
+                        "in": "query",
+                        "name": "seasonal",
                         "required": true,
                         "type": "string"
                     },
@@ -421,7 +413,15 @@
                         "type": "string"
                     },
                     {
-                        "default": "TRUE",
+                        "default": "CSS",
+                        "description": "Fitting method: maximum likelihood or minimize conditional sum-of-squares. The default (unless there are missing values) is to use conditional-sum-of-squares to find starting values, then maximum likelihood.",
+                        "in": "query",
+                        "name": "method",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "CSS",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -440,42 +440,26 @@
             "post": {
                 "parameters": [
                     {
-                        "default": "CSS",
-                        "description": "Fitting method: maximum likelihood or minimize conditional sum-of-squares. The default (unless there are missing values) is to use conditional-sum-of-squares to find starting values, then maximum likelihood.",
-                        "in": "query",
-                        "name": "method",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "list(order = c(0L, 0L, 0L), period = NA)",
-                        "description": "A specification of the seasonal part of the ARIMA model, plus the period (which defaults to frequency(x)). This should be a list with components order and period, but a specification of just a numeric vector of length 3 will be turned into a suitable list with the specification as the order.",
-                        "in": "query",
-                        "name": "seasonal",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Optional numeric vector of initial parameter values. Missing values will be filled in, by zeroes except for regression coefficients. Values already specified in fixed will be ignored.",
-                        "in": "query",
-                        "name": "init",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "BFGS",
-                        "description": "The value passed as the method argument to optim.",
-                        "in": "query",
-                        "name": "optim__method",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "TRUE",
                         "description": "It's a mean/intercept term. The default is TRUE for undifferenced series, and it is ignored for ARIMA models with differencing.",
                         "in": "query",
                         "name": "include__mean",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "c(0L,0L,0L)",
+                        "description": "A specification of the non-seasonal part of the ARIMA model: the three integer components (p, d, q) are the AR order, the degree of differencing, and the MA order.",
+                        "in": "query",
+                        "name": "order",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "A univariate time series",
+                        "in": "query",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
@@ -496,22 +480,6 @@
                         "type": "string"
                     },
                     {
-                        "default": "NULL",
-                        "description": "Optional vector or matrix of external regressors, which must have the same number of rows as x.",
-                        "in": "query",
-                        "name": "xreg",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "A univariate time series",
-                        "in": "query",
-                        "name": "x",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "list()",
                         "description": "List of control parameters for optim.",
                         "in": "query",
@@ -520,10 +488,34 @@
                         "type": "string"
                     },
                     {
-                        "default": "c(0L,0L,0L)",
-                        "description": "A specification of the non-seasonal part of the ARIMA model: the three integer components (p, d, q) are the AR order, the degree of differencing, and the MA order.",
+                        "default": "NULL",
+                        "description": "Optional numeric vector of initial parameter values. Missing values will be filled in, by zeroes except for regression coefficients. Values already specified in fixed will be ignored.",
                         "in": "query",
-                        "name": "order",
+                        "name": "init",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Optional vector or matrix of external regressors, which must have the same number of rows as x.",
+                        "in": "query",
+                        "name": "xreg",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "BFGS",
+                        "description": "The value passed as the method argument to optim.",
+                        "in": "query",
+                        "name": "optim__method",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "list(order = c(0L, 0L, 0L), period = NA)",
+                        "description": "A specification of the seasonal part of the ARIMA model, plus the period (which defaults to frequency(x)). This should be a list with components order and period, but a specification of just a numeric vector of length 3 will be turned into a suitable list with the specification as the order.",
+                        "in": "query",
+                        "name": "seasonal",
                         "required": true,
                         "type": "string"
                     },
@@ -536,7 +528,15 @@
                         "type": "string"
                     },
                     {
-                        "default": "TRUE",
+                        "default": "CSS",
+                        "description": "Fitting method: maximum likelihood or minimize conditional sum-of-squares. The default (unless there are missing values) is to use conditional-sum-of-squares to find starting values, then maximum likelihood.",
+                        "in": "query",
+                        "name": "method",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "CSS",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -604,6 +604,14 @@
                 "parameters": [
                     {
                         "default": "",
+                        "description": "Maximum value of p",
+                        "in": "query",
+                        "name": "max__p",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
                         "description": "Maximum value of q",
                         "in": "query",
                         "name": "max__q",
@@ -612,81 +620,9 @@
                     },
                     {
                         "default": "",
-                        "description": "Starting value of Q in stepwise procedure.",
+                        "description": "Maximum number of seasonal differences",
                         "in": "query",
-                        "name": "start__Q",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Allows the user to specify the amount of parallel processes to be used if parallel = TRUE and stepwise = FALSE. If NULL, then the number of logical cores is automatically detected and all available cores are used.",
-                        "in": "query",
-                        "name": "num__cores",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "If TRUE, restricts search to stationary models.",
-                        "in": "query",
-                        "name": "stationary",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Type of unit root test to use, 'kpss', 'adf' or 'pp'.",
-                        "in": "query",
-                        "name": "test",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities.",
-                        "in": "query",
-                        "name": "biasadj",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "If TRUE and stepwise = FALSE, then the specification search is done in parallel. This can give a significant speedup on mutlicore machines.",
-                        "in": "query",
-                        "name": "parallel",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "If FALSE, restricts search to non-seasonal models.",
-                        "in": "query",
-                        "name": "seasonal",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Maximum value of p",
-                        "in": "query",
-                        "name": "max__p",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NA",
-                        "description": "Order of seasonal-differencing. If missing, will choose a value based on OCSB test.",
-                        "in": "query",
-                        "name": "D",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Maximum value of P",
-                        "in": "query",
-                        "name": "max__P",
+                        "name": "max__D",
                         "required": true,
                         "type": "string"
                     },
@@ -700,25 +636,9 @@
                     },
                     {
                         "default": "",
-                        "description": "Maximum number of non-seasonal differences",
+                        "description": "Starting value of P in stepwise procedure.",
                         "in": "query",
-                        "name": "max__d",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
-                        "description": "If TRUE, models with a non-zero mean are considered.",
-                        "in": "query",
-                        "name": "allowmean",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
-                        "description": "If TRUE, estimation is via conditional sums of squares andthe information criteria used for model selection are approximated. The final model is still computed using maximum likelihood estimation. Approximation should be used for long time series or a high seasonal period to avoid excessive computation times.",
-                        "in": "query",
-                        "name": "approximation",
+                        "name": "start__P",
                         "required": true,
                         "type": "string"
                     },
@@ -727,46 +647,6 @@
                         "description": "Maximum value of Q",
                         "in": "query",
                         "name": "max__Q",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated.",
-                        "in": "query",
-                        "name": "var_lambda",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "This determines which seasonal unit root test is used, 'ocsb'\\ \\ or 'ch' .",
-                        "in": "query",
-                        "name": "seasonal__test",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NA",
-                        "description": "Order of first-differencing. If missing, will choose a value based on KPSS test.",
-                        "in": "query",
-                        "name": "d",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Starting value of P in stepwise procedure.",
-                        "in": "query",
-                        "name": "start__P",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'",
-                        "in": "query",
-                        "name": "ic",
                         "required": true,
                         "type": "string"
                     },
@@ -780,9 +660,25 @@
                     },
                     {
                         "default": "",
-                        "description": "Starting value of p in stepwise procedure.",
+                        "description": "Maximum number of non-seasonal differences",
                         "in": "query",
-                        "name": "start__p",
+                        "name": "max__d",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Allows the user to specify the amount of parallel processes to be used if parallel = TRUE and stepwise = FALSE. If NULL, then the number of logical cores is automatically detected and all available cores are used.",
+                        "in": "query",
+                        "name": "num__cores",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "If FALSE, restricts search to non-seasonal models.",
+                        "in": "query",
+                        "name": "seasonal",
                         "required": true,
                         "type": "string"
                     },
@@ -791,6 +687,102 @@
                         "description": "An integer value indicating how many observations to use in model selection. The last truncate values of the series are used to select a model when truncate is not NULL and approximation=TRUE. All observations are used if either truncate=NULL or approximation=FALSE.",
                         "in": "query",
                         "name": "truncate",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "If TRUE, models with a non-zero mean are considered.",
+                        "in": "query",
+                        "name": "allowmean",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Starting value of Q in stepwise procedure.",
+                        "in": "query",
+                        "name": "start__Q",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'",
+                        "in": "query",
+                        "name": "ic",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Type of unit root test to use, 'kpss', 'adf' or 'pp'.",
+                        "in": "query",
+                        "name": "test",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "This determines which seasonal unit root test is used, 'ocsb'\\ \\ or 'ch' .",
+                        "in": "query",
+                        "name": "seasonal__test",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities.",
+                        "in": "query",
+                        "name": "biasadj",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Starting value of p in stepwise procedure.",
+                        "in": "query",
+                        "name": "start__p",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "If TRUE, models with drift terms are considered.",
+                        "in": "query",
+                        "name": "allowdrift",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "If TRUE and stepwise = FALSE, then the specification search is done in parallel. This can give a significant speedup on mutlicore machines.",
+                        "in": "query",
+                        "name": "parallel",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "If TRUE, restricts search to stationary models.",
+                        "in": "query",
+                        "name": "stationary",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NA",
+                        "description": "Order of first-differencing. If missing, will choose a value based on KPSS test.",
+                        "in": "query",
+                        "name": "d",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NA",
+                        "description": "Order of seasonal-differencing. If missing, will choose a value based on OCSB test.",
+                        "in": "query",
+                        "name": "D",
                         "required": true,
                         "type": "string"
                     },
@@ -812,25 +804,25 @@
                     },
                     {
                         "default": "",
-                        "description": "Maximum number of seasonal differences",
+                        "description": "Maximum value of P",
                         "in": "query",
-                        "name": "max__D",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "If TRUE, the list of ARIMA models considered will be reported.",
-                        "in": "query",
-                        "name": "trace",
+                        "name": "max__P",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": "TRUE",
-                        "description": "If TRUE, models with drift terms are considered.",
+                        "description": "If TRUE, estimation is via conditional sums of squares andthe information criteria used for model selection are approximated. The final model is still computed using maximum likelihood estimation. Approximation should be used for long time series or a high seasonal period to avoid excessive computation times.",
                         "in": "query",
-                        "name": "allowdrift",
+                        "name": "approximation",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated.",
+                        "in": "query",
+                        "name": "var_lambda",
                         "required": true,
                         "type": "string"
                     },
@@ -843,7 +835,15 @@
                         "type": "string"
                     },
                     {
-                        "default": "TRUE",
+                        "default": "",
+                        "description": "If TRUE, the list of ARIMA models considered will be reported.",
+                        "in": "query",
+                        "name": "trace",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -863,6 +863,14 @@
                 "parameters": [
                     {
                         "default": "",
+                        "description": "Maximum value of p",
+                        "in": "query",
+                        "name": "max__p",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
                         "description": "Maximum value of q",
                         "in": "query",
                         "name": "max__q",
@@ -871,81 +879,9 @@
                     },
                     {
                         "default": "",
-                        "description": "Starting value of Q in stepwise procedure.",
+                        "description": "Maximum number of seasonal differences",
                         "in": "query",
-                        "name": "start__Q",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Allows the user to specify the amount of parallel processes to be used if parallel = TRUE and stepwise = FALSE. If NULL, then the number of logical cores is automatically detected and all available cores are used.",
-                        "in": "query",
-                        "name": "num__cores",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "If TRUE, restricts search to stationary models.",
-                        "in": "query",
-                        "name": "stationary",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Type of unit root test to use, 'kpss', 'adf' or 'pp'.",
-                        "in": "query",
-                        "name": "test",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities.",
-                        "in": "query",
-                        "name": "biasadj",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "If TRUE and stepwise = FALSE, then the specification search is done in parallel. This can give a significant speedup on mutlicore machines.",
-                        "in": "query",
-                        "name": "parallel",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "If FALSE, restricts search to non-seasonal models.",
-                        "in": "query",
-                        "name": "seasonal",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Maximum value of p",
-                        "in": "query",
-                        "name": "max__p",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NA",
-                        "description": "Order of seasonal-differencing. If missing, will choose a value based on OCSB test.",
-                        "in": "query",
-                        "name": "D",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Maximum value of P",
-                        "in": "query",
-                        "name": "max__P",
+                        "name": "max__D",
                         "required": true,
                         "type": "string"
                     },
@@ -959,25 +895,9 @@
                     },
                     {
                         "default": "",
-                        "description": "Maximum number of non-seasonal differences",
+                        "description": "Starting value of P in stepwise procedure.",
                         "in": "query",
-                        "name": "max__d",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
-                        "description": "If TRUE, models with a non-zero mean are considered.",
-                        "in": "query",
-                        "name": "allowmean",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
-                        "description": "If TRUE, estimation is via conditional sums of squares andthe information criteria used for model selection are approximated. The final model is still computed using maximum likelihood estimation. Approximation should be used for long time series or a high seasonal period to avoid excessive computation times.",
-                        "in": "query",
-                        "name": "approximation",
+                        "name": "start__P",
                         "required": true,
                         "type": "string"
                     },
@@ -986,46 +906,6 @@
                         "description": "Maximum value of Q",
                         "in": "query",
                         "name": "max__Q",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated.",
-                        "in": "query",
-                        "name": "var_lambda",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "This determines which seasonal unit root test is used, 'ocsb'\\ \\ or 'ch' .",
-                        "in": "query",
-                        "name": "seasonal__test",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NA",
-                        "description": "Order of first-differencing. If missing, will choose a value based on KPSS test.",
-                        "in": "query",
-                        "name": "d",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Starting value of P in stepwise procedure.",
-                        "in": "query",
-                        "name": "start__P",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'",
-                        "in": "query",
-                        "name": "ic",
                         "required": true,
                         "type": "string"
                     },
@@ -1039,9 +919,25 @@
                     },
                     {
                         "default": "",
-                        "description": "Starting value of p in stepwise procedure.",
+                        "description": "Maximum number of non-seasonal differences",
                         "in": "query",
-                        "name": "start__p",
+                        "name": "max__d",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Allows the user to specify the amount of parallel processes to be used if parallel = TRUE and stepwise = FALSE. If NULL, then the number of logical cores is automatically detected and all available cores are used.",
+                        "in": "query",
+                        "name": "num__cores",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "If FALSE, restricts search to non-seasonal models.",
+                        "in": "query",
+                        "name": "seasonal",
                         "required": true,
                         "type": "string"
                     },
@@ -1050,6 +946,102 @@
                         "description": "An integer value indicating how many observations to use in model selection. The last truncate values of the series are used to select a model when truncate is not NULL and approximation=TRUE. All observations are used if either truncate=NULL or approximation=FALSE.",
                         "in": "query",
                         "name": "truncate",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "If TRUE, models with a non-zero mean are considered.",
+                        "in": "query",
+                        "name": "allowmean",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Starting value of Q in stepwise procedure.",
+                        "in": "query",
+                        "name": "start__Q",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'",
+                        "in": "query",
+                        "name": "ic",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Type of unit root test to use, 'kpss', 'adf' or 'pp'.",
+                        "in": "query",
+                        "name": "test",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "This determines which seasonal unit root test is used, 'ocsb'\\ \\ or 'ch' .",
+                        "in": "query",
+                        "name": "seasonal__test",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities.",
+                        "in": "query",
+                        "name": "biasadj",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Starting value of p in stepwise procedure.",
+                        "in": "query",
+                        "name": "start__p",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "If TRUE, models with drift terms are considered.",
+                        "in": "query",
+                        "name": "allowdrift",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "If TRUE and stepwise = FALSE, then the specification search is done in parallel. This can give a significant speedup on mutlicore machines.",
+                        "in": "query",
+                        "name": "parallel",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "If TRUE, restricts search to stationary models.",
+                        "in": "query",
+                        "name": "stationary",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NA",
+                        "description": "Order of first-differencing. If missing, will choose a value based on KPSS test.",
+                        "in": "query",
+                        "name": "d",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NA",
+                        "description": "Order of seasonal-differencing. If missing, will choose a value based on OCSB test.",
+                        "in": "query",
+                        "name": "D",
                         "required": true,
                         "type": "string"
                     },
@@ -1071,25 +1063,25 @@
                     },
                     {
                         "default": "",
-                        "description": "Maximum number of seasonal differences",
+                        "description": "Maximum value of P",
                         "in": "query",
-                        "name": "max__D",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "If TRUE, the list of ARIMA models considered will be reported.",
-                        "in": "query",
-                        "name": "trace",
+                        "name": "max__P",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": "TRUE",
-                        "description": "If TRUE, models with drift terms are considered.",
+                        "description": "If TRUE, estimation is via conditional sums of squares andthe information criteria used for model selection are approximated. The final model is still computed using maximum likelihood estimation. Approximation should be used for long time series or a high seasonal period to avoid excessive computation times.",
                         "in": "query",
-                        "name": "allowdrift",
+                        "name": "approximation",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated.",
+                        "in": "query",
+                        "name": "var_lambda",
                         "required": true,
                         "type": "string"
                     },
@@ -1102,7 +1094,15 @@
                         "type": "string"
                     },
                     {
-                        "default": "TRUE",
+                        "default": "",
+                        "description": "If TRUE, the list of ARIMA models considered will be reported.",
+                        "in": "query",
+                        "name": "trace",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -1169,18 +1169,10 @@
             "get": {
                 "parameters": [
                     {
-                        "default": "Ljung",
-                        "description": "Test to be performed: partial matching is used. Box (default) or Ljung.",
-                        "in": "query",
-                        "name": "var_type",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "",
-                        "description": "Number of degrees of freedom to be subtracted if x is a series of residuals.",
+                        "description": "The statistic will be based on lag autocorrelation coefficients.",
                         "in": "query",
-                        "name": "fitdf",
+                        "name": "lag",
                         "required": true,
                         "type": "string"
                     },
@@ -1194,14 +1186,22 @@
                     },
                     {
                         "default": "",
-                        "description": "The statistic will be based on lag autocorrelation coefficients.",
+                        "description": "Number of degrees of freedom to be subtracted if x is a series of residuals.",
                         "in": "query",
-                        "name": "lag",
+                        "name": "fitdf",
                         "required": true,
                         "type": "string"
                     },
                     {
-                        "default": "",
+                        "default": "Ljung",
+                        "description": "Test to be performed: partial matching is used. Box (default) or Ljung.",
+                        "in": "query",
+                        "name": "var_type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "Ljung",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -1220,18 +1220,10 @@
             "post": {
                 "parameters": [
                     {
-                        "default": "Ljung",
-                        "description": "Test to be performed: partial matching is used. Box (default) or Ljung.",
-                        "in": "query",
-                        "name": "var_type",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "",
-                        "description": "Number of degrees of freedom to be subtracted if x is a series of residuals.",
+                        "description": "The statistic will be based on lag autocorrelation coefficients.",
                         "in": "query",
-                        "name": "fitdf",
+                        "name": "lag",
                         "required": true,
                         "type": "string"
                     },
@@ -1245,14 +1237,22 @@
                     },
                     {
                         "default": "",
-                        "description": "The statistic will be based on lag autocorrelation coefficients.",
+                        "description": "Number of degrees of freedom to be subtracted if x is a series of residuals.",
                         "in": "query",
-                        "name": "lag",
+                        "name": "fitdf",
                         "required": true,
                         "type": "string"
                     },
                     {
-                        "default": "",
+                        "default": "Ljung",
+                        "description": "Test to be performed: partial matching is used. Box (default) or Ljung.",
+                        "in": "query",
+                        "name": "var_type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "Ljung",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -1333,10 +1333,10 @@
             "get": {
                 "parameters": [
                     {
-                        "default": "",
-                        "description": "A univariate numeric time series object or a numeric vector.",
+                        "default": "10\\u2217log10(N/m)",
+                        "description": "Maximum lag at which to calculate the Ccf. Default is 10\\u2217\\ log10(N/m) where N is the number of observations and m the number of series.\\ \\ Will be automatically limited to one less than the number of observations\\ \\ in the series.",
                         "in": "query",
-                        "name": "x",
+                        "name": "lag__max",
                         "required": true,
                         "type": "string"
                     },
@@ -1349,18 +1349,26 @@
                         "type": "string"
                     },
                     {
-                        "default": "10\\u2217log10(N/m)",
-                        "description": "Maximum lag at which to calculate the Ccf. Default is 10\\u2217\\ log10(N/m) where N is the number of observations and m the number of series.\\ \\ Will be automatically limited to one less than the number of observations\\ \\ in the series.",
+                        "default": "TRUE",
+                        "description": "Should covariances be about the sample means?",
                         "in": "query",
-                        "name": "lag__max",
+                        "name": "demean",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "A univariate numeric time series object or a numeric vector.",
+                        "in": "query",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": "TRUE",
-                        "description": "Should covariances be about the sample means?",
+                        "description": "Logical. If TRUE (the default) the resulting Ccf is plotted.",
                         "in": "query",
-                        "name": "demean",
+                        "name": "plot",
                         "required": true,
                         "type": "string"
                     },
@@ -1381,15 +1389,7 @@
                         "type": "string"
                     },
                     {
-                        "default": "TRUE",
-                        "description": "Logical. If TRUE (the default) the resulting Ccf is plotted.",
-                        "in": "query",
-                        "name": "plot",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
+                        "default": "10\\u2217log10(N/m)",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -1408,10 +1408,10 @@
             "post": {
                 "parameters": [
                     {
-                        "default": "",
-                        "description": "A univariate numeric time series object or a numeric vector.",
+                        "default": "10\\u2217log10(N/m)",
+                        "description": "Maximum lag at which to calculate the Ccf. Default is 10\\u2217\\ log10(N/m) where N is the number of observations and m the number of series.\\ \\ Will be automatically limited to one less than the number of observations\\ \\ in the series.",
                         "in": "query",
-                        "name": "x",
+                        "name": "lag__max",
                         "required": true,
                         "type": "string"
                     },
@@ -1424,18 +1424,26 @@
                         "type": "string"
                     },
                     {
-                        "default": "10\\u2217log10(N/m)",
-                        "description": "Maximum lag at which to calculate the Ccf. Default is 10\\u2217\\ log10(N/m) where N is the number of observations and m the number of series.\\ \\ Will be automatically limited to one less than the number of observations\\ \\ in the series.",
+                        "default": "TRUE",
+                        "description": "Should covariances be about the sample means?",
                         "in": "query",
-                        "name": "lag__max",
+                        "name": "demean",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "A univariate numeric time series object or a numeric vector.",
+                        "in": "query",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": "TRUE",
-                        "description": "Should covariances be about the sample means?",
+                        "description": "Logical. If TRUE (the default) the resulting Ccf is plotted.",
                         "in": "query",
-                        "name": "demean",
+                        "name": "plot",
                         "required": true,
                         "type": "string"
                     },
@@ -1456,15 +1464,7 @@
                         "type": "string"
                     },
                     {
-                        "default": "TRUE",
-                        "description": "Logical. If TRUE (the default) the resulting Ccf is plotted.",
-                        "in": "query",
-                        "name": "plot",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
+                        "default": "10\\u2217log10(N/m)",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -1539,6 +1539,14 @@
                         "type": "string"
                     },
                     {
+                        "default": "",
+                        "description": "a numeric vector, matrix or data frame.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "default": "everything",
                         "description": "An optional character string giving a method for computing covariances in the presence of missing values. This must be (an abbreviation of) one of the strings 'everything', 'all.obs', 'complete.obs', 'na.or.complete', or 'pairwise.complete.obs'.",
                         "in": "query",
@@ -1555,15 +1563,7 @@
                         "type": "string"
                     },
                     {
-                        "default": "",
-                        "description": "a numeric vector, matrix or data frame.",
-                        "in": "query",
-                        "name": "x",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
+                        "default": "null",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -1590,6 +1590,14 @@
                         "type": "string"
                     },
                     {
+                        "default": "",
+                        "description": "a numeric vector, matrix or data frame.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "default": "everything",
                         "description": "An optional character string giving a method for computing covariances in the presence of missing values. This must be (an abbreviation of) one of the strings 'everything', 'all.obs', 'complete.obs', 'na.or.complete', or 'pairwise.complete.obs'.",
                         "in": "query",
@@ -1606,15 +1614,7 @@
                         "type": "string"
                     },
                     {
-                        "default": "",
-                        "description": "a numeric vector, matrix or data frame.",
-                        "in": "query",
-                        "name": "x",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
+                        "default": "null",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -1682,17 +1682,17 @@
                 "parameters": [
                     {
                         "default": "",
-                        "description": "Reference vector, unused if x given as cost matrix",
+                        "description": "Query vector or local cost matrix",
                         "in": "query",
-                        "name": "y",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": "",
-                        "description": "Query vector or local cost matrix",
+                        "description": "Reference vector, unused if x given as cost matrix",
                         "in": "query",
-                        "name": "x",
+                        "name": "y",
                         "required": true,
                         "type": "string"
                     },
@@ -1717,17 +1717,17 @@
                 "parameters": [
                     {
                         "default": "",
-                        "description": "Reference vector, unused if x given as cost matrix",
+                        "description": "Query vector or local cost matrix",
                         "in": "query",
-                        "name": "y",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": "",
-                        "description": "Query vector or local cost matrix",
+                        "description": "Reference vector, unused if x given as cost matrix",
                         "in": "query",
-                        "name": "x",
+                        "name": "y",
                         "required": true,
                         "type": "string"
                     },
@@ -1799,58 +1799,10 @@
             "get": {
                 "parameters": [
                     {
-                        "default": "NULL",
-                        "description": "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated.",
+                        "default": "both",
+                        "description": "Type of parameter space to impose, 'usual' indicates all parameters must lie between specified lower and upper bounds, 'admissible' indicates parameters must lie in the admissible space, 'both' (default) takes the intersection of these regions.",
                         "in": "query",
-                        "name": "var_lambda",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "ZZZ",
-                        "description": "Usually a three-character string identifying method using the framework terminology of Hyndman et al. (2002) and Hyndman et al. (2008). The first letter denotes the error type ('A', 'M' or 'Z'); the second letter denotes the trend type ('N','A','M' or 'Z'); and the third letter denotes the season type ('N','A','M' or 'Z'). In all cases, 'N'=none, 'A'=additive, 'M'=multiplicative and 'Z'=automatically selected.",
-                        "in": "query",
-                        "name": "model",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Value of beta. If NULL, it is estimated",
-                        "in": "query",
-                        "name": "beta",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "If TRUE, will only consider additive models. Default is FALSE.",
-                        "in": "query",
-                        "name": "additive__only",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
-                        "description": "If TRUE (default), the models with infinite variance will not be allowed.",
-                        "in": "query",
-                        "name": "restrict",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Lower bounds for the parameters (alpha, beta, gamma, phi)",
-                        "in": "query",
-                        "name": "lower",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "If TRUE, use a damped trend (either additive or multiplicative). If NULL, both damped and non-damped trends will be tried and the best model (according to the information criterion ic) returned.",
-                        "in": "query",
-                        "name": "damped",
+                        "name": "bounds",
                         "required": true,
                         "type": "string"
                     },
@@ -1863,42 +1815,10 @@
                         "type": "string"
                     },
                     {
-                        "default": "",
-                        "description": "Upper bounds for the parameters (alpha, beta, gamma, phi)",
-                        "in": "query",
-                        "name": "upper",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "NULL",
-                        "description": "Value of gamma. If NULL, it is estimated",
+                        "description": "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated.",
                         "in": "query",
-                        "name": "gamma",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities.",
-                        "in": "query",
-                        "name": "biasadj",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "lik",
-                        "description": "Optimization criterion. One of 'mse' (Mean Square Error), 'amse' (Average MSE over first nmse forecast horizons), 'sigma' (Standard deviation of residuals), 'mae' (Mean of absolute residuals), or 'lik' (Log-likelihood, the default).",
-                        "in": "query",
-                        "name": "opt__crit",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Value of phi. If NULL, it is estimated",
-                        "in": "query",
-                        "name": "phi",
+                        "name": "var_lambda",
                         "required": true,
                         "type": "string"
                     },
@@ -1911,26 +1831,10 @@
                         "type": "string"
                     },
                     {
-                        "default": "both",
-                        "description": "Type of parameter space to impose, 'usual' indicates all parameters must lie between specified lower and upper bounds, 'admissible' indicates parameters must lie in the admissible space, 'both' (default) takes the intersection of these regions.",
-                        "in": "query",
-                        "name": "bounds",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "",
-                        "description": "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'",
+                        "description": "Upper bounds for the parameters (alpha, beta, gamma, phi)",
                         "in": "query",
-                        "name": "ic",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "a numeric vector or time series",
-                        "in": "query",
-                        "name": "y",
+                        "name": "upper",
                         "required": true,
                         "type": "string"
                     },
@@ -1952,6 +1856,102 @@
                     },
                     {
                         "default": "NULL",
+                        "description": "Value of gamma. If NULL, it is estimated",
+                        "in": "query",
+                        "name": "gamma",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "a numeric vector or time series",
+                        "in": "query",
+                        "name": "y",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Lower bounds for the parameters (alpha, beta, gamma, phi)",
+                        "in": "query",
+                        "name": "lower",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Value of beta. If NULL, it is estimated",
+                        "in": "query",
+                        "name": "beta",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'",
+                        "in": "query",
+                        "name": "ic",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "If TRUE (default), the models with infinite variance will not be allowed.",
+                        "in": "query",
+                        "name": "restrict",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Value of phi. If NULL, it is estimated",
+                        "in": "query",
+                        "name": "phi",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "lik",
+                        "description": "Optimization criterion. One of 'mse' (Mean Square Error), 'amse' (Average MSE over first nmse forecast horizons), 'sigma' (Standard deviation of residuals), 'mae' (Mean of absolute residuals), or 'lik' (Log-likelihood, the default).",
+                        "in": "query",
+                        "name": "opt__crit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "If TRUE, will only consider additive models. Default is FALSE.",
+                        "in": "query",
+                        "name": "additive__only",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "If TRUE, use a damped trend (either additive or multiplicative). If NULL, both damped and non-damped trends will be tried and the best model (according to the information criterion ic) returned.",
+                        "in": "query",
+                        "name": "damped",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "ZZZ",
+                        "description": "Usually a three-character string identifying method using the framework terminology of Hyndman et al. (2002) and Hyndman et al. (2008). The first letter denotes the error type ('A', 'M' or 'Z'); the second letter denotes the trend type ('N','A','M' or 'Z'); and the third letter denotes the season type ('N','A','M' or 'Z'). In all cases, 'N'=none, 'A'=additive, 'M'=multiplicative and 'Z'=automatically selected.",
+                        "in": "query",
+                        "name": "model",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities.",
+                        "in": "query",
+                        "name": "biasadj",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -1970,58 +1970,10 @@
             "post": {
                 "parameters": [
                     {
-                        "default": "NULL",
-                        "description": "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated.",
+                        "default": "both",
+                        "description": "Type of parameter space to impose, 'usual' indicates all parameters must lie between specified lower and upper bounds, 'admissible' indicates parameters must lie in the admissible space, 'both' (default) takes the intersection of these regions.",
                         "in": "query",
-                        "name": "var_lambda",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "ZZZ",
-                        "description": "Usually a three-character string identifying method using the framework terminology of Hyndman et al. (2002) and Hyndman et al. (2008). The first letter denotes the error type ('A', 'M' or 'Z'); the second letter denotes the trend type ('N','A','M' or 'Z'); and the third letter denotes the season type ('N','A','M' or 'Z'). In all cases, 'N'=none, 'A'=additive, 'M'=multiplicative and 'Z'=automatically selected.",
-                        "in": "query",
-                        "name": "model",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Value of beta. If NULL, it is estimated",
-                        "in": "query",
-                        "name": "beta",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "If TRUE, will only consider additive models. Default is FALSE.",
-                        "in": "query",
-                        "name": "additive__only",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
-                        "description": "If TRUE (default), the models with infinite variance will not be allowed.",
-                        "in": "query",
-                        "name": "restrict",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Lower bounds for the parameters (alpha, beta, gamma, phi)",
-                        "in": "query",
-                        "name": "lower",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "If TRUE, use a damped trend (either additive or multiplicative). If NULL, both damped and non-damped trends will be tried and the best model (according to the information criterion ic) returned.",
-                        "in": "query",
-                        "name": "damped",
+                        "name": "bounds",
                         "required": true,
                         "type": "string"
                     },
@@ -2034,42 +1986,10 @@
                         "type": "string"
                     },
                     {
-                        "default": "",
-                        "description": "Upper bounds for the parameters (alpha, beta, gamma, phi)",
-                        "in": "query",
-                        "name": "upper",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "NULL",
-                        "description": "Value of gamma. If NULL, it is estimated",
+                        "description": "Box-Cox transformation parameter. Ignored if NULL. Otherwise, data transformed before model is estimated.",
                         "in": "query",
-                        "name": "gamma",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities.",
-                        "in": "query",
-                        "name": "biasadj",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "lik",
-                        "description": "Optimization criterion. One of 'mse' (Mean Square Error), 'amse' (Average MSE over first nmse forecast horizons), 'sigma' (Standard deviation of residuals), 'mae' (Mean of absolute residuals), or 'lik' (Log-likelihood, the default).",
-                        "in": "query",
-                        "name": "opt__crit",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Value of phi. If NULL, it is estimated",
-                        "in": "query",
-                        "name": "phi",
+                        "name": "var_lambda",
                         "required": true,
                         "type": "string"
                     },
@@ -2082,26 +2002,10 @@
                         "type": "string"
                     },
                     {
-                        "default": "both",
-                        "description": "Type of parameter space to impose, 'usual' indicates all parameters must lie between specified lower and upper bounds, 'admissible' indicates parameters must lie in the admissible space, 'both' (default) takes the intersection of these regions.",
-                        "in": "query",
-                        "name": "bounds",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "",
-                        "description": "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'",
+                        "description": "Upper bounds for the parameters (alpha, beta, gamma, phi)",
                         "in": "query",
-                        "name": "ic",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "a numeric vector or time series",
-                        "in": "query",
-                        "name": "y",
+                        "name": "upper",
                         "required": true,
                         "type": "string"
                     },
@@ -2123,6 +2027,102 @@
                     },
                     {
                         "default": "NULL",
+                        "description": "Value of gamma. If NULL, it is estimated",
+                        "in": "query",
+                        "name": "gamma",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "a numeric vector or time series",
+                        "in": "query",
+                        "name": "y",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Lower bounds for the parameters (alpha, beta, gamma, phi)",
+                        "in": "query",
+                        "name": "lower",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Value of beta. If NULL, it is estimated",
+                        "in": "query",
+                        "name": "beta",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Information criterion to be used in model selection, 'aicc', 'aic', 'bic'",
+                        "in": "query",
+                        "name": "ic",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "If TRUE (default), the models with infinite variance will not be allowed.",
+                        "in": "query",
+                        "name": "restrict",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Value of phi. If NULL, it is estimated",
+                        "in": "query",
+                        "name": "phi",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "lik",
+                        "description": "Optimization criterion. One of 'mse' (Mean Square Error), 'amse' (Average MSE over first nmse forecast horizons), 'sigma' (Standard deviation of residuals), 'mae' (Mean of absolute residuals), or 'lik' (Log-likelihood, the default).",
+                        "in": "query",
+                        "name": "opt__crit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "If TRUE, will only consider additive models. Default is FALSE.",
+                        "in": "query",
+                        "name": "additive__only",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "If TRUE, use a damped trend (either additive or multiplicative). If NULL, both damped and non-damped trends will be tried and the best model (according to the information criterion ic) returned.",
+                        "in": "query",
+                        "name": "damped",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "ZZZ",
+                        "description": "Usually a three-character string identifying method using the framework terminology of Hyndman et al. (2002) and Hyndman et al. (2008). The first letter denotes the error type ('A', 'M' or 'Z'); the second letter denotes the trend type ('N','A','M' or 'Z'); and the third letter denotes the season type ('N','A','M' or 'Z'). In all cases, 'N'=none, 'A'=additive, 'M'=multiplicative and 'Z'=automatically selected.",
+                        "in": "query",
+                        "name": "model",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Use adjusted back-transformed mean for Box-Cox transformations. If TRUE, point forecasts and fitted values are mean forecast. Otherwise, these points can be considered the median of the forecast densities.",
+                        "in": "query",
+                        "name": "biasadj",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -2291,10 +2291,10 @@
             "get": {
                 "parameters": [
                     {
-                        "default": "",
-                        "description": "Response variable and Formulae ",
+                        "default": "NULL",
+                        "description": "Optional vector of weights to be used in the fitting process. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used",
                         "in": "query",
-                        "name": "formula",
+                        "name": "weights",
                         "required": true,
                         "type": "string"
                     },
@@ -2308,14 +2308,6 @@
                     },
                     {
                         "default": "NULL",
-                        "description": "Optional vector of weights to be used in the fitting process. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used",
-                        "in": "query",
-                        "name": "weights",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
                         "description": "Optional vector specifying a subset of observations to be used in the fitting process",
                         "in": "query",
                         "name": "subset",
@@ -2323,7 +2315,15 @@
                         "type": "string"
                     },
                     {
-                        "default": "NULL",
+                        "default": "",
+                        "description": "Response variable and Formulae ",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -2342,10 +2342,10 @@
             "post": {
                 "parameters": [
                     {
-                        "default": "",
-                        "description": "Response variable and Formulae ",
+                        "default": "NULL",
+                        "description": "Optional vector of weights to be used in the fitting process. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used",
                         "in": "query",
-                        "name": "formula",
+                        "name": "weights",
                         "required": true,
                         "type": "string"
                     },
@@ -2359,14 +2359,6 @@
                     },
                     {
                         "default": "NULL",
-                        "description": "Optional vector of weights to be used in the fitting process. If non-NULL, weighted least squares is used with weights weights (that is, minimizing sum(w*e^2)); otherwise ordinary least squares is used",
-                        "in": "query",
-                        "name": "weights",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
                         "description": "Optional vector specifying a subset of observations to be used in the fitting process",
                         "in": "query",
                         "name": "subset",
@@ -2374,7 +2366,15 @@
                         "type": "string"
                     },
                     {
-                        "default": "NULL",
+                        "default": "",
+                        "description": "Response variable and Formulae ",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -2437,22 +2437,156 @@
                 "type": "string"
             }
         },
+        "/lr_spark": {
+            "get": {
+                "parameters": [
+                    {
+                        "default": "",
+                        "description": "A spark_connection, ml_pipeline, or a tbl_spark.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "As a character string or a formula.",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "The maximum number of iterations to use.",
+                        "in": "query",
+                        "name": "max_iter",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Dataset on which the service is applied",
+                        "in": "query",
+                        "name": "dataset",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Perform regression using linear regression.",
+                "type": "string"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "default": "",
+                        "description": "A spark_connection, ml_pipeline, or a tbl_spark.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "As a character string or a formula.",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "The maximum number of iterations to use.",
+                        "in": "query",
+                        "name": "max_iter",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Dataset on which the service is applied",
+                        "in": "query",
+                        "name": "dataset",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Perform regression using linear regression.",
+                "type": "string"
+            }
+        },
+        "/lr_spark/download": {
+            "get": {
+                "parameters": [
+                    {
+                        "default": "ttl",
+                        "description": "asdasd",
+                        "in": "query",
+                        "name": "file_format",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/binary"
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Returns the service definition in the specified format.",
+                "type": "string"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "default": "ttl",
+                        "description": "asdasd",
+                        "in": "query",
+                        "name": "file_format",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/binary"
+                ],
+                "response": {
+                    "200": {
+                        "description": "The Turtle file."
+                    }
+                },
+                "summary": "Returns the service definition in the specified format.",
+                "type": "string"
+            }
+        },
         "/mlp": {
             "get": {
                 "parameters": [
                     {
                         "default": " ",
-                        "description": "the parameters for the learning function.",
+                        "description": "sets the activation function of the output units to linear or logistic.",
                         "in": "query",
-                        "name": "learnFuncParams",
+                        "name": "linOut",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": " ",
-                        "description": "sets the activation function of the output units to linear or logistic.",
+                        "description": "a matrix with training inputs for the network.",
                         "in": "query",
-                        "name": "linOut",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
@@ -2466,14 +2600,6 @@
                     },
                     {
                         "default": " ",
-                        "description": "the parameters for the initialization function.",
-                        "in": "query",
-                        "name": "initFuncParams",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
                         "description": "maximum of iterations to learn. ",
                         "in": "query",
                         "name": "maxit",
@@ -2482,9 +2608,17 @@
                     },
                     {
                         "default": " ",
-                        "description": "a matrix with training inputs for the network.",
+                        "description": "the parameters for the initialization function.",
                         "in": "query",
-                        "name": "x",
+                        "name": "initFuncParams",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "the parameters for the learning function.",
+                        "in": "query",
+                        "name": "learnFuncParams",
                         "required": true,
                         "type": "string"
                     },
@@ -2517,17 +2651,17 @@
                 "parameters": [
                     {
                         "default": " ",
-                        "description": "the parameters for the learning function.",
+                        "description": "sets the activation function of the output units to linear or logistic.",
                         "in": "query",
-                        "name": "learnFuncParams",
+                        "name": "linOut",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": " ",
-                        "description": "sets the activation function of the output units to linear or logistic.",
+                        "description": "a matrix with training inputs for the network.",
                         "in": "query",
-                        "name": "linOut",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
@@ -2541,14 +2675,6 @@
                     },
                     {
                         "default": " ",
-                        "description": "the parameters for the initialization function.",
-                        "in": "query",
-                        "name": "initFuncParams",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
                         "description": "maximum of iterations to learn. ",
                         "in": "query",
                         "name": "maxit",
@@ -2557,9 +2683,17 @@
                     },
                     {
                         "default": " ",
-                        "description": "a matrix with training inputs for the network.",
+                        "description": "the parameters for the initialization function.",
                         "in": "query",
-                        "name": "x",
+                        "name": "initFuncParams",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "the parameters for the learning function.",
+                        "in": "query",
+                        "name": "learnFuncParams",
                         "required": true,
                         "type": "string"
                     },
@@ -2635,17 +2769,143 @@
                 "type": "string"
             }
         },
-        "/neuralnet": {
+        "/mlp_spark": {
             "get": {
                 "parameters": [
                     {
-                        "default": " ",
-                        "description": "a differentiable function that is used for the calculation of the error. Alternatively, the strings 'sse' and 'ce' which stand for the sum of squared errors and the cross-entropy can be used.",
+                        "default": "",
+                        "description": "A spark_connection, ml_pipeline, or a tbl_spark.",
                         "in": "query",
-                        "name": "err__fct",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
+                    {
+                        "default": "",
+                        "description": "A numeric vector describing the layers -- each element in the vector gives the size of a layer. For example, c(4, 5, 2) would imply three layers, with an input (feature) layer of size 4, an intermediate layer of size 5, and an output (class) layer of size 2.",
+                        "in": "query",
+                        "name": "layers",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Used when x is a tbl_spark. R formula as a character string or a formula.",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Dataset on which the service is applied",
+                        "in": "query",
+                        "name": "dataset",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Classification model based on the Multilayer Perceptron.",
+                "type": "string"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "default": "",
+                        "description": "A spark_connection, ml_pipeline, or a tbl_spark.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "A numeric vector describing the layers -- each element in the vector gives the size of a layer. For example, c(4, 5, 2) would imply three layers, with an input (feature) layer of size 4, an intermediate layer of size 5, and an output (class) layer of size 2.",
+                        "in": "query",
+                        "name": "layers",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Used when x is a tbl_spark. R formula as a character string or a formula.",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Dataset on which the service is applied",
+                        "in": "query",
+                        "name": "dataset",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Classification model based on the Multilayer Perceptron.",
+                "type": "string"
+            }
+        },
+        "/mlp_spark/download": {
+            "get": {
+                "parameters": [
+                    {
+                        "default": "ttl",
+                        "description": "asdasd",
+                        "in": "query",
+                        "name": "file_format",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/binary"
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Returns the service definition in the specified format.",
+                "type": "string"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "default": "ttl",
+                        "description": "asdasd",
+                        "in": "query",
+                        "name": "file_format",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/binary"
+                ],
+                "response": {
+                    "200": {
+                        "description": "The Turtle file."
+                    }
+                },
+                "summary": "Returns the service definition in the specified format.",
+                "type": "string"
+            }
+        },
+        "/neuralnet": {
+            "get": {
+                "parameters": [
                     {
                         "default": " ",
                         "description": "a symbolic description of the model to be fitted.",
@@ -2664,6 +2924,14 @@
                     },
                     {
                         "default": " ",
+                        "description": "a data frame containing the variables specified in formula. ",
+                        "in": "query",
+                        "name": "data",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
                         "description": "logical. If act.fct should not be applied to the output neurons set linear output to TRUE, otherwise to FALSE.",
                         "in": "query",
                         "name": "linear__output",
@@ -2672,9 +2940,9 @@
                     },
                     {
                         "default": " ",
-                        "description": "a data frame containing the variables specified in formula. ",
+                        "description": "a differentiable function that is used for the calculation of the error. Alternatively, the strings 'sse' and 'ce' which stand for the sum of squared errors and the cross-entropy can be used.",
                         "in": "query",
-                        "name": "data",
+                        "name": "err__fct",
                         "required": true,
                         "type": "string"
                     },
@@ -2699,14 +2967,6 @@
                 "parameters": [
                     {
                         "default": " ",
-                        "description": "a differentiable function that is used for the calculation of the error. Alternatively, the strings 'sse' and 'ce' which stand for the sum of squared errors and the cross-entropy can be used.",
-                        "in": "query",
-                        "name": "err__fct",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
                         "description": "a symbolic description of the model to be fitted.",
                         "in": "query",
                         "name": "formula",
@@ -2723,6 +2983,14 @@
                     },
                     {
                         "default": " ",
+                        "description": "a data frame containing the variables specified in formula. ",
+                        "in": "query",
+                        "name": "data",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
                         "description": "logical. If act.fct should not be applied to the output neurons set linear output to TRUE, otherwise to FALSE.",
                         "in": "query",
                         "name": "linear__output",
@@ -2731,9 +2999,9 @@
                     },
                     {
                         "default": " ",
-                        "description": "a data frame containing the variables specified in formula. ",
+                        "description": "a differentiable function that is used for the calculation of the error. Alternatively, the strings 'sse' and 'ce' which stand for the sum of squared errors and the cross-entropy can be used.",
                         "in": "query",
-                        "name": "data",
+                        "name": "err__fct",
                         "required": true,
                         "type": "string"
                     },
@@ -2805,10 +3073,42 @@
             "get": {
                 "parameters": [
                     {
+                        "default": "100",
+                        "description": "Maximum number of iterations. Default 100.",
+                        "in": "query",
+                        "name": "maxit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Data frame from which variables specified in formula are preferentially to be taken.",
+                        "in": "query",
+                        "name": "data",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Initial random weights on [-rang, rang]. Value about 0.5 unless the inputs are large, in which case it should be chosen so that rang * max(|x|) is about 1. ",
+                        "in": "query",
+                        "name": "rang",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "default": " ",
                         "description": "Number of units in the hidden layer. Can be zero if there are skip-layer units. ",
                         "in": "query",
                         "name": "size",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "A formula of the form class ~ x1 + x2 + ... ",
+                        "in": "query",
+                        "name": "formula",
                         "required": true,
                         "type": "string"
                     },
@@ -2829,14 +3129,6 @@
                         "type": "string"
                     },
                     {
-                        "default": "100",
-                        "description": "Maximum number of iterations. Default 100.",
-                        "in": "query",
-                        "name": "maxit",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "0",
                         "description": "Parameter for weight decay. Default 0.",
                         "in": "query",
@@ -2845,31 +3137,7 @@
                         "type": "string"
                     },
                     {
-                        "default": " ",
-                        "description": "Data frame from which variables specified in formula are preferentially to be taken.",
-                        "in": "query",
-                        "name": "data",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "A formula of the form class ~ x1 + x2 + ... ",
-                        "in": "query",
-                        "name": "formula",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "Initial random weights on [-rang, rang]. Value about 0.5 unless the inputs are large, in which case it should be chosen so that rang * max(|x|) is about 1. ",
-                        "in": "query",
-                        "name": "rang",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
+                        "default": "0",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -2888,10 +3156,42 @@
             "post": {
                 "parameters": [
                     {
+                        "default": "100",
+                        "description": "Maximum number of iterations. Default 100.",
+                        "in": "query",
+                        "name": "maxit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Data frame from which variables specified in formula are preferentially to be taken.",
+                        "in": "query",
+                        "name": "data",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Initial random weights on [-rang, rang]. Value about 0.5 unless the inputs are large, in which case it should be chosen so that rang * max(|x|) is about 1. ",
+                        "in": "query",
+                        "name": "rang",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "default": " ",
                         "description": "Number of units in the hidden layer. Can be zero if there are skip-layer units. ",
                         "in": "query",
                         "name": "size",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "A formula of the form class ~ x1 + x2 + ... ",
+                        "in": "query",
+                        "name": "formula",
                         "required": true,
                         "type": "string"
                     },
@@ -2912,14 +3212,6 @@
                         "type": "string"
                     },
                     {
-                        "default": "100",
-                        "description": "Maximum number of iterations. Default 100.",
-                        "in": "query",
-                        "name": "maxit",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "0",
                         "description": "Parameter for weight decay. Default 0.",
                         "in": "query",
@@ -2928,31 +3220,7 @@
                         "type": "string"
                     },
                     {
-                        "default": " ",
-                        "description": "Data frame from which variables specified in formula are preferentially to be taken.",
-                        "in": "query",
-                        "name": "data",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "A formula of the form class ~ x1 + x2 + ... ",
-                        "in": "query",
-                        "name": "formula",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "Initial random weights on [-rang, rang]. Value about 0.5 unless the inputs are large, in which case it should be chosen so that rang * max(|x|) is about 1. ",
-                        "in": "query",
-                        "name": "rang",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
+                        "default": "0",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -3020,6 +3288,22 @@
                 "parameters": [
                     {
                         "default": "TRUE",
+                        "description": "Logical. If TRUE (the default) the resulting Pacf is plotted.",
+                        "in": "query",
+                        "name": "plot",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "A univariate or multivariate (not Ccf) numeric time series object or a numeric vector or matrix.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
                         "description": "Should covariances be about the sample means?",
                         "in": "query",
                         "name": "demean",
@@ -3035,26 +3319,10 @@
                         "type": "string"
                     },
                     {
-                        "default": "",
-                        "description": "A univariate or multivariate (not Ccf) numeric time series object or a numeric vector or matrix.",
-                        "in": "query",
-                        "name": "x",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "correlation",
                         "description": "Character string giving the type of Pacf to be computed. Allowed values are 'correlation' (the default), 'covariance' or 'partial'.",
                         "in": "query",
                         "name": "var_type",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
-                        "description": "Logical. If TRUE (the default) the resulting Pacf is plotted.",
-                        "in": "query",
-                        "name": "plot",
                         "required": true,
                         "type": "string"
                     },
@@ -3087,6 +3355,22 @@
                 "parameters": [
                     {
                         "default": "TRUE",
+                        "description": "Logical. If TRUE (the default) the resulting Pacf is plotted.",
+                        "in": "query",
+                        "name": "plot",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "A univariate or multivariate (not Ccf) numeric time series object or a numeric vector or matrix.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
                         "description": "Should covariances be about the sample means?",
                         "in": "query",
                         "name": "demean",
@@ -3102,26 +3386,10 @@
                         "type": "string"
                     },
                     {
-                        "default": "",
-                        "description": "A univariate or multivariate (not Ccf) numeric time series object or a numeric vector or matrix.",
-                        "in": "query",
-                        "name": "x",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "correlation",
                         "description": "Character string giving the type of Pacf to be computed. Allowed values are 'correlation' (the default), 'covariance' or 'partial'.",
                         "in": "query",
                         "name": "var_type",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "TRUE",
-                        "description": "Logical. If TRUE (the default) the resulting Pacf is plotted.",
-                        "in": "query",
-                        "name": "plot",
                         "required": true,
                         "type": "string"
                     },
@@ -4136,41 +4404,9 @@
                 "parameters": [
                     {
                         "default": " ",
-                        "description": "the parameters for the initialization function.",
-                        "in": "query",
-                        "name": "initFuncParams",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
                         "description": "sets the activation function of the output units to linear or logistic.",
                         "in": "query",
                         "name": "linOut",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "maximum of iterations to learn. ",
-                        "in": "query",
-                        "name": "maxit",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "number of units in the hidden layer(s). ",
-                        "in": "query",
-                        "name": "size",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "the parameters for the learning function.",
-                        "in": "query",
-                        "name": "learnFuncParams",
                         "required": true,
                         "type": "string"
                     },
@@ -4187,6 +4423,38 @@
                         "description": "a matrix with training inputs for the network.",
                         "in": "query",
                         "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "number of units in the hidden layer(s). ",
+                        "in": "query",
+                        "name": "size",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "maximum of iterations to learn. ",
+                        "in": "query",
+                        "name": "maxit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "the parameters for the learning function.",
+                        "in": "query",
+                        "name": "learnFuncParams",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "the parameters for the initialization function.",
+                        "in": "query",
+                        "name": "initFuncParams",
                         "required": true,
                         "type": "string"
                     },
@@ -4211,41 +4479,9 @@
                 "parameters": [
                     {
                         "default": " ",
-                        "description": "the parameters for the initialization function.",
-                        "in": "query",
-                        "name": "initFuncParams",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
                         "description": "sets the activation function of the output units to linear or logistic.",
                         "in": "query",
                         "name": "linOut",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "maximum of iterations to learn. ",
-                        "in": "query",
-                        "name": "maxit",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "number of units in the hidden layer(s). ",
-                        "in": "query",
-                        "name": "size",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "the parameters for the learning function.",
-                        "in": "query",
-                        "name": "learnFuncParams",
                         "required": true,
                         "type": "string"
                     },
@@ -4262,6 +4498,38 @@
                         "description": "a matrix with training inputs for the network.",
                         "in": "query",
                         "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "number of units in the hidden layer(s). ",
+                        "in": "query",
+                        "name": "size",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "maximum of iterations to learn. ",
+                        "in": "query",
+                        "name": "maxit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "the parameters for the learning function.",
+                        "in": "query",
+                        "name": "learnFuncParams",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "the parameters for the initialization function.",
+                        "in": "query",
+                        "name": "initFuncParams",
                         "required": true,
                         "type": "string"
                     },
@@ -4333,98 +4601,10 @@
             "get": {
                 "parameters": [
                     {
-                        "default": "TRUE",
-                        "description": "If TRUE (default), the final result of votes are expressed as fractions. If FALSE, raw vote counts are returned (useful for combining results from different runs). Ignored for regression.",
-                        "in": "query",
-                        "name": "norm__votes",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Minimum size of terminal nodes. Setting this number larger causes smaller trees to be grown (and thus take less time). Note that the default values are different for classification (1) and regression (5).",
-                        "in": "query",
-                        "name": "nodesize",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "remove",
                         "description": "A function which indicates what should happen when the data contain NAs",
                         "in": "query",
                         "name": "na__action",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Priors of the classes. Need not add up to one. Ignored for regression.",
-                        "in": "query",
-                        "name": "classwt",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Number of variables randomly sampled as candidates at each split. Note that the default values are different for classification (sqrt(p) where p is number of variables in x) and regression (p/3)",
-                        "in": "query",
-                        "name": "mtry",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "Response variable and Formulae ",
-                        "in": "query",
-                        "name": "formula",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Should proximity measure among the rows be calculated?",
-                        "in": "query",
-                        "name": "proximity",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Should an n by ntree matrix be returned that keeps track of which samples are ``in-bag'' in which trees (but not how many times, if sampling with replacement)",
-                        "in": "query",
-                        "name": "keep__inbag",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Should casewise importance measure be computed? (Setting this to TRUE will override importance.)",
-                        "in": "query",
-                        "name": "localImp",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Optional vector specifying a subset of observations to be used in the fitting process",
-                        "in": "query",
-                        "name": "subset",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Should importance of predictors be assessed?",
-                        "in": "query",
-                        "name": "importance",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "If set to FALSE, the forest will not be retained in the output object. If xtest is given, defaults to FALSE.",
-                        "in": "query",
-                        "name": "keep__forest",
                         "required": true,
                         "type": "string"
                     },
@@ -4438,9 +4618,9 @@
                     },
                     {
                         "default": "",
-                        "description": "Size(s) of sample to draw. For classification, if sampsize is a vector of the length the number of strata, then sampling is stratified by strata, and the elements of sampsize indicate the numbers to be drawn from the strata.",
+                        "description": "Should proximity measure among the rows be calculated?",
                         "in": "query",
-                        "name": "sampsize",
+                        "name": "proximity",
                         "required": true,
                         "type": "string"
                     },
@@ -4461,6 +4641,14 @@
                         "type": "string"
                     },
                     {
+                        "default": " ",
+                        "description": "Response variable and Formulae ",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "default": "NULL",
                         "description": "Maximum number of terminal nodes trees in the forest can have. If not given, trees are grown to the maximum possible (subject to limits by nodesize). If set larger than maximum possible, a warning is issued.",
                         "in": "query",
@@ -4469,18 +4657,18 @@
                         "type": "string"
                     },
                     {
-                        "default": "1",
-                        "description": "Number of times the OOB data are permuted per tree for assessing variable importance. Number larger than 1 gives slightly more stable estimate, but not very effective. Currently only implemented for regression.",
+                        "default": "",
+                        "description": "Size(s) of sample to draw. For classification, if sampsize is a vector of the length the number of strata, then sampling is stratified by strata, and the elements of sampsize indicate the numbers to be drawn from the strata.",
                         "in": "query",
-                        "name": "nPerm",
+                        "name": "sampsize",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": "",
-                        "description": "Should proximity be calculated only on ``out-of-bag'' data?",
+                        "description": "Minimum size of terminal nodes. Setting this number larger causes smaller trees to be grown (and thus take less time). Note that the default values are different for classification (1) and regression (5).",
                         "in": "query",
-                        "name": "oob__prox",
+                        "name": "nodesize",
                         "required": true,
                         "type": "string"
                     },
@@ -4494,6 +4682,86 @@
                     },
                     {
                         "default": "",
+                        "description": "Should proximity be calculated only on ``out-of-bag'' data?",
+                        "in": "query",
+                        "name": "oob__prox",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "1",
+                        "description": "Number of times the OOB data are permuted per tree for assessing variable importance. Number larger than 1 gives slightly more stable estimate, but not very effective. Currently only implemented for regression.",
+                        "in": "query",
+                        "name": "nPerm",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Priors of the classes. Need not add up to one. Ignored for regression.",
+                        "in": "query",
+                        "name": "classwt",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Should importance of predictors be assessed?",
+                        "in": "query",
+                        "name": "importance",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Number of variables randomly sampled as candidates at each split. Note that the default values are different for classification (sqrt(p) where p is number of variables in x) and regression (p/3)",
+                        "in": "query",
+                        "name": "mtry",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Should an n by ntree matrix be returned that keeps track of which samples are ``in-bag'' in which trees (but not how many times, if sampling with replacement)",
+                        "in": "query",
+                        "name": "keep__inbag",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "If TRUE (default), the final result of votes are expressed as fractions. If FALSE, raw vote counts are returned (useful for combining results from different runs). Ignored for regression.",
+                        "in": "query",
+                        "name": "norm__votes",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "If set to FALSE, the forest will not be retained in the output object. If xtest is given, defaults to FALSE.",
+                        "in": "query",
+                        "name": "keep__forest",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Should casewise importance measure be computed? (Setting this to TRUE will override importance.)",
+                        "in": "query",
+                        "name": "localImp",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Optional vector specifying a subset of observations to be used in the fitting process",
+                        "in": "query",
+                        "name": "subset",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -4512,98 +4780,10 @@
             "post": {
                 "parameters": [
                     {
-                        "default": "TRUE",
-                        "description": "If TRUE (default), the final result of votes are expressed as fractions. If FALSE, raw vote counts are returned (useful for combining results from different runs). Ignored for regression.",
-                        "in": "query",
-                        "name": "norm__votes",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Minimum size of terminal nodes. Setting this number larger causes smaller trees to be grown (and thus take less time). Note that the default values are different for classification (1) and regression (5).",
-                        "in": "query",
-                        "name": "nodesize",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
                         "default": "remove",
                         "description": "A function which indicates what should happen when the data contain NAs",
                         "in": "query",
                         "name": "na__action",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Priors of the classes. Need not add up to one. Ignored for regression.",
-                        "in": "query",
-                        "name": "classwt",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Number of variables randomly sampled as candidates at each split. Note that the default values are different for classification (sqrt(p) where p is number of variables in x) and regression (p/3)",
-                        "in": "query",
-                        "name": "mtry",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "Response variable and Formulae ",
-                        "in": "query",
-                        "name": "formula",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "Should proximity measure among the rows be calculated?",
-                        "in": "query",
-                        "name": "proximity",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Should an n by ntree matrix be returned that keeps track of which samples are ``in-bag'' in which trees (but not how many times, if sampling with replacement)",
-                        "in": "query",
-                        "name": "keep__inbag",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Should casewise importance measure be computed? (Setting this to TRUE will override importance.)",
-                        "in": "query",
-                        "name": "localImp",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "NULL",
-                        "description": "Optional vector specifying a subset of observations to be used in the fitting process",
-                        "in": "query",
-                        "name": "subset",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "FALSE",
-                        "description": "Should importance of predictors be assessed?",
-                        "in": "query",
-                        "name": "importance",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": "",
-                        "description": "If set to FALSE, the forest will not be retained in the output object. If xtest is given, defaults to FALSE.",
-                        "in": "query",
-                        "name": "keep__forest",
                         "required": true,
                         "type": "string"
                     },
@@ -4617,9 +4797,9 @@
                     },
                     {
                         "default": "",
-                        "description": "Size(s) of sample to draw. For classification, if sampsize is a vector of the length the number of strata, then sampling is stratified by strata, and the elements of sampsize indicate the numbers to be drawn from the strata.",
+                        "description": "Should proximity measure among the rows be calculated?",
                         "in": "query",
-                        "name": "sampsize",
+                        "name": "proximity",
                         "required": true,
                         "type": "string"
                     },
@@ -4640,6 +4820,14 @@
                         "type": "string"
                     },
                     {
+                        "default": " ",
+                        "description": "Response variable and Formulae ",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "default": "NULL",
                         "description": "Maximum number of terminal nodes trees in the forest can have. If not given, trees are grown to the maximum possible (subject to limits by nodesize). If set larger than maximum possible, a warning is issued.",
                         "in": "query",
@@ -4648,18 +4836,18 @@
                         "type": "string"
                     },
                     {
-                        "default": "1",
-                        "description": "Number of times the OOB data are permuted per tree for assessing variable importance. Number larger than 1 gives slightly more stable estimate, but not very effective. Currently only implemented for regression.",
+                        "default": "",
+                        "description": "Size(s) of sample to draw. For classification, if sampsize is a vector of the length the number of strata, then sampling is stratified by strata, and the elements of sampsize indicate the numbers to be drawn from the strata.",
                         "in": "query",
-                        "name": "nPerm",
+                        "name": "sampsize",
                         "required": true,
                         "type": "string"
                     },
                     {
                         "default": "",
-                        "description": "Should proximity be calculated only on ``out-of-bag'' data?",
+                        "description": "Minimum size of terminal nodes. Setting this number larger causes smaller trees to be grown (and thus take less time). Note that the default values are different for classification (1) and regression (5).",
                         "in": "query",
-                        "name": "oob__prox",
+                        "name": "nodesize",
                         "required": true,
                         "type": "string"
                     },
@@ -4673,6 +4861,86 @@
                     },
                     {
                         "default": "",
+                        "description": "Should proximity be calculated only on ``out-of-bag'' data?",
+                        "in": "query",
+                        "name": "oob__prox",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "1",
+                        "description": "Number of times the OOB data are permuted per tree for assessing variable importance. Number larger than 1 gives slightly more stable estimate, but not very effective. Currently only implemented for regression.",
+                        "in": "query",
+                        "name": "nPerm",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Priors of the classes. Need not add up to one. Ignored for regression.",
+                        "in": "query",
+                        "name": "classwt",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Should importance of predictors be assessed?",
+                        "in": "query",
+                        "name": "importance",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Number of variables randomly sampled as candidates at each split. Note that the default values are different for classification (sqrt(p) where p is number of variables in x) and regression (p/3)",
+                        "in": "query",
+                        "name": "mtry",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Should an n by ntree matrix be returned that keeps track of which samples are ``in-bag'' in which trees (but not how many times, if sampling with replacement)",
+                        "in": "query",
+                        "name": "keep__inbag",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "TRUE",
+                        "description": "If TRUE (default), the final result of votes are expressed as fractions. If FALSE, raw vote counts are returned (useful for combining results from different runs). Ignored for regression.",
+                        "in": "query",
+                        "name": "norm__votes",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "If set to FALSE, the forest will not be retained in the output object. If xtest is given, defaults to FALSE.",
+                        "in": "query",
+                        "name": "keep__forest",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "FALSE",
+                        "description": "Should casewise importance measure be computed? (Setting this to TRUE will override importance.)",
+                        "in": "query",
+                        "name": "localImp",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
+                        "description": "Optional vector specifying a subset of observations to be used in the fitting process",
+                        "in": "query",
+                        "name": "subset",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "NULL",
                         "description": "Dataset on which the service is applied",
                         "in": "query",
                         "name": "dataset",
@@ -4690,6 +4958,156 @@
             }
         },
         "/rf/download": {
+            "get": {
+                "parameters": [
+                    {
+                        "default": "ttl",
+                        "description": "asdasd",
+                        "in": "query",
+                        "name": "file_format",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/binary"
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Returns the service definition in the specified format.",
+                "type": "string"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "default": "ttl",
+                        "description": "asdasd",
+                        "in": "query",
+                        "name": "file_format",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/binary"
+                ],
+                "response": {
+                    "200": {
+                        "description": "The Turtle file."
+                    }
+                },
+                "summary": "Returns the service definition in the specified format.",
+                "type": "string"
+            }
+        },
+        "/rf_spark": {
+            "get": {
+                "parameters": [
+                    {
+                        "default": "",
+                        "description": "A spark connection, ml pipeline or a tbl sparkA spark connection, ml pipeline or a tbl spark",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Maximum depth of the tree",
+                        "in": "query",
+                        "name": "max_depth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Number of trees to train",
+                        "in": "query",
+                        "name": "num_trees",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "As a character string or a formula",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Dataset on which the service is applied",
+                        "in": "query",
+                        "name": "dataset",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "ml_random_forest fits a Random Forest Regression model or Classification model on a SparkDataFrame.",
+                "type": "string"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "default": "",
+                        "description": "A spark connection, ml pipeline or a tbl sparkA spark connection, ml pipeline or a tbl spark",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Maximum depth of the tree",
+                        "in": "query",
+                        "name": "max_depth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Number of trees to train",
+                        "in": "query",
+                        "name": "num_trees",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "As a character string or a formula",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Dataset on which the service is applied",
+                        "in": "query",
+                        "name": "dataset",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "ml_random_forest fits a Random Forest Regression model or Classification model on a SparkDataFrame.",
+                "type": "string"
+            }
+        },
+        "/rf_spark/download": {
             "get": {
                 "parameters": [
                     {
@@ -4841,6 +5259,14 @@
             "get": {
                 "parameters": [
                     {
+                        "default": " ",
+                        "description": "Either the character string 'periodic' or the span (in lags) of the loess window for seasonal extraction, which should be odd and at least 7, according to Cleveland et al. This has no default.",
+                        "in": "query",
+                        "name": "s__window",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "default": "",
                         "description": "Logical indicating if robust fitting be used in the loess procedure.",
                         "in": "query",
@@ -4850,9 +5276,9 @@
                     },
                     {
                         "default": " ",
-                        "description": "Either the character string 'periodic' or the span (in lags) of the loess window for seasonal extraction, which should be odd and at least 7, according to Cleveland et al. This has no default.",
+                        "description": "Univariate time series to be decomposed. This should be an object of class 'ts' with a frequency greater than one.",
                         "in": "query",
-                        "name": "s__window",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
@@ -4861,14 +5287,6 @@
                         "description": "The span (in lags) of the loess window for trend extraction, which should be odd.",
                         "in": "query",
                         "name": "t__window",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "Univariate time series to be decomposed. This should be an object of class 'ts' with a frequency greater than one.",
-                        "in": "query",
-                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
@@ -4900,6 +5318,14 @@
             "post": {
                 "parameters": [
                     {
+                        "default": " ",
+                        "description": "Either the character string 'periodic' or the span (in lags) of the loess window for seasonal extraction, which should be odd and at least 7, according to Cleveland et al. This has no default.",
+                        "in": "query",
+                        "name": "s__window",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
                         "default": "",
                         "description": "Logical indicating if robust fitting be used in the loess procedure.",
                         "in": "query",
@@ -4909,9 +5335,9 @@
                     },
                     {
                         "default": " ",
-                        "description": "Either the character string 'periodic' or the span (in lags) of the loess window for seasonal extraction, which should be odd and at least 7, according to Cleveland et al. This has no default.",
+                        "description": "Univariate time series to be decomposed. This should be an object of class 'ts' with a frequency greater than one.",
                         "in": "query",
-                        "name": "s__window",
+                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
@@ -4920,14 +5346,6 @@
                         "description": "The span (in lags) of the loess window for trend extraction, which should be odd.",
                         "in": "query",
                         "name": "t__window",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "default": " ",
-                        "description": "Univariate time series to be decomposed. This should be an object of class 'ts' with a frequency greater than one.",
-                        "in": "query",
-                        "name": "x",
                         "required": true,
                         "type": "string"
                     },
@@ -4958,6 +5376,140 @@
             }
         },
         "/stl/download": {
+            "get": {
+                "parameters": [
+                    {
+                        "default": "ttl",
+                        "description": "asdasd",
+                        "in": "query",
+                        "name": "file_format",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/binary"
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Returns the service definition in the specified format.",
+                "type": "string"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "default": "ttl",
+                        "description": "asdasd",
+                        "in": "query",
+                        "name": "file_format",
+                        "required": "true",
+                        "type": "string"
+                    }
+                ],
+                "produces": [
+                    "application/binary"
+                ],
+                "response": {
+                    "200": {
+                        "description": "The Turtle file."
+                    }
+                },
+                "summary": "Returns the service definition in the specified format.",
+                "type": "string"
+            }
+        },
+        "/svc_spark": {
+            "get": {
+                "parameters": [
+                    {
+                        "default": "",
+                        "description": "A spark_connection, ml_pipeline, or a tbl_spark.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Used when x is a tbl_spark. R formula as a character string or a formula.",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "The maximum number of iterations to use.",
+                        "in": "query",
+                        "name": "max_iter",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Dataset on which the service is applied",
+                        "in": "query",
+                        "name": "dataset",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Perform classification using linear support vector machines (SVM). This binary classifier optimizes the Hinge Loss using the OWLQN optimizer. Only supports L2 regularization currently.",
+                "type": "string"
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "default": "",
+                        "description": "A spark_connection, ml_pipeline, or a tbl_spark.",
+                        "in": "query",
+                        "name": "x",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": " ",
+                        "description": "Used when x is a tbl_spark. R formula as a character string or a formula.",
+                        "in": "query",
+                        "name": "formula",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "The maximum number of iterations to use.",
+                        "in": "query",
+                        "name": "max_iter",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "default": "",
+                        "description": "Dataset on which the service is applied",
+                        "in": "query",
+                        "name": "dataset",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "response": {
+                    "200": {
+                        "description": "Output of the service contains Model or ModelEvaluation or Data"
+                    }
+                },
+                "summary": "Perform classification using linear support vector machines (SVM). This binary classifier optimizes the Hinge Loss using the OWLQN optimizer. Only supports L2 regularization currently.",
+                "type": "string"
+            }
+        },
+        "/svc_spark/download": {
             "get": {
                 "parameters": [
                     {

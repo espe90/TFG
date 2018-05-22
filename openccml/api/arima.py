@@ -2,7 +2,7 @@ from wrapperR import wrapperv2
 from config.config import turtle_folder, jsonld_folder
 
 def execute(dataset,x, order,seasonal, xreg, include__mean, transform__pars, fixed, init, method, optim__method, optim__control, kappa): 
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/ts2.csv'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/ts2.csv'
     print(locals())
     result = wrapperv2.core(locals(), "arima")
     result.arima()
@@ -12,7 +12,7 @@ def execute(dataset,x, order,seasonal, xreg, include__mean, transform__pars, fix
 
 
 def execute_post(dataset,x, order,seasonal, xreg, include__mean, transform__pars, fixed, init, method, optim__method, optim__control, kappa):
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/ts2.csv'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/ts2.csv'
     result = wrapperv2.core(locals(), "arima")
     result.arima()
     file = result.parameter.getOutput()

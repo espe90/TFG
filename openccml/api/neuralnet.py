@@ -2,7 +2,7 @@ from wrapperR import wrapperv2
 from config.config import turtle_folder, jsonld_folder
 
 def execute(dataset, formula, data, err__fct, linear__output, likelihood): 
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/creditset.csv'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/creditset.csv'
     print(locals())
     result = wrapperv2.core(locals(), "neuralnet")
     result.neuralnet()
@@ -12,7 +12,7 @@ def execute(dataset, formula, data, err__fct, linear__output, likelihood):
 
 
 def execute_post(dataset,formula, data, err__fct, linear__output, likelihood):
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/creditset.csv'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/creditset.csv'
     result = wrapperv2.core(locals(), "neuralnet")
     result.neuralnet()
     file = result.parameter.getOutput()

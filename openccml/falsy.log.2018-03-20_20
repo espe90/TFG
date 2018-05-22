@@ -1,0 +1,26 @@
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m

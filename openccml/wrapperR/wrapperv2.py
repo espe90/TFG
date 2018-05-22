@@ -428,40 +428,88 @@ class core:
 			print(df)
 			model <- ml_random_forest(df,{1})
 			print(model)
-			saveRDS(model, file ="/root/TFG/openccml/models/rf_sparkR.rds")
+			saveRDS(model, file ="/root/TFG/openccml/models/rf_spark.rds")
 			capture.output(model, file ="rf_sparkR.txt")
 			spark_disconnect(sc)
 	""".format(self.parameter.dataset['ruta'], self.parameter.parameters, self.parameter.outputPMML))
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'species~petal_width'}
-#p = core(entrada, "rf_spark")
-#p.rf_spark()
+	def lr_spark(self):
+		lr_spark = ro.r("""
+			library(sparklyr)
+			sc <- spark_connect(master="local")
+			df <- spark_read_csv(sc,"table","{0}",overwrite=TRUE)
+			print(df)
+			model <- ml_linear_regression(df,{1})
+			print(model)
+			saveRDS(model, file ="/root/TFG/openccml/models/lr_spark.rds")
+			capture.output(model, file ="lr_sparkR.txt")
+			spark_disconnect(sc)
+	""".format(self.parameter.dataset['ruta'], self.parameter.parameters, self.parameter.outputPMML))
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'Species~petal_width'}
+	def svc_spark(self):
+		svc_spark = ro.r("""
+			library(sparklyr)
+			sc <- spark_connect(master="local")
+			df <- spark_read_csv(sc,"table","{0}",overwrite=TRUE)
+			print(df)
+			model <- ml_linear_svc(df,{1})
+			print(model)
+			saveRDS(model, file ="/root/TFG/openccml/models/svc_spark.rds")
+			capture.output(model, file ="svc_sparkR.txt")
+			spark_disconnect(sc)
+	""".format(self.parameter.dataset['ruta'], self.parameter.parameters, self.parameter.outputPMML))
+	
+	def mlp_spark(self):
+		mlp_spark = ro.r("""
+			library(sparklyr)
+			sc <- spark_connect(master="local")
+			df <- spark_read_csv(sc,"table","{0}",overwrite=TRUE)
+			print(df)
+			model <- ml_multilayer_perceptron(df,{1})
+			print(model)
+			saveRDS(model, file ="/root/TFG/openccml/models/mlp_spark.rds")
+			capture.output(model, file ="mlp_sparkR.txt")
+			spark_disconnect(sc)
+	""".format(self.parameter.dataset['ruta'], self.parameter.parameters, self.parameter.outputPMML))
+
+
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'species~petal_width','layers':'c(1,2,3)'}
+#p = core(entrada, "mlp_spark")
+#p.mlp_spark()
+
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/titanic.csv','formula': 'Survived~.}
+#p = core(entrada, "svc_spark")
+#p.svc_spark()
+
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'species~petal_width'}
+#p = core(entrada, "lr_spark")
+#p.lr_spark()
+
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'species~petal_width'}
 #p = core(entrada, "lm")
 #p.lm()
 
-#entrada = {'dataset': '/home/espe/openccml/datasets/mtcars.csv'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/mtcars.csv'}
 #p = core(entrada, "cor")
 #p.cor()
 	
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/ts1.csv','order':'c(0,1,0)'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/ts1.csv','order':'c(0,1,0)'}
 #p = core(entrada, "arima")
 #p.arima()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/datos.csv'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/datos.csv'}
 #p = core(entrada, "dtw")
 #p.dtw()
 
-#entrada = {'dataset':'/home/espe/openccml/wrapperR/ts1.csv'}
+#entrada = {'dataset':'/root/TFG/openccml/wrapperR/ts1.csv'}
 #p = core(entrada, "ets")
 #p.ets()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv','formula':'species~.'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula':'species~.'}
 #p = core(entrada, "rf")
 #p.rf()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv', 'formula': 'species~.', 'na__action' :'na.omit'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'formula': 'species~.', 'na__action' :'na.omit'}
 #p = core(entrada, "svm")
 #p.svm()
 
@@ -469,57 +517,55 @@ class core:
 #p = core(entrada, "stl")
 #p.stl()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv', 'formula': 'species~.','size':'2'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'formula': 'species~.','size':'2'}
 #p = core(entrada, "nnet")
 #p.nnet()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/creditset.csv', 'formula': 'default10yr ~ LTI + age'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/creditset.csv', 'formula': 'default10yr ~ LTI + age'}
 #p = core(entrada, "neuralnet")
 #p.neuralnet()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv', 'size':'40'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'size':'40'}
 #p = core(entrada, "rbf")
 #p.rbf()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv', 'size':'5'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'size':'5'}
 #p = core(entrada, "mlp")
 #p.mlp()
 
-#entrada={'dataset':'/home/espe/openccml/models/arima.rds'}
+#entrada={'dataset':'/root/TFG/openccml/models/arima.rds'}
 #p= core(entrada, "predict")
 #p.predict()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/air.csv','order':'c(0,1,0)'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/air.csv','order':'c(0,1,0)'}
 #p = core(entrada, "predictarima")
 #p.predictarima()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv','formula':'species~petal_width'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula':'species~petal_width'}
 #p = core(entrada, "predictlm")
 #p.predictlm()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv','formula':'species~.'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula':'species~.'}
 #p = core(entrada, "predictRF")
 #p.predictRF()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv','formula':'species~.'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula':'species~.'}
 #p = core(entrada, "predictMLP")
 #p.predictMLP()
 
-#entrada = {'dataset':'/home/espe/openccml/wrapperR/ts1.csv'}
+#entrada = {'dataset':'/root/TFG/openccml/wrapperR/ts1.csv'}
 #p = core(entrada, "predictETS")
 #p.predictETS()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv', 'size':'40'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'size':'40'}
 #p = core(entrada, "predictRBF")
 #p.predictRBF()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv', 'formula': 'species~petal_width'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'formula': 'species~petal_width'}
 #p = core(entrada, "predictSVM")
 #p.predictSVM()
 
-#entrada = {'dataset': '/home/espe/openccml/wrapperR/iris.csv', 'formula': 'species~.'}
+#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'formula': 'species~.'}
 #p = core(entrada, "predictnnet")
 #p.predictnnet()
-
-
 

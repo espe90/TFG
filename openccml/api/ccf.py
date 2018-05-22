@@ -2,8 +2,8 @@ from wrapperR import wrapperv2
 from config.config import turtle_folder, jsonld_folder
 
 def execute(dataset1,dataset2,x,y,lag__max,var_type,plot,na__action,demean): 
-    locals()['dataset1'] = '/home/espe/openccml/wrapperR/ts1.csv'
-    locals()['dataset2'] = '/home/espe/openccml/wrapperR/ts2.csv'
+    locals()['dataset1'] = '/root/TFG/openccml/wrapperR/ts1.csv'
+    locals()['dataset2'] = '/root/TFG/openccml/wrapperR/ts2.csv'
     print(locals())
     result = wrapperv2.core(locals(), "ccf")
     result.ccf()
@@ -11,8 +11,8 @@ def execute(dataset1,dataset2,x,y,lag__max,var_type,plot,na__action,demean):
 
 
 def execute_post(dataset1,dataset2,x,y,lag__max,var_type,plot,na__action,demean):
-    locals()['dataset1'] = '/home/espe/openccml/wrapperR/ts1.csv'
-    locals()['dataset2'] = '/home/espe/openccml/wrapperR/ts2.csv'
+    locals()['dataset1'] = '/root/TFG/openccml/wrapperR/ts1.csv'
+    locals()['dataset2'] = '/root/TFG/openccml/wrapperR/ts2.csv'
     result = wrapperv2.core(locals(), "ccf")
     result.ccf()
     file = result.parameter.getOutput()

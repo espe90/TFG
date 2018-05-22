@@ -8,2858 +8,3184 @@ produces:
 - text/xml
 basePath: '/openccml'
 paths:
-  '/predictETS':
-    get:
-      operationId: api.predictETS.execute
-      parameters: &id001
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: 'Response variable and Formulae '
-        name: formula
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Predict method for Exponential smoothing state space model
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.predictETS.execute_post
-      parameters: *id001
-      summary: Predict method for Exponential smoothing state space model
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/shapiro/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.shapiro.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.shapiro.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/linear_regression':
-    get:
-      operationId: api.linear_regression.execute
-      parameters: &id002
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: 'Response variable and Formulae '
-        name: formula
-      - in: query
-        default: na.remove
-        type: string
-        required: true
-        description: A function which indicates what should happen when the data
-          contain NAs
-        name: na__action
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Optional vector of weights to be used in the fitting process.
-          If non-NULL, weighted least squares is used with weights weights (that
-          is, minimizing sum(w*e^2)); otherwise ordinary least squares is used
-        name: weights
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Optional vector specifying a subset of observations to be used
-          in the fitting process
-        name: subset
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Linear regression is an approach for modeling the relationship between
-        a scalar dependent variable y and one or more explanatory variables (or
-        independent variables) denoted X. The case of one explanatory variable is
-        called simple linear regression.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.linear_regression.execute_post
-      parameters: *id002
-      summary: Linear regression is an approach for modeling the relationship between
-        a scalar dependent variable y and one or more explanatory variables (or
-        independent variables) denoted X. The case of one explanatory variable is
-        called simple linear regression.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/predictlm':
-    get:
-      operationId: api.predictlm.execute
-      parameters: &id003
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: 'Response variable and Formulae '
-        name: formula
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Predict method for Linear Model Fits
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.predictlm.execute_post
-      parameters: *id003
-      summary: Predict method for Linear Model Fits
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/predictRF':
-    get:
-      operationId: api.predictRF.execute
-      parameters: &id004
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: 'Response variable and Formulae '
-        name: formula
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Predict method for random forest objects
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.predictRF.execute_post
-      parameters: *id004
-      summary: Predict method for random forest objects
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/predictarima/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictarima.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictarima.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/mlp':
-    get:
-      operationId: api.mlp.execute
-      parameters: &id005
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: the parameters for the learning function.
-        name: learnFuncParams
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: sets the activation function of the output units to linear
-          or logistic.
-        name: linOut
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: the corresponding targets values.
-        name: y
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: the parameters for the initialization function.
-        name: initFuncParams
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'maximum of iterations to learn. '
-        name: maxit
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: a matrix with training inputs for the network.
-        name: x
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'number of units in the hidden layer(s). '
-        name: size
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Create and train a multi-layer perceptron (MLP).
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.mlp.execute_post
-      parameters: *id005
-      summary: Create and train a multi-layer perceptron (MLP).
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/svm':
-    get:
-      operationId: api.svm.execute
-      parameters: &id006
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'Response variable and Formulae '
-        name: formula
-      - in: query
-        default: na.omit
-        type: string
-        required: true
-        description: A function which indicates what should happen when the data
-          contain NAs
-        name: na__action
-      - in: query
-        default: na.omit
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Far from being a panacea, SVMs yet represent a powerful technique
-        for general (nonlinear) classification, regression and outlier detection
-        with an intuitive model representation.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.svm.execute_post
-      parameters: *id006
-      summary: Far from being a panacea, SVMs yet represent a powerful technique
-        for general (nonlinear) classification, regression and outlier detection
-        with an intuitive model representation.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/rf/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.rf.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.rf.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/predictRBF/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictRBF.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictRBF.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/neuralnet':
-    get:
-      operationId: api.neuralnet.execute
-      parameters: &id007
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: a differentiable function that is used for the calculation
-          of the error. Alternatively, the strings 'sse' and 'ce' which stand for
-          the sum of squared errors and the cross-entropy can be used.
-        name: err__fct
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: a symbolic description of the model to be fitted.
-        name: formula
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'logical. If the error function is equal to the negative log-likelihood
-          function, the information criteria AIC and BIC will be calculated. Furthermore
-          the usage of confidence.interval is meaningfull. '
-        name: likelihood
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: logical. If act.fct should not be applied to the output neurons
-          set linear output to TRUE, otherwise to FALSE.
-        name: linear__output
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'a data frame containing the variables specified in formula. '
-        name: data
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Training of neural networks.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.neuralnet.execute_post
-      parameters: *id007
-      summary: Training of neural networks.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/acf/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.acf.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.acf.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/predictSVM/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictSVM.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictSVM.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/ets/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.ets.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.ets.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/predictRF/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictRF.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictRF.download_post
-      response:
-        200:
-          description: The Turtle file.
   '/acf':
     get:
       operationId: api.acf.execute
-      parameters: &id008
+      parameters: &id001
       - in: query
+        name: plot
+        description: Logical. If TRUE (the default) the resulting acf is plotted.
+        required: true
         default: 'TRUE'
         type: string
-        required: true
-        description: Should covariances be about the sample means?
-        name: demean
       - in: query
-        default: 10\u2217log10(N/m)
-        type: string
+        name: var_type
+        description: Character string giving the type of acf to be computed. Allowed
+          values are 'correlation' (the default), 'covariance' or 'partial'.
         required: true
+        default: correlation
+        type: string
+      - in: query
+        name: na__action
+        description: Function to handle missing values. Default is na.contiguous.
+          Useful alternatives are na.pass and na.interp.
+        required: true
+        default: na.contiguous
+        type: string
+      - in: query
+        name: lag__max
         description: Maximum lag at which to calculate the acf. Default is 10\u2217\
           log10(N/m) where N is the number of observations and m the number of series.\
           \ Will be automatically limited to one less than the number of observations\
           \ in the series.
-        name: lag__max
-      - in: query
-        default: na.contiguous
-        type: string
         required: true
-        description: Function to handle missing values. Default is na.contiguous.
-          Useful alternatives are na.pass and na.interp.
-        name: na__action
-      - in: query
-        default: ''
+        default: 10\u2217log10(N/m)
         type: string
-        required: true
+      - in: query
+        name: x
         description: A univariate or multivariate (not Ccf) numeric time series
           object or a numeric vector or matrix.
-        name: x
-      - in: query
-        default: correlation
-        type: string
         required: true
-        description: Character string giving the type of acf to be computed. Allowed
-          values are 'correlation' (the default), 'covariance' or 'partial'.
-        name: var_type
+        default: ''
+        type: string
       - in: query
+        name: demean
+        description: Should covariances be about the sample means?
+        required: true
         default: 'TRUE'
         type: string
-        required: true
-        description: Logical. If TRUE (the default) the resulting acf is plotted.
-        name: plot
       - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: Dataset on which the service is applied
         name: dataset
-      summary: Fit an Acf, Autocorrelation Function Estimation
+        description: Dataset on which the service is applied
+        required: true
+        default: 'TRUE'
+        type: string
       type: string
+      summary: Fit an Acf, Autocorrelation Function Estimation
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
       operationId: api.acf.execute_post
-      parameters: *id008
+      parameters: *id001
+      type: string
       summary: Fit an Acf, Autocorrelation Function Estimation
-      type: string
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
-  '/neuralnet/download':
+  '/acf/download':
     get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
+      operationId: api.acf.download
       produces:
       - application/binary
-      type: string
-      operationId: api.neuralnet.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
       parameters:
       - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
         default: ttl
         type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
       type: string
-      operationId: api.neuralnet.download_post
+      summary: Returns the service definition in the specified format.
       response:
         200:
-          description: The Turtle file.
-  '/linear_regression/download':
-    get:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.acf.download_post
+      produces:
+      - application/binary
       parameters:
       - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
         default: ttl
         type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
+      type: string
       summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.linear_regression.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.linear_regression.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/predictMLP':
-    get:
-      operationId: api.predictMLP.execute
-      parameters: &id009
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: 'Response variable and Formulae '
-        name: formula
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Predict method for Mulltilayer Perceptron (MLP)
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.predictMLP.execute_post
-      parameters: *id009
-      summary: Predict method for Mulltilayer Perceptron (MLP)
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/dtw':
-    get:
-      operationId: api.dtw.execute
-      parameters: &id010
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Reference vector, unused if x given as cost matrix
-        name: y
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Query vector or local cost matrix
-        name: x
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: 'Run the Dynamic Time Warping Algorithm on Two Trajectories '
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.dtw.execute_post
-      parameters: *id010
-      summary: 'Run the Dynamic Time Warping Algorithm on Two Trajectories '
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/arima/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.arima.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.arima.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/predict':
-    get:
-      operationId: api.predict.execute
-      parameters: &id011
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: a model object for which prediction is desired.
-        name: model
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Model Predictions
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.predict.execute_post
-      parameters: *id011
-      summary: Model Predictions
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/cor':
-    get:
-      operationId: api.cor.execute
-      parameters: &id012
-      - in: query
-        default: pearson
-        type: string
-        required: true
-        description: A character string indicating which correlation coefficient
-          (or covariance) is to be computed. One of 'pearson' (default), 'kendall',
-          or 'spearman', can be abbreviated.
-        name: method
-      - in: query
-        default: everything
-        type: string
-        required: true
-        description: An optional character string giving a method for computing
-          covariances in the presence of missing values. This must be (an abbreviation
-          of) one of the strings 'everything', 'all.obs', 'complete.obs', 'na.or.complete',
-          or 'pairwise.complete.obs'.
-        name: use
-      - in: query
-        default: 'null'
-        type: string
-        required: true
-        description: NULL (default) or a vector, matrix or data frame with compatible
-          dimensions to x. The default is equivalent to y = x (but more efficient).
-        name: y
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: a numeric vector, matrix or data frame.
-        name: x
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Correlation
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.cor.execute_post
-      parameters: *id012
-      summary: Correlation
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/arima':
-    get:
-      operationId: api.arima.execute
-      parameters: &id013
-      - in: query
-        default: CSS
-        type: string
-        required: true
-        description: 'Fitting method: maximum likelihood or minimize conditional
-          sum-of-squares. The default (unless there are missing values) is to use
-          conditional-sum-of-squares to find starting values, then maximum likelihood.'
-        name: method
-      - in: query
-        default: list(order = c(0L, 0L, 0L), period = NA)
-        type: string
-        required: true
-        description: A specification of the seasonal part of the ARIMA model, plus
-          the period (which defaults to frequency(x)). This should be a list with
-          components order and period, but a specification of just a numeric vector
-          of length 3 will be turned into a suitable list with the specification
-          as the order.
-        name: seasonal
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Optional numeric vector of initial parameter values. Missing
-          values will be filled in, by zeroes except for regression coefficients.
-          Values already specified in fixed will be ignored.
-        name: init
-      - in: query
-        default: BFGS
-        type: string
-        required: true
-        description: The value passed as the method argument to optim.
-        name: optim__method
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: It's a mean/intercept term. The default is TRUE for undifferenced
-          series, and it is ignored for ARIMA models with differencing.
-        name: include__mean
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Optional numeric vector of the same length as the total number
-          of parameters. If supplied, only NA entries in fixed will be varied. transform.pars
-          = TRUE will be overridden (with a warning) if any AR parameters are fixed.
-          It may be wise to set transform.pars = FALSE when fixing MA parameters,
-          especially near non-invertibility.
-        name: fixed
-      - in: query
-        default: '1e6'
-        type: string
-        required: true
-        description: The prior variance (as a multiple of the innovations variance)
-          for the past observations in a differenced model. Do not reduce this.
-        name: kappa
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Optional vector or matrix of external regressors, which must
-          have the same number of rows as x.
-        name: xreg
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: A univariate time series
-        name: x
-      - in: query
-        default: list()
-        type: string
-        required: true
-        description: List of control parameters for optim.
-        name: optim__control
-      - in: query
-        default: c(0L,0L,0L)
-        type: string
-        required: true
-        description: 'A specification of the non-seasonal part of the ARIMA model:
-          the three integer components (p, d, q) are the AR order, the degree of
-          differencing, and the MA order.'
-        name: order
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: logical; if true, the AR parameters are transformed to ensure
-          that they remain in the region of stationarity. Not used for method =
-          'CSS'. For method = 'ML', it has been advantageous to set transform.pars
-          = FALSE in some cases, see also fixed.
-        name: transform__pars
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Fit an ARIMA model to a univariate time series
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.arima.execute_post
-      parameters: *id013
-      summary: Fit an ARIMA model to a univariate time series
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/predict/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predict.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predict.download_post
       response:
         200:
           description: The Turtle file.
   '/adftest':
     get:
       operationId: api.adftest.execute
-      parameters: &id014
+      parameters: &id002
       - in: query
-        default: stationary
-        type: string
-        required: true
+        name: alternative
         description: Indicates the alternative hypothesis and must be one of 'stationary'
           (default) or 'explosive'. You can specify just the initial letter.
-        name: alternative
+        required: true
+        default: stationary
+        type: string
       - in: query
+        name: k
+        description: The lag order to calculate the test statistic.
+        required: true
         default: trunc((length(x)-1)^(1/3)))
         type: string
-        required: true
-        description: The lag order to calculate the test statistic.
-        name: k
       - in: query
-        default: ''
-        type: string
-        required: true
-        description: A numeric vector or time series.
         name: x
-      - in: query
+        description: A numeric vector or time series.
+        required: true
         default: ''
         type: string
-        required: true
-        description: Dataset on which the service is applied
+      - in: query
         name: dataset
-      summary: Fit an Adf.test, Augmented Dickey-Fuller Test
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
       type: string
+      summary: Fit an Adf.test, Augmented Dickey-Fuller Test
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
       operationId: api.adftest.execute_post
-      parameters: *id014
+      parameters: *id002
+      type: string
       summary: Fit an Adf.test, Augmented Dickey-Fuller Test
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/predictRBF':
-    get:
-      operationId: api.predictRBF.execute
-      parameters: &id015
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: 'Response variable and Formulae '
-        name: formula
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Predict method for a radial basis function (RBF) network
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.predictRBF.execute_post
-      parameters: *id015
-      summary: Predict method for a radial basis function (RBF) network
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/ccf':
-    get:
-      operationId: api.ccf.execute
-      parameters: &id016
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: A univariate numeric time series object or a numeric vector.
-        name: x
-      - in: query
-        default: correlation
-        type: string
-        required: true
-        description: Character string giving the type of Ccf to be computed. Allowed
-          values are 'correlation' (the default) or 'covariance'.
-        name: var_type
-      - in: query
-        default: 10\u2217log10(N/m)
-        type: string
-        required: true
-        description: Maximum lag at which to calculate the Ccf. Default is 10\u2217\
-          log10(N/m) where N is the number of observations and m the number of series.\
-          \ Will be automatically limited to one less than the number of observations\
-          \ in the series.
-        name: lag__max
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: Should covariances be about the sample means?
-        name: demean
-      - in: query
-        default: na.contiguous
-        type: string
-        required: true
-        description: Function to handle missing values. Default is na.contiguous.
-          Useful alternatives are na.pass and na.interp.
-        name: na__action
-      - in: query
-        default: 10\u2217log10(N/m)
-        type: string
-        required: true
-        description: A univariate numeric time series object or a numeric vector.
-        name: y
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: Logical. If TRUE (the default) the resulting Ccf is plotted.
-        name: plot
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Fit an Ccf, Cross-Correlation Function Estimation
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.ccf.execute_post
-      parameters: *id016
-      summary: Fit an Ccf, Cross-Correlation Function Estimation
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/predictlm/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictlm.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictlm.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/jarque/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.jarque.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.jarque.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/cor/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.cor.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.cor.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/jarque':
-    get:
-      operationId: api.jarque.execute
-      parameters: &id017
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: A numeric vector or time series.
-        name: x
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Fit a Jarque Bera Test.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.jarque.execute_post
-      parameters: *id017
-      summary: Fit a Jarque Bera Test.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/predictnnet':
-    get:
-      operationId: api.predictnnet.execute
-      parameters: &id018
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: 'Response variable and Formulae '
-        name: formula
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Predict method for a Neural Networks.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.predictnnet.execute_post
-      parameters: *id018
-      summary: Predict method for a Neural Networks.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/rbf':
-    get:
-      operationId: api.rbf.execute
-      parameters: &id019
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: the parameters for the initialization function.
-        name: initFuncParams
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: sets the activation function of the output units to linear
-          or logistic.
-        name: linOut
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'maximum of iterations to learn. '
-        name: maxit
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'number of units in the hidden layer(s). '
-        name: size
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: the parameters for the learning function.
-        name: learnFuncParams
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: the corresponding targets values.
-        name: y
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: a matrix with training inputs for the network.
-        name: x
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Create and train a radial basis function (RBF) network.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.rbf.execute_post
-      parameters: *id019
-      summary: Create and train a radial basis function (RBF) network.
-      type: string
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
   '/adftest/download':
     get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
       operationId: api.adftest.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
       operationId: api.adftest.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: The Turtle file.
-  '/predictMLP/download':
+  '/arima':
     get:
-      parameters:
+      operationId: api.arima.execute
+      parameters: &id003
       - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictMLP.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.predictMLP.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/autoarima/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.autoarima.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.autoarima.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/pacf':
-    get:
-      operationId: api.pacf.execute
-      parameters: &id020
-      - in: query
+        name: include__mean
+        description: It's a mean/intercept term. The default is TRUE for undifferenced
+          series, and it is ignored for ARIMA models with differencing.
+        required: true
         default: 'TRUE'
         type: string
-        required: true
-        description: Should covariances be about the sample means?
-        name: demean
       - in: query
-        default: 10\u2217log10(N/m)
-        type: string
-        required: true
-        description: Maximum lag at which to calculate the Pacf. Default is 10\u2217\
-          log10(N/m) where N is the number of observations and m the number of series.\
-          \ Will be automatically limited to one less than the number of observations\
-          \ in the series.
-        name: lag__max
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: A univariate or multivariate (not Ccf) numeric time series
-          object or a numeric vector or matrix.
-        name: x
-      - in: query
-        default: correlation
-        type: string
-        required: true
-        description: Character string giving the type of Pacf to be computed. Allowed
-          values are 'correlation' (the default), 'covariance' or 'partial'.
-        name: var_type
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: Logical. If TRUE (the default) the resulting Pacf is plotted.
-        name: plot
-      - in: query
-        default: na.contiguous
-        type: string
-        required: true
-        description: Function to handle missing values. Default is na.contiguous.
-          Useful alternatives are na.pass and na.interp.
-        name: na__action
-      - in: query
-        default: na.contiguous
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Fit an Pacf, Partial Autocorrelation Function Estimation
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.pacf.execute_post
-      parameters: *id020
-      summary: Fit an Pacf, Partial Autocorrelation Function Estimation
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/stl':
-    get:
-      operationId: api.stl.execute
-      parameters: &id021
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Logical indicating if robust fitting be used in the loess procedure.
-        name: robust
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: Either the character string 'periodic' or the span (in lags)
-          of the loess window for seasonal extraction, which should be odd and at
-          least 7, according to Cleveland et al. This has no default.
-        name: s__window
-      - in: query
-        default: nextodd(ceiling((1.5*period)/(1-(1.5/s.window))))
-        type: string
-        required: true
-        description: The span (in lags) of the loess window for trend extraction,
-          which should be odd.
-        name: t__window
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: Univariate time series to be decomposed. This should be an
-          object of class 'ts' with a frequency greater than one.
-        name: x
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Integers at least one to increase speed of the respective smoother.
-        name: t__jump
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Seasonal Decomposition of Time Series by Loess.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.stl.execute_post
-      parameters: *id021
-      summary: Seasonal Decomposition of Time Series by Loess.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/shapiro':
-    get:
-      operationId: api.shapiro.execute
-      parameters: &id022
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: A numeric vector of data values. Missing values are allowed,
-          but the number of non-missing values must be between 3 and 5000.
-        name: x
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Fit a Shapiro-Wilk Normality Test.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.shapiro.execute_post
-      parameters: *id022
-      summary: Fit a Shapiro-Wilk Normality Test.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/box/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.box.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.box.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/catalog':
-    get:
-      operationId: api.catalog.execute
-      summary: Returns the complete catalog
-      produces:
-      - application/json
-      type: string
-      response:
-        200:
-          description: JSON containing the catalog.
-  '/predictarima':
-    get:
-      operationId: api.predictarima.execute
-      parameters: &id023
-      - in: query
-        default: c(0L,0L,0L)
-        type: string
-        required: true
+        name: order
         description: 'A specification of the non-seasonal part of the ARIMA model:
           the three integer components (p, d, q) are the AR order, the degree of
           differencing, and the MA order.'
-        name: order
-      - in: query
-        default: ''
-        type: string
         required: true
-        description: a time series.
+        default: c(0L,0L,0L)
+        type: string
+      - in: query
         name: x
-      - in: query
+        description: A univariate time series
+        required: true
         default: ''
         type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Model Predictions
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.predictarima.execute_post
-      parameters: *id023
-      summary: Model Predictions
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/ets':
-    get:
-      operationId: api.ets.execute
-      parameters: &id024
       - in: query
+        name: fixed
+        description: Optional numeric vector of the same length as the total number
+          of parameters. If supplied, only NA entries in fixed will be varied. transform.pars
+          = TRUE will be overridden (with a warning) if any AR parameters are fixed.
+          It may be wise to set transform.pars = FALSE when fixing MA parameters,
+          especially near non-invertibility.
+        required: true
         default: 'NULL'
         type: string
-        required: true
-        description: Box-Cox transformation parameter. Ignored if NULL. Otherwise,
-          data transformed before model is estimated.
-        name: var_lambda
       - in: query
-        default: ZZZ
+        name: kappa
+        description: The prior variance (as a multiple of the innovations variance)
+          for the past observations in a differenced model. Do not reduce this.
+        required: true
+        default: '1e6'
         type: string
-        required: true
-        description: Usually a three-character string identifying method using the
-          framework terminology of Hyndman et al. (2002) and Hyndman et al. (2008).
-          The first letter denotes the error type ('A', 'M' or 'Z'); the second
-          letter denotes the trend type ('N','A','M' or 'Z'); and the third letter
-          denotes the season type ('N','A','M' or 'Z'). In all cases, 'N'=none,
-          'A'=additive, 'M'=multiplicative and 'Z'=automatically selected.
-        name: model
       - in: query
+        name: optim__control
+        description: List of control parameters for optim.
+        required: true
+        default: list()
+        type: string
+      - in: query
+        name: init
+        description: Optional numeric vector of initial parameter values. Missing
+          values will be filled in, by zeroes except for regression coefficients.
+          Values already specified in fixed will be ignored.
+        required: true
         default: 'NULL'
         type: string
-        required: true
-        description: Value of beta. If NULL, it is estimated
-        name: beta
       - in: query
-        default: 'FALSE'
+        name: xreg
+        description: Optional vector or matrix of external regressors, which must
+          have the same number of rows as x.
+        required: true
+        default: 'NULL'
         type: string
-        required: true
-        description: If TRUE, will only consider additive models. Default is FALSE.
-        name: additive__only
       - in: query
+        name: optim__method
+        description: The value passed as the method argument to optim.
+        required: true
+        default: BFGS
+        type: string
+      - in: query
+        name: seasonal
+        description: A specification of the seasonal part of the ARIMA model, plus
+          the period (which defaults to frequency(x)). This should be a list with
+          components order and period, but a specification of just a numeric vector
+          of length 3 will be turned into a suitable list with the specification
+          as the order.
+        required: true
+        default: list(order = c(0L, 0L, 0L), period = NA)
+        type: string
+      - in: query
+        name: transform__pars
+        description: logical; if true, the AR parameters are transformed to ensure
+          that they remain in the region of stationarity. Not used for method =
+          'CSS'. For method = 'ML', it has been advantageous to set transform.pars
+          = FALSE in some cases, see also fixed.
+        required: true
         default: 'TRUE'
         type: string
-        required: true
-        description: If TRUE (default), the models with infinite variance will not
-          be allowed.
-        name: restrict
       - in: query
-        default: ''
-        type: string
+        name: method
+        description: 'Fitting method: maximum likelihood or minimize conditional
+          sum-of-squares. The default (unless there are missing values) is to use
+          conditional-sum-of-squares to find starting values, then maximum likelihood.'
         required: true
-        description: Lower bounds for the parameters (alpha, beta, gamma, phi)
-        name: lower
+        default: CSS
+        type: string
       - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: If TRUE, use a damped trend (either additive or multiplicative).
-          If NULL, both damped and non-damped trends will be tried and the best
-          model (according to the information criterion ic) returned.
-        name: damped
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Number of steps for average multistep MSE (1<=nmse).
-        name: nmse
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Upper bounds for the parameters (alpha, beta, gamma, phi)
-        name: upper
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Value of gamma. If NULL, it is estimated
-        name: gamma
-      - in: query
-        default: 'FALSE'
-        type: string
-        required: true
-        description: Use adjusted back-transformed mean for Box-Cox transformations.
-          If TRUE, point forecasts and fitted values are mean forecast. Otherwise,
-          these points can be considered the median of the forecast densities.
-        name: biasadj
-      - in: query
-        default: lik
-        type: string
-        required: true
-        description: Optimization criterion. One of 'mse' (Mean Square Error), 'amse'
-          (Average MSE over first nmse forecast horizons), 'sigma' (Standard deviation
-          of residuals), 'mae' (Mean of absolute residuals), or 'lik' (Log-likelihood,
-          the default).
-        name: opt__crit
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Value of phi. If NULL, it is estimated
-        name: phi
-      - in: query
-        default: 'FALSE'
-        type: string
-        required: true
-        description: If TRUE and model is of class 'ets', then the initial values
-          in the model are also not re-estimated.
-        name: use__initial__values
-      - in: query
-        default: both
-        type: string
-        required: true
-        description: Type of parameter space to impose, 'usual' indicates all parameters
-          must lie between specified lower and upper bounds, 'admissible' indicates
-          parameters must lie in the admissible space, 'both' (default) takes the
-          intersection of these regions.
-        name: bounds
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Information criterion to be used in model selection, 'aicc',
-          'aic', 'bic'
-        name: ic
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: a numeric vector or time series
-        name: y
-      - in: query
-        default: 'FALSE'
-        type: string
-        required: true
-        description: If TRUE, models with multiplicative trend are allowed when
-          searching for a model. Otherwise, the model space excludes them. This
-          argument is ignored if a multiplicative trend model is explicitly requested
-        name: allow__multiplicative__trend
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Value of alpha. If NULL, it is estimated
-        name: alpha
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Dataset on which the service is applied
         name: dataset
-      summary: Fit an Exponential smoothing state space model
+        description: Dataset on which the service is applied
+        required: true
+        default: CSS
+        type: string
       type: string
+      summary: Fit an ARIMA model to a univariate time series
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      operationId: api.ets.execute_post
-      parameters: *id024
-      summary: Fit an Exponential smoothing state space model
+      operationId: api.arima.execute_post
+      parameters: *id003
       type: string
+      summary: Fit an ARIMA model to a univariate time series
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
-  '/box':
+  '/arima/download':
     get:
-      operationId: api.box.execute
-      parameters: &id025
+      operationId: api.arima.download
+      produces:
+      - application/binary
+      parameters:
       - in: query
-        default: Ljung
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
         type: string
-        required: true
-        description: 'Test to be performed: partial matching is used. Box (default)
-          or Ljung.'
-        name: var_type
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Number of degrees of freedom to be subtracted if x is a series
-          of residuals.
-        name: fitdf
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: A numeric vector or time series.
-        name: x
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: The statistic will be based on lag autocorrelation coefficients.
-        name: lag
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Fit a Box-Pierce and Ljung-Box Tests.
       type: string
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      operationId: api.box.execute_post
-      parameters: *id025
-      summary: Fit a Box-Pierce and Ljung-Box Tests.
+      operationId: api.arima.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
       type: string
+      summary: Returns the service definition in the specified format.
       response:
         200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
+          description: The Turtle file.
   '/autoarima':
     get:
       operationId: api.autoarima.execute
-      parameters: &id026
+      parameters: &id004
       - in: query
+        name: max__p
+        description: Maximum value of p
+        required: true
         default: ''
         type: string
-        required: true
-        description: Maximum value of q
+      - in: query
         name: max__q
-      - in: query
+        description: Maximum value of q
+        required: true
         default: ''
         type: string
-        required: true
-        description: Starting value of Q in stepwise procedure.
-        name: start__Q
       - in: query
+        name: max__D
+        description: Maximum number of seasonal differences
+        required: true
         default: ''
         type: string
+      - in: query
+        name: start__q
+        description: Starting value of q in stepwise procedure.
         required: true
+        default: ''
+        type: string
+      - in: query
+        name: start__P
+        description: Starting value of P in stepwise procedure.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: max__Q
+        description: Maximum value of Q
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: y
+        description: A univariate time series
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: max__d
+        description: Maximum number of non-seasonal differences
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: num__cores
         description: Allows the user to specify the amount of parallel processes
           to be used if parallel = TRUE and stepwise = FALSE. If NULL, then the
           number of logical cores is automatically detected and all available cores
           are used.
-        name: num__cores
-      - in: query
+        required: true
         default: ''
         type: string
-        required: true
-        description: If TRUE, restricts search to stationary models.
-        name: stationary
       - in: query
+        name: seasonal
+        description: If FALSE, restricts search to non-seasonal models.
+        required: true
         default: ''
         type: string
+      - in: query
+        name: truncate
+        description: An integer value indicating how many observations to use in
+          model selection. The last truncate values of the series are used to select
+          a model when truncate is not NULL and approximation=TRUE. All observations
+          are used if either truncate=NULL or approximation=FALSE.
         required: true
-        description: Type of unit root test to use, 'kpss', 'adf' or 'pp'. 
+        default: 'NULL'
+        type: string
+      - in: query
+        name: allowmean
+        description: If TRUE, models with a non-zero mean are considered.
+        required: true
+        default: 'TRUE'
+        type: string
+      - in: query
+        name: start__Q
+        description: Starting value of Q in stepwise procedure.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: ic
+        description: Information criterion to be used in model selection, 'aicc',
+          'aic', 'bic'
+        required: true
+        default: ''
+        type: string
+      - in: query
         name: test
-      - in: query
-        default: 'FALSE'
-        type: string
+        description: Type of unit root test to use, 'kpss', 'adf' or 'pp'. 
         required: true
+        default: ''
+        type: string
+      - in: query
+        name: seasonal__test
+        description: This determines which seasonal unit root test is used, 'ocsb'\
+          \ or 'ch' . 
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: biasadj
         description: Use adjusted back-transformed mean for Box-Cox transformations.
           If TRUE, point forecasts and fitted values are mean forecast. Otherwise,
           these points can be considered the median of the forecast densities.
-        name: biasadj
-      - in: query
+        required: true
         default: 'FALSE'
         type: string
+      - in: query
+        name: start__p
+        description: Starting value of p in stepwise procedure.
         required: true
+        default: ''
+        type: string
+      - in: query
+        name: allowdrift
+        description: If TRUE, models with drift terms are considered.
+        required: true
+        default: 'TRUE'
+        type: string
+      - in: query
+        name: parallel
         description: If TRUE and stepwise = FALSE, then the specification search
           is done in parallel. This can give a significant speedup on mutlicore
           machines.
-        name: parallel
+        required: true
+        default: 'FALSE'
+        type: string
       - in: query
+        name: stationary
+        description: If TRUE, restricts search to stationary models.
+        required: true
         default: ''
         type: string
-        required: true
-        description: If FALSE, restricts search to non-seasonal models.
-        name: seasonal
       - in: query
-        default: ''
-        type: string
+        name: d
+        description: Order of first-differencing. If missing, will choose a value
+          based on KPSS test.
         required: true
-        description: Maximum value of p
-        name: max__p
-      - in: query
         default: NA
         type: string
-        required: true
+      - in: query
+        name: D
         description: Order of seasonal-differencing. If missing, will choose a value
           based on OCSB test.
-        name: D
+        required: true
+        default: NA
+        type: string
       - in: query
+        name: max__order
+        description: Maximum value of p+q+P+Q if model selection is not stepwise.
+        required: true
         default: ''
         type: string
+      - in: query
+        name: xreg
+        description: Optionally, a vector or matrix of external regressors, which
+          must have the same number of rows as y.
         required: true
-        description: Maximum value of P
+        default: 'NULL'
+        type: string
+      - in: query
         name: max__P
-      - in: query
+        description: Maximum value of P
+        required: true
         default: ''
         type: string
-        required: true
-        description: Starting value of q in stepwise procedure.
-        name: start__q
       - in: query
-        default: ''
-        type: string
-        required: true
-        description: Maximum number of non-seasonal differences
-        name: max__d
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: If TRUE, models with a non-zero mean are considered.
-        name: allowmean
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
+        name: approximation
         description: If TRUE, estimation is via conditional sums of squares andthe
           information criteria used for model selection are approximated. The final
           model is still computed using maximum likelihood estimation. Approximation
           should be used for long time series or a high seasonal period to avoid
           excessive computation times.
-        name: approximation
-      - in: query
-        default: 'NULL'
-        type: string
         required: true
-        description: Maximum value of Q
-        name: max__Q
-      - in: query
-        default: 'NULL'
+        default: 'TRUE'
         type: string
-        required: true
+      - in: query
+        name: var_lambda
         description: Box-Cox transformation parameter. Ignored if NULL. Otherwise,
           data transformed before model is estimated.
-        name: var_lambda
-      - in: query
-        default: ''
-        type: string
         required: true
-        description: This determines which seasonal unit root test is used, 'ocsb'\
-          \ or 'ch' . 
-        name: seasonal__test
-      - in: query
-        default: NA
-        type: string
-        required: true
-        description: Order of first-differencing. If missing, will choose a value
-          based on KPSS test.
-        name: d
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Starting value of P in stepwise procedure.
-        name: start__P
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Information criterion to be used in model selection, 'aicc',
-          'aic', 'bic'
-        name: ic
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: A univariate time series
-        name: y
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Starting value of p in stepwise procedure.
-        name: start__p
-      - in: query
         default: 'NULL'
         type: string
-        required: true
-        description: An integer value indicating how many observations to use in
-          model selection. The last truncate values of the series are used to select
-          a model when truncate is not NULL and approximation=TRUE. All observations
-          are used if either truncate=NULL or approximation=FALSE.
-        name: truncate
       - in: query
-        default: ''
-        type: string
-        required: true
-        description: Maximum value of p+q+P+Q if model selection is not stepwise.
-        name: max__order
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Optionally, a vector or matrix of external regressors, which
-          must have the same number of rows as y.
-        name: xreg
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Maximum number of seasonal differences
-        name: max__D
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: If TRUE, the list of ARIMA models considered will be reported.
-        name: trace
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
-        description: If TRUE, models with drift terms are considered.
-        name: allowdrift
-      - in: query
-        default: 'TRUE'
-        type: string
-        required: true
+        name: stepwise
         description: if TRUE, will do stepwise selection (faster). Otherwise, it
           searches over all models. Non-stepwise selection can be very slow, especially
           for seasonal models.
-        name: stepwise
-      - in: query
+        required: true
         default: 'TRUE'
         type: string
+      - in: query
+        name: trace
+        description: If TRUE, the list of ARIMA models considered will be reported.
         required: true
-        description: Dataset on which the service is applied
+        default: ''
+        type: string
+      - in: query
         name: dataset
-      summary: Fit best ARIMA model to univariate time series
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
       type: string
+      summary: Fit best ARIMA model to univariate time series
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
       operationId: api.autoarima.execute_post
-      parameters: *id026
-      summary: Fit best ARIMA model to univariate time series
+      parameters: *id004
       type: string
+      summary: Fit best ARIMA model to univariate time series
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
-  '/rf':
+  '/autoarima/download':
     get:
-      operationId: api.rf.execute
-      parameters: &id027
+      operationId: api.autoarima.download
+      produces:
+      - application/binary
+      parameters:
       - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.autoarima.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/box':
+    get:
+      operationId: api.box.execute
+      parameters: &id005
+      - in: query
+        name: lag
+        description: The statistic will be based on lag autocorrelation coefficients.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: x
+        description: A numeric vector or time series.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: fitdf
+        description: Number of degrees of freedom to be subtracted if x is a series
+          of residuals.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: var_type
+        description: 'Test to be performed: partial matching is used. Box (default)
+          or Ljung.'
+        required: true
+        default: Ljung
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: Ljung
+        type: string
+      type: string
+      summary: Fit a Box-Pierce and Ljung-Box Tests.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.box.execute_post
+      parameters: *id005
+      type: string
+      summary: Fit a Box-Pierce and Ljung-Box Tests.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/box/download':
+    get:
+      operationId: api.box.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.box.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/ccf':
+    get:
+      operationId: api.ccf.execute
+      parameters: &id006
+      - in: query
+        name: lag__max
+        description: Maximum lag at which to calculate the Ccf. Default is 10\u2217\
+          log10(N/m) where N is the number of observations and m the number of series.\
+          \ Will be automatically limited to one less than the number of observations\
+          \ in the series.
+        required: true
+        default: 10\u2217log10(N/m)
+        type: string
+      - in: query
+        name: var_type
+        description: Character string giving the type of Ccf to be computed. Allowed
+          values are 'correlation' (the default) or 'covariance'.
+        required: true
+        default: correlation
+        type: string
+      - in: query
+        name: demean
+        description: Should covariances be about the sample means?
+        required: true
         default: 'TRUE'
         type: string
-        required: true
-        description: If TRUE (default), the final result of votes are expressed
-          as fractions. If FALSE, raw vote counts are returned (useful for combining
-          results from different runs). Ignored for regression.
-        name: norm__votes
       - in: query
+        name: x
+        description: A univariate numeric time series object or a numeric vector.
+        required: true
         default: ''
         type: string
-        required: true
-        description: Minimum size of terminal nodes. Setting this number larger
-          causes smaller trees to be grown (and thus take less time). Note that
-          the default values are different for classification (1) and regression
-          (5).
-        name: nodesize
       - in: query
-        default: remove
-        type: string
+        name: plot
+        description: Logical. If TRUE (the default) the resulting Ccf is plotted.
         required: true
-        description: A function which indicates what should happen when the data
-          contain NAs
+        default: 'TRUE'
+        type: string
+      - in: query
         name: na__action
-      - in: query
-        default: 'NULL'
-        type: string
+        description: Function to handle missing values. Default is na.contiguous.
+          Useful alternatives are na.pass and na.interp.
         required: true
-        description: Priors of the classes. Need not add up to one. Ignored for
-          regression.
-        name: classwt
-      - in: query
-        default: ''
+        default: na.contiguous
         type: string
-        required: true
-        description: Number of variables randomly sampled as candidates at each
-          split. Note that the default values are different for classification (sqrt(p)
-          where p is number of variables in x) and regression (p/3)
-        name: mtry
       - in: query
-        default: ' '
-        type: string
+        name: y
+        description: A univariate numeric time series object or a numeric vector.
         required: true
-        description: 'Response variable and Formulae '
-        name: formula
+        default: 10\u2217log10(N/m)
+        type: string
       - in: query
-        default: ''
-        type: string
-        required: true
-        description: Should proximity measure among the rows be calculated?
-        name: proximity
-      - in: query
-        default: 'FALSE'
-        type: string
-        required: true
-        description: Should an n by ntree matrix be returned that keeps track of
-          which samples are ``in-bag'' in which trees (but not how many times, if
-          sampling with replacement)
-        name: keep__inbag
-      - in: query
-        default: 'FALSE'
-        type: string
-        required: true
-        description: Should casewise importance measure be computed? (Setting this
-          to TRUE will override importance.)
-        name: localImp
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Optional vector specifying a subset of observations to be used
-          in the fitting process
-        name: subset
-      - in: query
-        default: 'FALSE'
-        type: string
-        required: true
-        description: Should importance of predictors be assessed?
-        name: importance
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: If set to FALSE, the forest will not be retained in the output
-          object. If xtest is given, defaults to FALSE.
-        name: keep__forest
-      - in: query
-        default: 'true'
-        type: string
-        required: true
-        description: Should sampling of cases be done with or without replacement?
-        name: replace
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Size(s) of sample to draw. For classification, if sampsize
-          is a vector of the length the number of strata, then sampling is stratified
-          by strata, and the elements of sampsize indicate the numbers to be drawn
-          from the strata.
-        name: sampsize
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: (Classification only) A vector of length equal to number of
-          classes. The `winning' class for an observation is the one with the maximum
-          ratio of proportion of votes to cutoff. Default is 1/k where k is the
-          number of classes (i.e., majority vote wins).
-        name: cutoff
-      - in: query
-        default: '500'
-        type: string
-        required: true
-        description: Number of trees to grow. This should not be set to too small
-          a number, to ensure that every input row gets predicted at least a few
-          times.
-        name: ntree
-      - in: query
-        default: 'NULL'
-        type: string
-        required: true
-        description: Maximum number of terminal nodes trees in the forest can have.
-          If not given, trees are grown to the maximum possible (subject to limits
-          by nodesize). If set larger than maximum possible, a warning is issued.
-        name: maxnodes
-      - in: query
-        default: '1'
-        type: string
-        required: true
-        description: Number of times the OOB data are permuted per tree for assessing
-          variable importance. Number larger than 1 gives slightly more stable estimate,
-          but not very effective. Currently only implemented for regression.
-        name: nPerm
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Should proximity be calculated only on ``out-of-bag'' data?
-        name: oob__prox
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: A (factor) variable that is used for stratified sampling.
-        name: strata
-      - in: query
-        default: ''
-        type: string
-        required: true
-        description: Dataset on which the service is applied
         name: dataset
-      summary: Implements Breiman's random forest algorithm (based on Breiman and
-        Cutler's original Fortran code) for classification and regression. It can
-        also be used in unsupervised mode for assessing proximities among data points.
+        description: Dataset on which the service is applied
+        required: true
+        default: 10\u2217log10(N/m)
+        type: string
       type: string
+      summary: Fit an Ccf, Cross-Correlation Function Estimation
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      operationId: api.rf.execute_post
-      parameters: *id027
-      summary: Implements Breiman's random forest algorithm (based on Breiman and
-        Cutler's original Fortran code) for classification and regression. It can
-        also be used in unsupervised mode for assessing proximities among data points.
+      operationId: api.ccf.execute_post
+      parameters: *id006
       type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-  '/nnet':
-    get:
-      operationId: api.nnet.execute
-      parameters: &id028
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'Number of units in the hidden layer. Can be zero if there
-          are skip-layer units. '
-        name: size
-      - in: query
-        default: na.omit
-        type: string
-        required: true
-        description: A function to specify the action to be taken if NAs are found.
-          The default action is for the procedure to fail. An alternative is na.omit,
-          which leads to rejection of cases with missing values on any required
-          variable.
-        name: na__action
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: An index vector specifying the cases to be used in the training
-          sample.
-        name: subset
-      - in: query
-        default: '100'
-        type: string
-        required: true
-        description: Maximum number of iterations. Default 100.
-        name: maxit
-      - in: query
-        default: '0'
-        type: string
-        required: true
-        description: Parameter for weight decay. Default 0.
-        name: decay
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: Data frame from which variables specified in formula are preferentially
-          to be taken.
-        name: data
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'A formula of the form class ~ x1 + x2 + ... '
-        name: formula
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: 'Initial random weights on [-rang, rang]. Value about 0.5 unless
-          the inputs are large, in which case it should be chosen so that rang *
-          max(|x|) is about 1. '
-        name: rang
-      - in: query
-        default: ' '
-        type: string
-        required: true
-        description: Dataset on which the service is applied
-        name: dataset
-      summary: Fit Neural Networks.
-      type: string
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      operationId: api.nnet.execute_post
-      parameters: *id028
-      summary: Fit Neural Networks.
-      type: string
+      summary: Fit an Ccf, Cross-Correlation Function Estimation
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
   '/ccf/download':
     get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
+      operationId: api.ccf.download
       produces:
       - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
       type: string
-      operationId: api.ccf.download
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
+      operationId: api.ccf.download_post
       produces:
       - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
       type: string
-      operationId: api.ccf.download_post
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: The Turtle file.
-  '/predictSVM':
+  '/cor':
     get:
-      operationId: api.predictSVM.execute
-      parameters: &id029
+      operationId: api.cor.execute
+      parameters: &id007
       - in: query
+        name: method
+        description: A character string indicating which correlation coefficient
+          (or covariance) is to be computed. One of 'pearson' (default), 'kendall',
+          or 'spearman', can be abbreviated.
+        required: true
+        default: pearson
+        type: string
+      - in: query
+        name: x
+        description: a numeric vector, matrix or data frame.
+        required: true
         default: ''
         type: string
-        required: true
-        description: 'Response variable and Formulae '
-        name: formula
       - in: query
-        default: ''
-        type: string
+        name: use
+        description: An optional character string giving a method for computing
+          covariances in the presence of missing values. This must be (an abbreviation
+          of) one of the strings 'everything', 'all.obs', 'complete.obs', 'na.or.complete',
+          or 'pairwise.complete.obs'.
         required: true
-        description: Dataset on which the service is applied
+        default: everything
+        type: string
+      - in: query
+        name: y
+        description: NULL (default) or a vector, matrix or data frame with compatible
+          dimensions to x. The default is equivalent to y = x (but more efficient).
+        required: true
+        default: 'null'
+        type: string
+      - in: query
         name: dataset
-      summary: Predict method for Support Vector Machines (SVM)
+        description: Dataset on which the service is applied
+        required: true
+        default: 'null'
+        type: string
       type: string
+      summary: Correlation
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      operationId: api.predictSVM.execute_post
-      parameters: *id029
-      summary: Predict method for Support Vector Machines (SVM)
+      operationId: api.cor.execute_post
+      parameters: *id007
       type: string
+      summary: Correlation
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/cor/download':
+    get:
+      operationId: api.cor.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.cor.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/dtw':
+    get:
+      operationId: api.dtw.execute
+      parameters: &id008
+      - in: query
+        name: x
+        description: Query vector or local cost matrix
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: y
+        description: Reference vector, unused if x given as cost matrix
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: 'Run the Dynamic Time Warping Algorithm on Two Trajectories '
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.dtw.execute_post
+      parameters: *id008
+      type: string
+      summary: 'Run the Dynamic Time Warping Algorithm on Two Trajectories '
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/dtw/download':
+    get:
+      operationId: api.dtw.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.dtw.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/ets':
+    get:
+      operationId: api.ets.execute
+      parameters: &id009
+      - in: query
+        name: bounds
+        description: Type of parameter space to impose, 'usual' indicates all parameters
+          must lie between specified lower and upper bounds, 'admissible' indicates
+          parameters must lie in the admissible space, 'both' (default) takes the
+          intersection of these regions.
+        required: true
+        default: both
+        type: string
+      - in: query
+        name: nmse
+        description: Number of steps for average multistep MSE (1<=nmse).
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: var_lambda
+        description: Box-Cox transformation parameter. Ignored if NULL. Otherwise,
+          data transformed before model is estimated.
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: use__initial__values
+        description: If TRUE and model is of class 'ets', then the initial values
+          in the model are also not re-estimated.
+        required: true
+        default: 'FALSE'
+        type: string
+      - in: query
+        name: upper
+        description: Upper bounds for the parameters (alpha, beta, gamma, phi)
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: allow__multiplicative__trend
+        description: If TRUE, models with multiplicative trend are allowed when
+          searching for a model. Otherwise, the model space excludes them. This
+          argument is ignored if a multiplicative trend model is explicitly requested
+        required: true
+        default: 'FALSE'
+        type: string
+      - in: query
+        name: alpha
+        description: Value of alpha. If NULL, it is estimated
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: gamma
+        description: Value of gamma. If NULL, it is estimated
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: y
+        description: a numeric vector or time series
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: lower
+        description: Lower bounds for the parameters (alpha, beta, gamma, phi)
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: beta
+        description: Value of beta. If NULL, it is estimated
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: ic
+        description: Information criterion to be used in model selection, 'aicc',
+          'aic', 'bic'
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: restrict
+        description: If TRUE (default), the models with infinite variance will not
+          be allowed.
+        required: true
+        default: 'TRUE'
+        type: string
+      - in: query
+        name: phi
+        description: Value of phi. If NULL, it is estimated
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: opt__crit
+        description: Optimization criterion. One of 'mse' (Mean Square Error), 'amse'
+          (Average MSE over first nmse forecast horizons), 'sigma' (Standard deviation
+          of residuals), 'mae' (Mean of absolute residuals), or 'lik' (Log-likelihood,
+          the default).
+        required: true
+        default: lik
+        type: string
+      - in: query
+        name: additive__only
+        description: If TRUE, will only consider additive models. Default is FALSE.
+        required: true
+        default: 'FALSE'
+        type: string
+      - in: query
+        name: damped
+        description: If TRUE, use a damped trend (either additive or multiplicative).
+          If NULL, both damped and non-damped trends will be tried and the best
+          model (according to the information criterion ic) returned.
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: model
+        description: Usually a three-character string identifying method using the
+          framework terminology of Hyndman et al. (2002) and Hyndman et al. (2008).
+          The first letter denotes the error type ('A', 'M' or 'Z'); the second
+          letter denotes the trend type ('N','A','M' or 'Z'); and the third letter
+          denotes the season type ('N','A','M' or 'Z'). In all cases, 'N'=none,
+          'A'=additive, 'M'=multiplicative and 'Z'=automatically selected.
+        required: true
+        default: ZZZ
+        type: string
+      - in: query
+        name: biasadj
+        description: Use adjusted back-transformed mean for Box-Cox transformations.
+          If TRUE, point forecasts and fitted values are mean forecast. Otherwise,
+          these points can be considered the median of the forecast densities.
+        required: true
+        default: 'FALSE'
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: 'FALSE'
+        type: string
+      type: string
+      summary: Fit an Exponential smoothing state space model
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.ets.execute_post
+      parameters: *id009
+      type: string
+      summary: Fit an Exponential smoothing state space model
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/ets/download':
+    get:
+      operationId: api.ets.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.ets.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/jarque':
+    get:
+      operationId: api.jarque.execute
+      parameters: &id010
+      - in: query
+        name: x
+        description: A numeric vector or time series.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Fit a Jarque Bera Test.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.jarque.execute_post
+      parameters: *id010
+      type: string
+      summary: Fit a Jarque Bera Test.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/jarque/download':
+    get:
+      operationId: api.jarque.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.jarque.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/linear_regression':
+    get:
+      operationId: api.linear_regression.execute
+      parameters: &id011
+      - in: query
+        name: weights
+        description: Optional vector of weights to be used in the fitting process.
+          If non-NULL, weighted least squares is used with weights weights (that
+          is, minimizing sum(w*e^2)); otherwise ordinary least squares is used
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: na__action
+        description: A function which indicates what should happen when the data
+          contain NAs
+        required: true
+        default: na.remove
+        type: string
+      - in: query
+        name: subset
+        description: Optional vector specifying a subset of observations to be used
+          in the fitting process
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Linear regression is an approach for modeling the relationship between
+        a scalar dependent variable y and one or more explanatory variables (or
+        independent variables) denoted X. The case of one explanatory variable is
+        called simple linear regression.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.linear_regression.execute_post
+      parameters: *id011
+      type: string
+      summary: Linear regression is an approach for modeling the relationship between
+        a scalar dependent variable y and one or more explanatory variables (or
+        independent variables) denoted X. The case of one explanatory variable is
+        called simple linear regression.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/linear_regression/download':
+    get:
+      operationId: api.linear_regression.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.linear_regression.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/mlp':
+    get:
+      operationId: api.mlp.execute
+      parameters: &id012
+      - in: query
+        name: linOut
+        description: sets the activation function of the output units to linear
+          or logistic.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: x
+        description: a matrix with training inputs for the network.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: y
+        description: the corresponding targets values.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: maxit
+        description: 'maximum of iterations to learn. '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: initFuncParams
+        description: the parameters for the initialization function.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: learnFuncParams
+        description: the parameters for the learning function.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: size
+        description: 'number of units in the hidden layer(s). '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ' '
+        type: string
+      type: string
+      summary: Create and train a multi-layer perceptron (MLP).
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.mlp.execute_post
+      parameters: *id012
+      type: string
+      summary: Create and train a multi-layer perceptron (MLP).
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
   '/mlp/download':
     get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
       operationId: api.mlp.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
       operationId: api.mlp.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: The Turtle file.
-  '/predictETS/download':
+  '/neuralnet':
     get:
-      parameters:
+      operationId: api.neuralnet.execute
+      parameters: &id013
       - in: query
-        default: ttl
+        name: formula
+        description: a symbolic description of the model to be fitted.
+        required: true
+        default: ' '
         type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
+      - in: query
+        name: likelihood
+        description: 'logical. If the error function is equal to the negative log-likelihood
+          function, the information criteria AIC and BIC will be calculated. Furthermore
+          the usage of confidence.interval is meaningfull. '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: data
+        description: 'a data frame containing the variables specified in formula. '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: linear__output
+        description: logical. If act.fct should not be applied to the output neurons
+          set linear output to TRUE, otherwise to FALSE.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: err__fct
+        description: a differentiable function that is used for the calculation
+          of the error. Alternatively, the strings 'sse' and 'ce' which stand for
+          the sum of squared errors and the cross-entropy can be used.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ' '
+        type: string
       type: string
-      operationId: api.predictETS.download
+      summary: Training of neural networks.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
+      operationId: api.neuralnet.execute_post
+      parameters: *id013
       type: string
-      operationId: api.predictETS.download_post
+      summary: Training of neural networks.
       response:
         200:
-          description: The Turtle file.
-  '/predictnnet/download':
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/neuralnet/download':
     get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
+      operationId: api.neuralnet.download
       produces:
       - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
       type: string
-      operationId: api.predictnnet.download
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
+      operationId: api.neuralnet.download_post
       produces:
       - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
       type: string
-      operationId: api.predictnnet.download_post
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: The Turtle file.
-  '/rbf/download':
+  '/nnet':
     get:
-      parameters:
+      operationId: api.nnet.execute
+      parameters: &id014
       - in: query
-        default: ttl
+        name: maxit
+        description: Maximum number of iterations. Default 100.
+        required: true
+        default: '100'
         type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
+      - in: query
+        name: data
+        description: Data frame from which variables specified in formula are preferentially
+          to be taken.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: rang
+        description: 'Initial random weights on [-rang, rang]. Value about 0.5 unless
+          the inputs are large, in which case it should be chosen so that rang *
+          max(|x|) is about 1. '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: size
+        description: 'Number of units in the hidden layer. Can be zero if there
+          are skip-layer units. '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: formula
+        description: 'A formula of the form class ~ x1 + x2 + ... '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: na__action
+        description: A function to specify the action to be taken if NAs are found.
+          The default action is for the procedure to fail. An alternative is na.omit,
+          which leads to rejection of cases with missing values on any required
+          variable.
+        required: true
+        default: na.omit
+        type: string
+      - in: query
+        name: subset
+        description: An index vector specifying the cases to be used in the training
+          sample.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: decay
+        description: Parameter for weight decay. Default 0.
+        required: true
+        default: '0'
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: '0'
+        type: string
       type: string
-      operationId: api.rbf.download
+      summary: Fit Neural Networks.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
+      operationId: api.nnet.execute_post
+      parameters: *id014
       type: string
-      operationId: api.rbf.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/dtw/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.dtw.download
+      summary: Fit Neural Networks.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.dtw.download_post
-      response:
-        200:
-          description: The Turtle file.
-  '/pacf/download':
-    get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.pacf.download
-      response:
-        200:
-          description: Output of the service contains Model or ModelEvaluation or
-            Data
-    post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
-      operationId: api.pacf.download_post
-      response:
-        200:
-          description: The Turtle file.
   '/nnet/download':
     get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
       operationId: api.nnet.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
-      type: string
       operationId: api.nnet.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: The Turtle file.
-  '/svm/download':
+  '/pacf':
     get:
-      parameters:
+      operationId: api.pacf.execute
+      parameters: &id015
       - in: query
-        default: ttl
+        name: plot
+        description: Logical. If TRUE (the default) the resulting Pacf is plotted.
+        required: true
+        default: 'TRUE'
         type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
-      produces:
-      - application/binary
+      - in: query
+        name: x
+        description: A univariate or multivariate (not Ccf) numeric time series
+          object or a numeric vector or matrix.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: demean
+        description: Should covariances be about the sample means?
+        required: true
+        default: 'TRUE'
+        type: string
+      - in: query
+        name: lag__max
+        description: Maximum lag at which to calculate the Pacf. Default is 10\u2217\
+          log10(N/m) where N is the number of observations and m the number of series.\
+          \ Will be automatically limited to one less than the number of observations\
+          \ in the series.
+        required: true
+        default: 10\u2217log10(N/m)
+        type: string
+      - in: query
+        name: var_type
+        description: Character string giving the type of Pacf to be computed. Allowed
+          values are 'correlation' (the default), 'covariance' or 'partial'.
+        required: true
+        default: correlation
+        type: string
+      - in: query
+        name: na__action
+        description: Function to handle missing values. Default is na.contiguous.
+          Useful alternatives are na.pass and na.interp.
+        required: true
+        default: na.contiguous
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: na.contiguous
+        type: string
       type: string
-      operationId: api.svm.download
+      summary: Fit an Pacf, Partial Autocorrelation Function Estimation
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
+      operationId: api.pacf.execute_post
+      parameters: *id015
+      type: string
+      summary: Fit an Pacf, Partial Autocorrelation Function Estimation
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/pacf/download':
+    get:
+      operationId: api.pacf.download
       produces:
       - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
       type: string
-      operationId: api.svm.download_post
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.pacf.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: The Turtle file.
+  '/predict':
+    get:
+      operationId: api.predict.execute
+      parameters: &id016
+      - in: query
+        name: model
+        description: a model object for which prediction is desired.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Model Predictions
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predict.execute_post
+      parameters: *id016
+      type: string
+      summary: Model Predictions
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/predict/download':
+    get:
+      operationId: api.predict.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predict.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/predictETS':
+    get:
+      operationId: api.predictETS.execute
+      parameters: &id017
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Predict method for Exponential smoothing state space model
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictETS.execute_post
+      parameters: *id017
+      type: string
+      summary: Predict method for Exponential smoothing state space model
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/predictETS/download':
+    get:
+      operationId: api.predictETS.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictETS.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/predictMLP':
+    get:
+      operationId: api.predictMLP.execute
+      parameters: &id018
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Predict method for Mulltilayer Perceptron (MLP)
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictMLP.execute_post
+      parameters: *id018
+      type: string
+      summary: Predict method for Mulltilayer Perceptron (MLP)
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/predictMLP/download':
+    get:
+      operationId: api.predictMLP.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictMLP.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/predictRBF':
+    get:
+      operationId: api.predictRBF.execute
+      parameters: &id019
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Predict method for a radial basis function (RBF) network
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictRBF.execute_post
+      parameters: *id019
+      type: string
+      summary: Predict method for a radial basis function (RBF) network
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/predictRBF/download':
+    get:
+      operationId: api.predictRBF.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictRBF.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/predictRF':
+    get:
+      operationId: api.predictRF.execute
+      parameters: &id020
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Predict method for random forest objects
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictRF.execute_post
+      parameters: *id020
+      type: string
+      summary: Predict method for random forest objects
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/predictRF/download':
+    get:
+      operationId: api.predictRF.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictRF.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/predictSVM':
+    get:
+      operationId: api.predictSVM.execute
+      parameters: &id021
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Predict method for Support Vector Machines (SVM)
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictSVM.execute_post
+      parameters: *id021
+      type: string
+      summary: Predict method for Support Vector Machines (SVM)
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/predictSVM/download':
+    get:
+      operationId: api.predictSVM.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictSVM.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/predictarima':
+    get:
+      operationId: api.predictarima.execute
+      parameters: &id022
+      - in: query
+        name: order
+        description: 'A specification of the non-seasonal part of the ARIMA model:
+          the three integer components (p, d, q) are the AR order, the degree of
+          differencing, and the MA order.'
+        required: true
+        default: c(0L,0L,0L)
+        type: string
+      - in: query
+        name: x
+        description: a time series.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Model Predictions
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictarima.execute_post
+      parameters: *id022
+      type: string
+      summary: Model Predictions
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/predictarima/download':
+    get:
+      operationId: api.predictarima.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictarima.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/predictlm':
+    get:
+      operationId: api.predictlm.execute
+      parameters: &id023
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Predict method for Linear Model Fits
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictlm.execute_post
+      parameters: *id023
+      type: string
+      summary: Predict method for Linear Model Fits
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/predictlm/download':
+    get:
+      operationId: api.predictlm.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictlm.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/predictnnet':
+    get:
+      operationId: api.predictnnet.execute
+      parameters: &id024
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Predict method for a Neural Networks.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictnnet.execute_post
+      parameters: *id024
+      type: string
+      summary: Predict method for a Neural Networks.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/predictnnet/download':
+    get:
+      operationId: api.predictnnet.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.predictnnet.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/rbf':
+    get:
+      operationId: api.rbf.execute
+      parameters: &id025
+      - in: query
+        name: linOut
+        description: sets the activation function of the output units to linear
+          or logistic.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: y
+        description: the corresponding targets values.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: x
+        description: a matrix with training inputs for the network.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: size
+        description: 'number of units in the hidden layer(s). '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: maxit
+        description: 'maximum of iterations to learn. '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: learnFuncParams
+        description: the parameters for the learning function.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: initFuncParams
+        description: the parameters for the initialization function.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ' '
+        type: string
+      type: string
+      summary: Create and train a radial basis function (RBF) network.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.rbf.execute_post
+      parameters: *id025
+      type: string
+      summary: Create and train a radial basis function (RBF) network.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/rbf/download':
+    get:
+      operationId: api.rbf.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.rbf.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/rf':
+    get:
+      operationId: api.rf.execute
+      parameters: &id026
+      - in: query
+        name: na__action
+        description: A function which indicates what should happen when the data
+          contain NAs
+        required: true
+        default: remove
+        type: string
+      - in: query
+        name: replace
+        description: Should sampling of cases be done with or without replacement?
+        required: true
+        default: 'true'
+        type: string
+      - in: query
+        name: proximity
+        description: Should proximity measure among the rows be calculated?
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: cutoff
+        description: (Classification only) A vector of length equal to number of
+          classes. The `winning' class for an observation is the one with the maximum
+          ratio of proportion of votes to cutoff. Default is 1/k where k is the
+          number of classes (i.e., majority vote wins).
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: ntree
+        description: Number of trees to grow. This should not be set to too small
+          a number, to ensure that every input row gets predicted at least a few
+          times.
+        required: true
+        default: '500'
+        type: string
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: maxnodes
+        description: Maximum number of terminal nodes trees in the forest can have.
+          If not given, trees are grown to the maximum possible (subject to limits
+          by nodesize). If set larger than maximum possible, a warning is issued.
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: sampsize
+        description: Size(s) of sample to draw. For classification, if sampsize
+          is a vector of the length the number of strata, then sampling is stratified
+          by strata, and the elements of sampsize indicate the numbers to be drawn
+          from the strata.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: nodesize
+        description: Minimum size of terminal nodes. Setting this number larger
+          causes smaller trees to be grown (and thus take less time). Note that
+          the default values are different for classification (1) and regression
+          (5).
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: strata
+        description: A (factor) variable that is used for stratified sampling.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: oob__prox
+        description: Should proximity be calculated only on ``out-of-bag'' data?
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: nPerm
+        description: Number of times the OOB data are permuted per tree for assessing
+          variable importance. Number larger than 1 gives slightly more stable estimate,
+          but not very effective. Currently only implemented for regression.
+        required: true
+        default: '1'
+        type: string
+      - in: query
+        name: classwt
+        description: Priors of the classes. Need not add up to one. Ignored for
+          regression.
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: importance
+        description: Should importance of predictors be assessed?
+        required: true
+        default: 'FALSE'
+        type: string
+      - in: query
+        name: mtry
+        description: Number of variables randomly sampled as candidates at each
+          split. Note that the default values are different for classification (sqrt(p)
+          where p is number of variables in x) and regression (p/3)
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: keep__inbag
+        description: Should an n by ntree matrix be returned that keeps track of
+          which samples are ``in-bag'' in which trees (but not how many times, if
+          sampling with replacement)
+        required: true
+        default: 'FALSE'
+        type: string
+      - in: query
+        name: norm__votes
+        description: If TRUE (default), the final result of votes are expressed
+          as fractions. If FALSE, raw vote counts are returned (useful for combining
+          results from different runs). Ignored for regression.
+        required: true
+        default: 'TRUE'
+        type: string
+      - in: query
+        name: keep__forest
+        description: If set to FALSE, the forest will not be retained in the output
+          object. If xtest is given, defaults to FALSE.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: localImp
+        description: Should casewise importance measure be computed? (Setting this
+          to TRUE will override importance.)
+        required: true
+        default: 'FALSE'
+        type: string
+      - in: query
+        name: subset
+        description: Optional vector specifying a subset of observations to be used
+          in the fitting process
+        required: true
+        default: 'NULL'
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: 'NULL'
+        type: string
+      type: string
+      summary: Implements Breiman's random forest algorithm (based on Breiman and
+        Cutler's original Fortran code) for classification and regression. It can
+        also be used in unsupervised mode for assessing proximities among data points.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.rf.execute_post
+      parameters: *id026
+      type: string
+      summary: Implements Breiman's random forest algorithm (based on Breiman and
+        Cutler's original Fortran code) for classification and regression. It can
+        also be used in unsupervised mode for assessing proximities among data points.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/rf/download':
+    get:
+      operationId: api.rf.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.rf.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/shapiro':
+    get:
+      operationId: api.shapiro.execute
+      parameters: &id027
+      - in: query
+        name: x
+        description: A numeric vector of data values. Missing values are allowed,
+          but the number of non-missing values must be between 3 and 5000.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Fit a Shapiro-Wilk Normality Test.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.shapiro.execute_post
+      parameters: *id027
+      type: string
+      summary: Fit a Shapiro-Wilk Normality Test.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/shapiro/download':
+    get:
+      operationId: api.shapiro.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.shapiro.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/stl':
+    get:
+      operationId: api.stl.execute
+      parameters: &id028
+      - in: query
+        name: s__window
+        description: Either the character string 'periodic' or the span (in lags)
+          of the loess window for seasonal extraction, which should be odd and at
+          least 7, according to Cleveland et al. This has no default.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: robust
+        description: Logical indicating if robust fitting be used in the loess procedure.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: x
+        description: Univariate time series to be decomposed. This should be an
+          object of class 'ts' with a frequency greater than one.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: t__window
+        description: The span (in lags) of the loess window for trend extraction,
+          which should be odd.
+        required: true
+        default: nextodd(ceiling((1.5*period)/(1-(1.5/s.window))))
+        type: string
+      - in: query
+        name: t__jump
+        description: Integers at least one to increase speed of the respective smoother.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Seasonal Decomposition of Time Series by Loess.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.stl.execute_post
+      parameters: *id028
+      type: string
+      summary: Seasonal Decomposition of Time Series by Loess.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
   '/stl/download':
     get:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
+      operationId: api.stl.download
       produces:
       - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
       type: string
-      operationId: api.stl.download
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: Output of the service contains Model or ModelEvaluation or
             Data
     post:
-      parameters:
-      - in: query
-        default: ttl
-        type: string
-        required: 'true'
-        description: asdasd
-        name: file_format
-      summary: Returns the service definition in the specified format.
+      operationId: api.stl.download_post
       produces:
       - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
       type: string
-      operationId: api.stl.download_post
+      summary: Returns the service definition in the specified format.
       response:
         200:
           description: The Turtle file.
+  '/svm':
+    get:
+      operationId: api.svm.execute
+      parameters: &id029
+      - in: query
+        name: formula
+        description: 'Response variable and Formulae '
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: na__action
+        description: A function which indicates what should happen when the data
+          contain NAs
+        required: true
+        default: na.omit
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: na.omit
+        type: string
+      type: string
+      summary: Far from being a panacea, SVMs yet represent a powerful technique
+        for general (nonlinear) classification, regression and outlier detection
+        with an intuitive model representation.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.svm.execute_post
+      parameters: *id029
+      type: string
+      summary: Far from being a panacea, SVMs yet represent a powerful technique
+        for general (nonlinear) classification, regression and outlier detection
+        with an intuitive model representation.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/svm/download':
+    get:
+      operationId: api.svm.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.svm.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/rf_spark':
+    get:
+      operationId: api.rf_spark.execute
+      parameters: &id030
+      - in: query
+        name: x
+        description: A spark connection, ml pipeline or a tbl sparkA spark connection,
+          ml pipeline or a tbl spark
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: max_depth
+        description: Maximum depth of the tree
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: num_trees
+        description: Number of trees to train
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: formula
+        description: As a character string or a formula
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ' '
+        type: string
+      type: string
+      summary: ml_random_forest fits a Random Forest Regression model or Classification
+        model on a SparkDataFrame.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.rf_spark.execute_post
+      parameters: *id030
+      type: string
+      summary: ml_random_forest fits a Random Forest Regression model or Classification
+        model on a SparkDataFrame.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/rf_spark/download':
+    get:
+      operationId: api.rf_spark.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.rf_spark.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/lr_spark':
+    get:
+      operationId: api.lr_spark.execute
+      parameters: &id031
+      - in: query
+        name: x
+        description: A spark_connection, ml_pipeline, or a tbl_spark.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: formula
+        description: As a character string or a formula.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: max_iter
+        description: The maximum number of iterations to use.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Perform regression using linear regression.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.lr_spark.execute_post
+      parameters: *id031
+      type: string
+      summary: Perform regression using linear regression.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/lr_spark/download':
+    get:
+      operationId: api.lr_spark.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.lr_spark.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/mlp_spark':
+    get:
+      operationId: api.mlp_spark.execute
+      parameters: &id032
+      - in: query
+        name: x
+        description: A spark_connection, ml_pipeline, or a tbl_spark.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: layers
+        description: A numeric vector describing the layers -- each element in the
+          vector gives the size of a layer. For example, c(4, 5, 2) would imply
+          three layers, with an input (feature) layer of size 4, an intermediate
+          layer of size 5, and an output (class) layer of size 2.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: formula
+        description: Used when x is a tbl_spark. R formula as a character string
+          or a formula.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ' '
+        type: string
+      type: string
+      summary: Classification model based on the Multilayer Perceptron.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.mlp_spark.execute_post
+      parameters: *id032
+      type: string
+      summary: Classification model based on the Multilayer Perceptron.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/mlp_spark/download':
+    get:
+      operationId: api.mlp_spark.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.mlp_spark.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/svc_spark':
+    get:
+      operationId: api.svc_spark.execute
+      parameters: &id033
+      - in: query
+        name: x
+        description: A spark_connection, ml_pipeline, or a tbl_spark.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: formula
+        description: Used when x is a tbl_spark. R formula as a character string
+          or a formula.
+        required: true
+        default: ' '
+        type: string
+      - in: query
+        name: max_iter
+        description: The maximum number of iterations to use.
+        required: true
+        default: ''
+        type: string
+      - in: query
+        name: dataset
+        description: Dataset on which the service is applied
+        required: true
+        default: ''
+        type: string
+      type: string
+      summary: Perform classification using linear support vector machines (SVM).
+        This binary classifier optimizes the Hinge Loss using the OWLQN optimizer.
+        Only supports L2 regularization currently.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.svc_spark.execute_post
+      parameters: *id033
+      type: string
+      summary: Perform classification using linear support vector machines (SVM).
+        This binary classifier optimizes the Hinge Loss using the OWLQN optimizer.
+        Only supports L2 regularization currently.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+  '/svc_spark/download':
+    get:
+      operationId: api.svc_spark.download
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: Output of the service contains Model or ModelEvaluation or
+            Data
+    post:
+      operationId: api.svc_spark.download_post
+      produces:
+      - application/binary
+      parameters:
+      - in: query
+        name: file_format
+        description: asdasd
+        required: 'true'
+        default: ttl
+        type: string
+      type: string
+      summary: Returns the service definition in the specified format.
+      response:
+        200:
+          description: The Turtle file.
+  '/catalog':
+    get:
+      operationId: api.catalog.execute
+      type: string
+      produces:
+      - application/json
+      summary: Returns the complete catalog
+      response:
+        200:
+          description: JSON containing the catalog.

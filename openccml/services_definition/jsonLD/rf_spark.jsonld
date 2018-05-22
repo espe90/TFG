@@ -131,7 +131,7 @@
 						"dcterms:description": "RandomForest Algorithm in SparkR",
 						"dmmlcc:ImplementationSource":"R",
 						"dmmlcc:package":"sparklyr",
-						"dmmlcc:functions":["spark_random_forest"]
+						"dmmlcc:functions":["ml_random_forest"]
 					}
 				]
 			}

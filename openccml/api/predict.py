@@ -2,7 +2,7 @@ from wrapperR import wrapperv2
 from config.config import turtle_folder, jsonld_folder
 
 def execute(dataset, model): 
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/models/arima.rds'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/models/arima.rds'
     print(locals())
     result = wrapperv2.core(locals(), "predict")
     result.predict()
@@ -12,7 +12,7 @@ def execute(dataset, model):
 
 
 def execute_post(dataset, model):
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/models/arima.rds'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/models/arima.rds'
     result = wrapperv2.core(locals(), "predict")
     result.predict()
     file = result.parameter.getOutput()

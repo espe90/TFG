@@ -2,7 +2,7 @@ from wrapperR import wrapperv2
 from config.config import turtle_folder, jsonld_folder
 
 def execute(dataset, x, order): 
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/air.csv'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/air.csv'
     print(locals())
     result = wrapperv2.core(locals(), "predictarima")
     result.predictarima()
@@ -12,7 +12,7 @@ def execute(dataset, x, order):
 
 
 def execute_post(dataset, x, order):
-    locals()['dataset'] = '/home/espe/openccml/wrapperR/air.csv'
+    locals()['dataset'] = '/root/TFG/openccml/wrapperR/air.csv'
     result = wrapperv2.core(locals(), "predictarima")
     result.predictarima()
     file = result.parameter.getOutput()

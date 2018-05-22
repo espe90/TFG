@@ -1,0 +1,135 @@
+{
+  "@context": {
+	"dmmlcc": "http://dicits.ugr.es/dmmlcc#",
+	"dcterms": "http://purl.org/dc/terms/#",
+    "foaf": "http://xmlns.com/foaf/0.1/#",
+    "gr": "http://purl.org/goodrelations/v1#",
+    "mls": "http://www.w3.org/ns/mls#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "waa": "http://purl.oclc.org/NET/WebAuthentication",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph":  [ 	 
+	 {
+		"@id": "dmmlcc:MLPSpark_Service",
+		"@type": "dmmlcc:MLService",
+	 	"dcterms:description": "Classification model based on the Multilayer Perceptron.",
+		"dcterms:creator":"Esperanza Jiménez",
+		"dcterms:created":"2018-03-09",
+		"dcterms:modified":"2018-03-14",
+		"dcterms:publisher":"DICITS_ML",
+		"dcterms:title":"MLPSpark",
+		"rdfs:comments":" ",
+		"dmmlcc:hasAuthentication": {
+			"@id": "dmmlcc:MLPSpark_Service_Auth",
+			"@type": "dmmlcc:MLServiceAuthentication",
+		 	"dcterms:description": "The service requires authentication, and the type of authentication",
+			"waa:requiresAuthentication":"None"
+		},
+		"dmmlcc:hasOperation": {
+			"@id": "dmmlcc:MLPSpark_Service_Operation",
+			"@type": "dmmlcc:MLOperation",
+			"dcterms:description": "Operation performing the service",
+			"mls:hasInput":
+				{
+				"@id": "dmmlcc:MLPSpark_Service_Input",
+				"@type": "dmmlcc:MLServiceInput",
+				"dcterms:title":"InputDataSet",
+				"dcterms:description": "Input data contains Dataset or Feature/s",
+				"dmmlcc:contains":{
+					"@id":"dmmlcc:contains_dataset_01",
+					"@type:":"dmmlcc:contains",
+					"mls:Data":[{
+							"@id":"dmmlcc:dataset_01",
+							"@type:":"mls:DataSet",
+							"dcterms:description": "Dataset on which the service is applied",
+							"dcterms:title": "DataSet",
+							"dmmlcc:format":
+								{
+									"@id":"dmmlcc:ParameterFormat_CVS_01",
+									"@type": "dmmlcc:csv",
+									"dcterms:description": "CSV Source file format"									
+								},
+							"dmmlcc:storagebucket":"dicits://",
+							"dmmlcc:mandatory":"true"
+							}
+						]
+					}
+			},
+			"dmmlcc:hasInputParameters":
+			{
+				"@id": "dmmlcc:MLPSpark_Service_InputParameters",
+				"@type": "dmmlcc:MLServiceInputParameters",
+				"dcterms:description": "Input Parameters",
+				"dcterms:title": "Input",
+				"dmmlcc:Parameters":[
+					{
+						"@id":"dmmlcc:response_parameter_01",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "x",
+						"dcterms:description": "A spark_connection, ml_pipeline, or a tbl_spark.",
+						"dmmlcc:mandatory":"true",	
+						"dmmlcc:defaultvalue":""
+											
+					},
+					{
+						"@id":"dmmlcc:response_parameter_02",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "formula",
+						"dcterms:description": "Used when x is a tbl_spark. R formula as a character string or a formula.",
+						"dmmlcc:mandatory":"true",	
+						"dmmlcc:defaultvalue":" "					
+					},
+					{
+						"@id":"dmmlcc:response_parameter_03",
+						"@type": "dmmlcc:MLServiceInputParameter",
+						"dcterms:title": "layers",
+						"dcterms:description": "A numeric vector describing the layers -- each element in the vector gives the size of a layer. For example, c(4, 5, 2) would imply three layers, with an input (feature) layer of size 4, an intermediate layer of size 5, and an output (class) layer of size 2.",
+						"dmmlcc:mandatory":"optional",
+						"dmmlcc:defaultvalue":""
+												
+					}
+				]			
+			},			
+			"mls:hasOutput":{
+				"@id": "dmmlcc:MLPSpark_Service_Output",
+				"@type": "dmmlcc:MLServiceOutput",
+				"dcterms:description": "Output of the service contains Model or ModelEvaluation or Data",
+				"mls:Model":{
+					"@id":"dmmlcc:MLPSpark_Model",
+					"@type": "dmmlcc:PMML_Model",
+					"dcterms:title": "PMML Model related",
+					"dcterms:description": "PMML model to represent mining models",
+					"dmmlcc:storagebucket":"dicits://models/"
+				},
+				"mls:ModelEvaluation":{
+					"@id":"dmmlcc:MLPSpark_ModelEvaluation",
+					"@type": "dmmlcc:ModelEvaluation",
+					"dcterms:title": "Model evaluation",
+					"dcterms:description": "Model Evaluation",
+					"dmmlcc:storagebucket":"dicits://modelevaluation/"
+				}
+			},
+			"mls:executes":{
+				"@id": "mls:MLPSpark_Implementation",
+				"@type": "mls:Implementation",
+				"dcterms:description": "Implementation of MLP Model",
+				"dmmlcc:implements":[
+					{
+						"@id":"dmmlcc:MLAlgorithm_01",
+						"@type":"mls:Algorithm",
+						"dcterms:description": "MLP Algorithm in SparkR",
+						"dmmlcc:ImplementationSource":"R",
+						"dmmlcc:package":"sparklyr",
+						"dmmlcc:functions":["ml_multilayer_perceptron"]
+					}
+				]
+			}
+		}
+		
+	 }
+  ]
+ }

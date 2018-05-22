@@ -1,0 +1,185 @@
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/ui, method:GET
+option request: 
+url does not match any route signature or match error: /get/openccml/ui
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/wrapperR/iris.csv&x=NULL&formula=species~petal_width&num_trees=NULL&max_depth=NULL, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: dataset, type: string, value: /root/TFG/openccml/wrapperR/iris.csv
+process error: 'core' object has no attribute 'rf_sparkR'
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_sparkR?dataset=/root/TFG/openccml/wrapperR/iris.csv&x=NULL&formula=species~petal_width&num_trees=NULL&max_depth=NULL, method:GET
+option request: 
+url does not match any route signature or match error: /get/openccml/rf_sparkR
+process failed
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/wrapperR/iris.csv&x=NULL&formula=species~petal_width&num_trees=NULL&max_depth=NULL, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: dataset, type: string, value: /root/TFG/openccml/wrapperR/iris.csv
+process error: 'core' object has no attribute 'rf_sparkR'
+process failed
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/wrapperR/iris.csv&x=NULL&formula=species~petal_width&num_trees=NULL&max_depth=NULL, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: dataset, type: string, value: /root/TFG/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/wrapperR/iris.csv&x=NULL&formula=species~petal_width&num_trees=NULL&max_depth=NULL, method:GET
+option request: 
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: x, type: string, value: NULL
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: dataset, type: string, value: /root/TFG/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/wrapperR/iris.csv&x=NULL&formula=species~petal_width&num_trees=NULL&max_depth=NULL, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: dataset, type: string, value: /root/TFG/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/wrapperR/iris.csv&x=NULL&formula=species~petal_width&num_trees=NULL&max_depth=NULL, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: dataset, type: string, value: /root/TFG/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/datasets/mtcars.csv&x=NULL&formula=mpg~disp&num_trees=NULL&max_depth=NULL, method:GET
+option request: 
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: x, type: string, value: NULL
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: formula, type: string, value: mpg~disp
+param in query - name: dataset, type: string, value: /root/TFG/openccml/datasets/mtcars.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/wrapperR/datos.csv&x=NULL&formula=NULL&num_trees=NULL&max_depth=NULL, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: formula, type: string, value: NULL
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: dataset, type: string, value: /root/TFG/openccml/wrapperR/datos.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/wrapperR/iris.csv&x=NULL&num_trees=NULL&max_depth=NULL&formula=species~petal_width, method:GET
+option request: 
+param in query - name: x, type: string, value: NULL
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: dataset, type: string, value: /root/TFG/openccml/wrapperR/iris.csv
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+[38;5;77m[3m[4m[7mfalsy init[0m
+common static middleware loaded
+	url_prefix(static_path):[7mstatic[27m, static_dir:[7m.[27m
+swagger server init
+load swagger specs
+swagger file generated(from yaml file)
+	new_path:[7m./catalog_catalog.json[27m
+swagger server sinked
+	path:[7mopenccml[27m
+swagger ui static middleware loaded
+	url_prefix(static_path):[7mstatic[27m
+remote_addr:127.0.0.1, uri:http://localhost:8001/openccml/rf_spark?dataset=/root/TFG/openccml/wrapperR/iris.csv&x=NULL&num_trees=NULL&max_depth=NULL&formula=species~petal_width, method:GET
+option request: 
+param in query - name: formula, type: string, value: species~petal_width
+param in query - name: max_depth, type: string, value: NULL
+param in query - name: num_trees, type: string, value: NULL
+param in query - name: x, type: string, value: NULL
+param in query - name: dataset, type: string, value: /root/TFG/openccml/wrapperR/iris.csv
