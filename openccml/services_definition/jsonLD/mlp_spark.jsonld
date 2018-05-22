@@ -14,12 +14,21 @@
   },
   "@graph":  [ 	 
 	 {
+<<<<<<< HEAD
 		"@id": "dmmlcc:MLPSpark_Service",
 		"@type": "dmmlcc:MLService",
 	 	"dcterms:description": "Classification model based on the Multilayer Perceptron.",
 		"dcterms:creator":"Esperanza Jiménez",
 		"dcterms:created":"2018-03-09",
 		"dcterms:modified":"2018-03-14",
+=======
+		"@id": "dmmlcc:MLPSparkSpark_Service",
+		"@type": "dmmlcc:MLService",
+	 	"dcterms:description": "Creates and trains multilayer perceptron on a Spark DataFrame." ,
+		"dcterms:creator":"Esperanza Jiménez",
+		"dcterms:created":"2018-03-10",
+		"dcterms:modified":"2018-13-21",
+>>>>>>> d8907e6224fe804d7ae6d7904c465ed8b0ed3b2f
 		"dcterms:publisher":"DICITS_ML",
 		"dcterms:title":"MLPSpark",
 		"rdfs:comments":" ",
@@ -70,30 +79,55 @@
 						"@id":"dmmlcc:response_parameter_01",
 						"@type": "dmmlcc:MLServiceInputParameter",
 						"dcterms:title": "x",
+<<<<<<< HEAD
 						"dcterms:description": "A spark_connection, ml_pipeline, or a tbl_spark.",
 						"dmmlcc:mandatory":"true",	
 						"dmmlcc:defaultvalue":""
 											
+=======
+						"dcterms:description": "An object coercable to a Spark DataFrame (typically, a tbl_spark).",
+						"dmmlcc:mandatory":"true",	
+						"dmmlcc:defaultvalue":" "
+>>>>>>> d8907e6224fe804d7ae6d7904c465ed8b0ed3b2f
 					},
 					{
 						"@id":"dmmlcc:response_parameter_02",
 						"@type": "dmmlcc:MLServiceInputParameter",
+<<<<<<< HEAD
 						"dcterms:title": "formula",
 						"dcterms:description": "Used when x is a tbl_spark. R formula as a character string or a formula.",
 						"dmmlcc:mandatory":"true",	
 						"dmmlcc:defaultvalue":" "					
+=======
+						"dcterms:title": "response",
+						"dcterms:description": "The name of the response vector (as a length-one character vector), or a formula, giving a symbolic description of the model to be fitted.",
+						"dmmlcc:mandatory":"true",
+						"dmmlcc:defaultvalue":" "
+												
+>>>>>>> d8907e6224fe804d7ae6d7904c465ed8b0ed3b2f
 					},
 					{
 						"@id":"dmmlcc:response_parameter_03",
 						"@type": "dmmlcc:MLServiceInputParameter",
 						"dcterms:title": "layers",
 						"dcterms:description": "A numeric vector describing the layers -- each element in the vector gives the size of a layer. For example, c(4, 5, 2) would imply three layers, with an input (feature) layer of size 4, an intermediate layer of size 5, and an output (class) layer of size 2.",
+<<<<<<< HEAD
 						"dmmlcc:mandatory":"optional",
 						"dmmlcc:defaultvalue":""
 												
 					}
 				]			
 			},			
+=======
+						"dmmlcc:mandatory":"true",
+						"dmmlcc:defaultvalue":" "
+												
+					}			
+					
+				]			
+			}
+			,
+>>>>>>> d8907e6224fe804d7ae6d7904c465ed8b0ed3b2f
 			"mls:hasOutput":{
 				"@id": "dmmlcc:MLPSpark_Service_Output",
 				"@type": "dmmlcc:MLServiceOutput",
@@ -116,13 +150,22 @@
 			"mls:executes":{
 				"@id": "mls:MLPSpark_Implementation",
 				"@type": "mls:Implementation",
+<<<<<<< HEAD
 				"dcterms:description": "Implementation of MLP Model",
+=======
+				"dcterms:description": "Implementation of MLPSpark",
+>>>>>>> d8907e6224fe804d7ae6d7904c465ed8b0ed3b2f
 				"dmmlcc:implements":[
 					{
 						"@id":"dmmlcc:MLAlgorithm_01",
 						"@type":"mls:Algorithm",
+<<<<<<< HEAD
 						"dcterms:description": "MLP Algorithm in SparkR",
 						"dmmlcc:ImplementationSource":"R",
+=======
+						"dcterms:description": "MLP in SparkR",
+						"dmmlcc:ImplementationSource":"SparkR",
+>>>>>>> d8907e6224fe804d7ae6d7904c465ed8b0ed3b2f
 						"dmmlcc:package":"sparklyr",
 						"dmmlcc:functions":["ml_multilayer_perceptron"]
 					}
