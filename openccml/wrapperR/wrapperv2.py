@@ -446,7 +446,6 @@ class core:
 			spark_disconnect(sc)
 	""".format(self.parameter.dataset['ruta'], self.parameter.parameters, self.parameter.outputPMML))
 
-<<<<<<< HEAD
 	def svc_spark(self):
 		svc_spark = ro.r("""
 			library(sparklyr)
@@ -482,8 +481,6 @@ class core:
 #p = core(entrada, "svc_spark")
 #p.svc_spark()
 
-=======
->>>>>>> d8907e6224fe804d7ae6d7904c465ed8b0ed3b2f
 #entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'species~petal_width'}
 #p = core(entrada, "lr_spark")
 #p.lr_spark()
@@ -571,4 +568,3 @@ class core:
 #entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'formula': 'species~.'}
 #p = core(entrada, "predictnnet")
 #p.predictnnet()
-
