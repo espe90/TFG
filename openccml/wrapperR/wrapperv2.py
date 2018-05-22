@@ -473,19 +473,19 @@ class core:
 	""".format(self.parameter.dataset['ruta'], self.parameter.parameters, self.parameter.outputPMML))
 
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'species~petal_width','layers':'c(1,2,3)'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv','formula': 'species~petal_width','layers':'c(1,2,3)'}
 #p = core(entrada, "mlp_spark")
 #p.mlp_spark()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/titanic.csv','formula': 'Survived~.}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/titanic.csv','formula': 'Survived~.}
 #p = core(entrada, "svc_spark")
 #p.svc_spark()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'species~petal_width'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv','formula': 'species~petal_width'}
 #p = core(entrada, "lr_spark")
 #p.lr_spark()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula': 'species~petal_width'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv','formula': 'species~petal_width'}
 #p = core(entrada, "lm")
 #p.lm()
 
@@ -493,43 +493,43 @@ class core:
 #p = core(entrada, "cor")
 #p.cor()
 	
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/ts1.csv','order':'c(0,1,0)'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/ts1.csv','order':'c(0,1,0)'}
 #p = core(entrada, "arima")
 #p.arima()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/datos.csv'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/datos.csv'}
 #p = core(entrada, "dtw")
 #p.dtw()
 
-#entrada = {'dataset':'/root/TFG/openccml/wrapperR/ts1.csv'}
+#entrada = {'dataset':'/root/TFG/openccml/datasets/ts1.csv'}
 #p = core(entrada, "ets")
 #p.ets()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula':'species~.'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv','formula':'species~.'}
 #p = core(entrada, "rf")
 #p.rf()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'formula': 'species~.', 'na__action' :'na.omit'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv', 'formula': 'species~.', 'na__action' :'na.omit'}
 #p = core(entrada, "svm")
 #p.svm()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/nottem.csv', 's__window': '"periodic"', 'robust': 'TRUE'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/nottem.csv', 's__window': '"periodic"', 'robust': 'TRUE'}
 #p = core(entrada, "stl")
 #p.stl()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'formula': 'species~.','size':'2'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv', 'formula': 'species~.','size':'2'}
 #p = core(entrada, "nnet")
 #p.nnet()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/creditset.csv', 'formula': 'default10yr ~ LTI + age'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/creditset.csv', 'formula': 'default10yr ~ LTI + age'}
 #p = core(entrada, "neuralnet")
 #p.neuralnet()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'size':'40'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv', 'size':'40'}
 #p = core(entrada, "rbf")
 #p.rbf()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'size':'5'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv', 'size':'5'}
 #p = core(entrada, "mlp")
 #p.mlp()
 
@@ -537,34 +537,34 @@ class core:
 #p= core(entrada, "predict")
 #p.predict()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/air.csv','order':'c(0,1,0)'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/air.csv','order':'c(0,1,0)'}
 #p = core(entrada, "predictarima")
 #p.predictarima()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula':'species~petal_width'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv','formula':'species~petal_width'}
 #p = core(entrada, "predictlm")
 #p.predictlm()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula':'species~.'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv','formula':'species~.'}
 #p = core(entrada, "predictRF")
 #p.predictRF()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv','formula':'species~.'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv','formula':'species~.'}
 #p = core(entrada, "predictMLP")
 #p.predictMLP()
 
-#entrada = {'dataset':'/root/TFG/openccml/wrapperR/ts1.csv'}
+#entrada = {'dataset':'/root/TFG/openccml/datasets/ts1.csv'}
 #p = core(entrada, "predictETS")
 #p.predictETS()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'size':'40'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv', 'size':'40'}
 #p = core(entrada, "predictRBF")
 #p.predictRBF()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'formula': 'species~petal_width'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv', 'formula': 'species~petal_width'}
 #p = core(entrada, "predictSVM")
 #p.predictSVM()
 
-#entrada = {'dataset': '/root/TFG/openccml/wrapperR/iris.csv', 'formula': 'species~.'}
+#entrada = {'dataset': '/root/TFG/openccml/datasets/iris.csv', 'formula': 'species~.'}
 #p = core(entrada, "predictnnet")
 #p.predictnnet()
