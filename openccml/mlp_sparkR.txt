@@ -1,0 +1,5 @@
+Call: ml_multilayer_perceptron_classifier.tbl_spark(df, layers = c(1, 2, 3), formula = species ~ petal_width)  
+
+Formula: species ~ petal_width
+
+multilayer_perceptron_classifier_12793b98a37b

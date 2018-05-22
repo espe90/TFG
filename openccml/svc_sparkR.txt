@@ -1,0 +1,9 @@
+Call: ml_linear_svc.tbl_spark(df, formula = Survived ~ .)  
+
+Formula: Survived ~ .
+
+Coefficients:
+ (Intercept)          _c0   Class_Crew    Class_1st    Class_3rd     Sex_Male 
+-2.441569379  0.236521150 -0.918363826 -0.396660820 -0.779421186  0.187816032 
+   Age_Adult         Freq 
+-2.062365720 -0.001125365 

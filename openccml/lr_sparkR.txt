@@ -1,0 +1,7 @@
+Call: ml_linear_regression.tbl_spark(df, formula = species ~ petal_width)  
+
+Formula: species ~ petal_width
+
+Coefficients:
+(Intercept) petal_width 
+  1.7472697  -0.6234174 
