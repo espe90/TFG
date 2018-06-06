@@ -1,0 +1,192 @@
+@prefix dmmlcc: <http://dicits.ugr.es/dmmlcc#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns1: <http://purl.oclc.org/NET/> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+
+<http://dicits.ugr.es/dmmlcc#DFST_Service>
+  a <http://dicits.ugr.es/dmmlcc#MLService> ;
+  dmmlcc:hasAuthentication dmmlcc:DFST_Service_Auth ;
+  dmmlcc:hasOperation dmmlcc:DFST_Service_Operation ;
+  dcterms:created "2018-06-05";
+  dcterms:creator "Esperanza Jiménez";
+  dcterms:description "This algorithm implements DFST (Distributed FastShapelet Transform). DFST is the first time series classification algorithm developed for distributed environments (Spark).";
+  dcterms:modified "2018-06-06";
+  dcterms:publisher "DICITS_ML";
+  dcterms:title "DFST";
+  rdfs:comments "This algorithm performs a shapelet transform on a data set, trains a Random Forest model on that data, and uses this model to classify a test set that has also been transformed. ".
+
+dmmlcc:DFST_Service_Auth
+  a dmmlcc:MLServiceAuthentication ;
+  ns1:WebAuthenticationrequiresAuthentication "None";
+  dcterms:description "The service requires authentication, and the type of authentication".
+
+dmmlcc:DFST_Service_Operation
+  a dmmlcc:MLOperation ;
+  dmmlcc:hasInputParameters dmmlcc:DFST_Service_InputParameters ;
+  dcterms:description "Operation performing the service";
+  mls:executes mls:DFST_Implementation ;
+  mls:hasInput dmmlcc:DFST_Service_Input ;
+  mls:hasOutput dmmlcc:DFST_Service_Output .
+
+dmmlcc:DFST_Service_InputParameters
+  a dmmlcc:MLServiceInputParameters ;
+  dmmlcc:Parameters dmmlcc:response_parameter_01, dmmlcc:response_parameter_02, dmmlcc:response_parameter_03, dmmlcc:response_parameter_04, dmmlcc:response_parameter_05, dmmlcc:response_parameter_06, dmmlcc:response_parameter_07, dmmlcc:response_parameter_08, dmmlcc:response_parameter_09, dmmlcc:response_parameter_10, dmmlcc:response_parameter_11, dmmlcc:response_parameter_12, dmmlcc:response_parameter_13, dmmlcc:response_parameter_14, dmmlcc:response_parameter_15 ;
+  dcterms:description "Input Parameters";
+  dcterms:title "Input".
+
+dmmlcc:response_parameter_01
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "hdfs route to training file.";
+  dcterms:title "train_file_name".
+
+dmmlcc:response_parameter_02
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "minimum length for FastShapelet search algorithm.";
+  dcterms:title "min_len".
+
+dmmlcc:response_parameter_03
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "maximum length for FastShapelet search algorithm.";
+  dcterms:title "max_len".
+
+dmmlcc:response_parameter_04
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "amount of increase in the length of subsequences processed between iterations.";
+  dcterms:title "step".
+
+dmmlcc:response_parameter_05
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "number of partitions in the training dataset (RDD).";
+  dcterms:title "Num_partitions".
+
+dmmlcc:response_parameter_06
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "random seed.";
+  dcterms:title "seed".
+
+dmmlcc:response_parameter_07
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "output tree file of FastShapelet search algorithm.";
+  dcterms:title "tree_file_name".
+
+dmmlcc:response_parameter_08
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "output time file  FastShapelet search algorithm.";
+  dcterms:title "time_file_name".
+
+dmmlcc:response_parameter_09
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "number of random projections.";
+  dcterms:title "R".
+
+dmmlcc:response_parameter_10
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "number of best candidate shapelets evaluated by iteration.";
+  dcterms:title "top_k".
+
+dmmlcc:response_parameter_11
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "0 for shapelet search only / 1 for DFST.";
+  dcterms:title "Classificator".
+
+dmmlcc:response_parameter_12
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "output file with shapelets selected for shapelet transformation.";
+  dcterms:title "shapelet_file_name".
+
+dmmlcc:response_parameter_13
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "hdfs route to test file.";
+  dcterms:title "test_file_name".
+
+dmmlcc:response_parameter_14
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue " ";
+  dmmlcc:mandatory "optional";
+  dcterms:description "output file with Random Forest Model.";
+  dcterms:title "model_file_name".
+
+dmmlcc:response_parameter_15
+  a dmmlcc:MLServiceInputParameter ;
+  dmmlcc:defaultvalue "";
+  dmmlcc:mandatory "optional";
+  dcterms:description "input SparkContext.";
+  dcterms:title "sc".
+
+mls:DFST_Implementation
+  a mls:Implementation ;
+  dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
+  dcterms:description "Implementation of DFST Model".
+
+dmmlcc:MLAlgorithm_01
+  a mls:Algorithm ;
+  dmmlcc:ImplementationSource "R";
+  dmmlcc:functions " ";
+  dmmlcc:package " ";
+  dcterms:description "DFST Algorithm in Spark".
+
+dmmlcc:DFST_Service_Input
+  a dmmlcc:MLServiceInput ;
+  dmmlcc:contains dmmlcc:contains_dataset_01 ;
+  dcterms:description "Input data contains Dataset or Feature/s";
+  dcterms:title "InputDataSet".
+
+dmmlcc:contains_dataset_01 mls:Data dmmlcc:dataset_01 .
+dmmlcc:dataset_01
+  dmmlcc:format dmmlcc:ParameterFormat_CVS_01 ;
+  dmmlcc:mandatory "true";
+  dmmlcc:storagebucket "dicits://";
+  dcterms:description "Dataset on which the service is applied";
+  dcterms:title "DataSet".
+
+dmmlcc:ParameterFormat_CVS_01
+  a dmmlcc:csv ;
+  dcterms:description "CSV Source file format".
+
+dmmlcc:DFST_Service_Output
+  a dmmlcc:MLServiceOutput ;
+  dcterms:description "Output of the service contains Model or ModelEvaluation or Data";
+  mls:Model dmmlcc:DFST_Model ;
+  mls:ModelEvaluation dmmlcc:DFST_ModelEvaluation .
+
+dmmlcc:DFST_Model
+  a dmmlcc:PMML_Model ;
+  dmmlcc:storagebucket "dicits://models/";
+  dcterms:description "PMML model to represent mining models";
+  dcterms:title "PMML Model related".
+
+dmmlcc:DFST_ModelEvaluation
+  a dmmlcc:ModelEvaluation ;
+  dmmlcc:storagebucket "dicits://modelevaluation/";
+  dcterms:description "Model Evaluation";
+  dcterms:title "Model evaluation".
