@@ -186,15 +186,6 @@
 						"dcterms:description": "output file with Random Forest Model.",
 						"dmmlcc:mandatory":"optional",	
 						"dmmlcc:defaultvalue":" "					
-					},
-					{
-						"@id":"dmmlcc:response_parameter_15",
-						"@type": "dmmlcc:MLServiceInputParameter",
-						"dcterms:title": "sc",
-						"dcterms:description": "input SparkContext.",
-						"dmmlcc:mandatory":"optional",
-						"dmmlcc:defaultvalue":""
-												
 					}
 				]			
 			},			
