@@ -136,13 +136,6 @@ dmmlcc:response_parameter_14
   dcterms:description "output file with Random Forest Model.";
   dcterms:title "model_file_name".
 
-dmmlcc:response_parameter_15
-  a dmmlcc:MLServiceInputParameter ;
-  dmmlcc:defaultvalue "";
-  dmmlcc:mandatory "optional";
-  dcterms:description "input SparkContext.";
-  dcterms:title "sc".
-
 mls:DFST_Implementation
   a mls:Implementation ;
   dmmlcc:implements dmmlcc:MLAlgorithm_01 ;
